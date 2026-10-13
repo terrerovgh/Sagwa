@@ -4,6 +4,8 @@
 #include "esp_timer.h"
 #include "platform.hpp"
 #include <cassert>
+#include <cmath>
+#include <cstdio>
 #include <cstring>
 #include <deque>
 #include <filesystem>
@@ -51,6 +53,19 @@ static esp_lcd_panel_io_callbacks_t completion{};
 static void *completion_context = nullptr;
 static std::filesystem::path output;
 static unsigned case_index = 0, frames_in_case = 0;
+static bool animate = false, animation_phase = false;
+static unsigned animation_index = 0, animation_frame = 0;
+struct AnimationCase { const char *name; sagwa::EventKind event; };
+static const std::vector<AnimationCase> animations = {
+    {"idle", sagwa::EventKind::done}, {"look", sagwa::EventKind::touch},
+    {"listen", sagwa::EventKind::listen}, {"think", sagwa::EventKind::think},
+    {"speak", sagwa::EventKind::speak}, {"work", sagwa::EventKind::work},
+    {"celebrate", sagwa::EventKind::celebrate}, {"purr", sagwa::EventKind::stroke},
+    {"sleep", sagwa::EventKind::sleep}, {"wake", sagwa::EventKind::wake},
+    {"stretch", sagwa::EventKind::stretch}, {"tilt", sagwa::EventKind::tilt},
+    {"voice-cancel", sagwa::EventKind::speak},
+    {"stale-sensors", sagwa::EventKind::tilt},
+};
 static unsigned sound_commands = 0;
 static unsigned decision_commands = 0;
 static bool decision_queue_ok = true, last_decision_approve = false;
@@ -320,6 +335,17 @@ static void setup_case() {
     xQueueSend(r.replies, &reply, 0);
   }
 }
+static void setup_animation() {
+  auto &r = sagwa::runtime();
+  r.recording = r.playing = false;
+  r.camera_open = r.camera_capturing = false;
+  sagwa::host_screen(0, "pet", "Sagwa · animación local", "", {});
+  sagwa::post(sagwa::EventKind::cancel);
+  sagwa::post(animations[animation_index].event, .8f, -.4f);
+  r.playing = animations[animation_index].event == sagwa::EventKind::speak;
+  r.recording = animations[animation_index].event == sagwa::EventKind::listen;
+  std::filesystem::create_directories(output / animations[animation_index].name);
+}
 void vTaskDelayUntil(TickType_t *next, TickType_t increment) {
   if (testing_focus) {
     const bool wait = focus_test == 3 || focus_test == 5;
@@ -359,7 +385,10 @@ void vTaskDelayUntil(TickType_t *next, TickType_t increment) {
   milliseconds += increment;
   sagwa::SensorSnapshot current{};
   if (xQueuePeek(sagwa::runtime().sensors, &current, 0)) {
-    current.at = current.environment_at = milliseconds;
+    const bool stale = animation_phase &&
+        std::string(animations[animation_index].name) == "stale-sensors";
+    current.at = current.environment_at = stale ? milliseconds - 1000 : milliseconds;
+    if (animation_phase) current.ay = stale ? 100.f : .6f;
     xQueueOverwrite(sagwa::runtime().sensors, &current);
   }
   *next = milliseconds;
@@ -369,6 +398,30 @@ void vTaskDelayUntil(TickType_t *next, TickType_t increment) {
   const auto focus_remaining_before_callback =
       sagwa::runtime().focus.remaining_ms();
   lv_timer_handler();
+  if (animation_phase) {
+    auto &r = sagwa::runtime();
+    const float audio = (animation_frame % 32 < 16)
+        ? .25f + .2f * std::sin(float(animation_frame) * .4f) : 0.f;
+    r.bands = {audio, audio * .4f, 0.f}; // Playback fixture, never synthesized audio.
+    if (std::string(animations[animation_index].name) == "voice-cancel" &&
+        animation_frame == 60) {
+      r.playing = false;
+      r.bands = {};
+      sagwa::post(sagwa::EventKind::cancel);
+    }
+    if ((animation_frame % 2) == 0) {
+      char name[24];
+      std::snprintf(name, sizeof(name), "%03u.ppm", animation_frame / 2);
+      save_frame(output / animations[animation_index].name / name);
+    }
+    if (++animation_frame == 120) {
+      std::cout << "ANIMATED " << animations[animation_index].name << '\n';
+      animation_frame = 0;
+      if (++animation_index == animations.size()) throw GalleryComplete{};
+      setup_animation();
+    }
+    return;
+  }
   if (testing_focus) {
     // Exercise the real callback and prove it only queues a control. The next
     // UI_Task iteration applies it, even when LVGL runs in another task.
@@ -451,6 +504,12 @@ void vTaskDelayUntil(TickType_t *next, TickType_t increment) {
       assert(decision_commands == 3);
       std::cout << "APPROVAL PASS: short tap rejected, queue failure retained, "
                    "ACK failure retained, denial waits for successful ACK\n";
+      if (animate) {
+        testing_approvals = false;
+        animation_phase = true;
+        setup_animation();
+        return;
+      }
       throw GalleryComplete{};
     }
     ++approval_test;
@@ -523,7 +582,8 @@ void vTaskDelayUntil(TickType_t *next, TickType_t increment) {
   }
 }
 int main(int argc, char **argv) {
-  assert(argc == 2);
+  assert(argc == 2 || (argc == 3 && std::string(argv[2]) == "--animate"));
+  animate = argc == 3;
   output = argv[1];
   std::filesystem::create_directories(output);
   auto &r = sagwa::runtime();
@@ -556,6 +616,8 @@ int main(int argc, char **argv) {
               << gestures.size()
               << " actual LVGL pointer gestures; synthetic inputs, no hardware "
                  "claim\n";
+    if (animate) std::cout << "PASS: " << animations.size()
+                           << " animation clips; synthetic playback and ticks\n";
     return 0;
   }
   return 1;

@@ -19,3 +19,7 @@ c++ -std=c++17 -Wall -Wextra -Werror -fsanitize=address,undefined -g \
 c++ -std=c++17 -Wall -Wextra -Werror -fsanitize=address,undefined -g \
   -I"$ROOT/components/sagwa_edge/include" "$ROOT/tests/frame_metrics_test.cpp" -o "$OUT/frame-metrics-test"
 "$OUT/frame-metrics-test"
+c++ -std=c++17 -Wall -Wextra -Werror -fsanitize=address,undefined -g \
+  -I"$CJSON" -I"$ROOT/components/sagwa_edge/include" "$ROOT/components/sagwa_edge/core.cpp" \
+  "$ROOT/tests/rig_renderer_test.cpp" "$OUT/json.o" -o "$OUT/rig-renderer-test"
+"$OUT/rig-renderer-test"

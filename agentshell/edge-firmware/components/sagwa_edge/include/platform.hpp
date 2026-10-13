@@ -1,6 +1,7 @@
 #pragma once
 #include "edge.hpp"
 #include "focus_timer.hpp"
+#include "frame_metrics.hpp"
 #include "freertos/FreeRTOS.h"
 #include "freertos/event_groups.h"
 #include "freertos/queue.h"
@@ -142,12 +143,20 @@ struct Runtime {
   bool provisioned = false;
   std::atomic<uint32_t> ui_us{0}, wake_audio_us{0};
   // LCD counters advance from the SPI completion ISR, not UI loop iterations.
-  std::atomic<uint32_t> lcd_frames{0}, lcd_transfers{0}, lcd_transfer_us{0},
-      lcd_last_at_ms{0}, lcd_fps_milli{0}, lcd_frame_gap_max_us{0},
+  std::atomic<uint32_t> lcd_transfer_us{0},
+      lcd_last_at_ms{0}, lcd_frame_gap_max_us{0},
       touch_to_lcd_us{0}, sensor_to_lcd_us{0}, touch_pending_ms{0},
       sensor_pending_ms{0}, audio_written_samples{0}, audio_write_failures{0},
       camera_captures{0}, camera_failures{0}, ui_lock_misses{0};
   std::atomic<bool> lcd_dma_metrics{false};
+  // S-201 N3a: SPI frame accounting, 1 s wall-clock windows sampled by UI_Task
+  // and bounded latency windows published at the same period.
+  FrameCompletions lcd_completions;
+  FrameRateWindow lcd_rate{1000};
+  LatencyWindow ui_lock_wait, lcd_invalidate_to_refr, lcd_refr_render,
+      lcd_frame_gap;
+  PendingStamp lcd_invalidate_pending, lcd_refr_started;
+  std::atomic<uint32_t> ui_port_wakes{0};
   FocusTimer
       focus; // UI-owned; storage receives copies, never reads this clock.
 };

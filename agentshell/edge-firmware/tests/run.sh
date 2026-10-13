@@ -16,3 +16,6 @@ c++ -std=c++17 -Wall -Wextra -Werror -fsanitize=address,undefined -g \
 c++ -std=c++17 -Wall -Wextra -Werror -fsanitize=address,undefined -g \
   -I"$CJSON" -I"$ROOT/components/sagwa_edge/include" "$ROOT/tests/weather_test.cpp" "$OUT/json.o" -o "$OUT/weather-test"
 "$OUT/weather-test"
+c++ -std=c++17 -Wall -Wextra -Werror -fsanitize=address,undefined -g \
+  -I"$ROOT/components/sagwa_edge/include" "$ROOT/tests/frame_metrics_test.cpp" -o "$OUT/frame-metrics-test"
+"$OUT/frame-metrics-test"

@@ -23,3 +23,6 @@ bool bsp_display_lock(uint32_t);
 void bsp_display_unlock();
 void bsp_display_backlight_on();
 void bsp_display_brightness_set(int);
+// The host renders synchronously; waking the LVGL port task is a no-op.
+enum lvgl_port_event_type_t { LVGL_PORT_EVENT_USER = 0x80 };
+inline int lvgl_port_task_wake(lvgl_port_event_type_t, void *) { return ESP_OK; }

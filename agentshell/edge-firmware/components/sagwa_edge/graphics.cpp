@@ -25,17 +25,17 @@ bool lcd_done(esp_lcd_panel_io_handle_t, esp_lcd_panel_io_event_data_t *,
               void *ctx) {
   auto &r = runtime();
   const uint32_t us = uint32_t(esp_timer_get_time());
-  r.lcd_transfers.fetch_add(1);
   r.lcd_transfer_us = us - flush_started_us.load();
-  if (flush_last.load()) {
-    static uint32_t previous_us = 0;
-    const uint32_t gap = previous_us ? us - previous_us : 0;
-    previous_us = us;
-    auto maximum = r.lcd_frame_gap_max_us.load();
-    while (gap > maximum &&
-           !r.lcd_frame_gap_max_us.compare_exchange_weak(maximum, gap)) {
+  const auto done = r.lcd_completions.complete(us, flush_last.load());
+  if (done.frame) {
+    if (done.gap_us) {
+      r.lcd_frame_gap.record(done.gap_us);
+      auto maximum = r.lcd_frame_gap_max_us.load();
+      while (done.gap_us > maximum &&
+             !r.lcd_frame_gap_max_us.compare_exchange_weak(maximum,
+                                                           done.gap_us)) {
+      }
     }
-    r.lcd_frames.fetch_add(1);
     r.lcd_last_at_ms = uint32_t(esp_timer_get_time() / 1000);
     if (auto at = frame_touch_ms.exchange(0))
       r.touch_to_lcd_us = (r.lcd_last_at_ms.load() - at) * 1000;
@@ -54,17 +54,23 @@ void lcd_flush_start(lv_event_t *event) {
     frame_touch_ms = at;
   if (auto at = r.sensor_pending_ms.exchange(0))
     frame_sensor_ms = at;
-  static uint32_t window_ms = 0, previous_frames = 0;
-  const uint32_t ms = now_ms(), frames = r.lcd_frames;
-  if (!window_ms) {
-    window_ms = ms;
-    previous_frames = frames;
-  } else if (ms - window_ms >= 1000) {
-    r.lcd_fps_milli = uint32_t(uint64_t(frames - previous_frames) * 1000000 /
-                               (ms - window_ms));
-    window_ms = ms;
-    previous_frames = frames;
-  }
+}
+// LVGL refresh events run in the port task under the display lock. Atomics
+// only: invalidation -> REFR_START latency and REFR_START -> REFR_READY time.
+// REFR_READY follows flush_cb; asynchronous SPI DMA may still be in flight.
+void lcd_refr_start(lv_event_t *) {
+  auto &r = runtime();
+  const uint32_t us = uint32_t(esp_timer_get_time());
+  uint32_t elapsed = 0;
+  if (r.lcd_invalidate_pending.take(us, elapsed))
+    r.lcd_invalidate_to_refr.record(elapsed);
+  r.lcd_refr_started.arm(us);
+}
+void lcd_refr_ready(lv_event_t *) {
+  auto &r = runtime();
+  uint32_t elapsed = 0;
+  if (r.lcd_refr_started.take(uint32_t(esp_timer_get_time()), elapsed))
+    r.lcd_refr_render.record(elapsed);
 }
 } // namespace
 extern "C" const lv_font_t inter16;
@@ -645,6 +651,10 @@ void ui_task(void *) {
     if (r.lcd_dma_metrics)
       lv_display_add_event_cb(display, lcd_flush_start, LV_EVENT_FLUSH_START,
                               nullptr);
+    lv_display_add_event_cb(display, lcd_refr_start, LV_EVENT_REFR_START,
+                            nullptr);
+    lv_display_add_event_cb(display, lcd_refr_ready, LV_EVENT_REFR_READY,
+                            nullptr);
     bsp_display_unlock();
   }
   bsp_display_backlight_on();
@@ -671,7 +681,11 @@ void ui_task(void *) {
       bands = r.bands;
       xSemaphoreGive(r.bands_mutex);
     }
-    if (bsp_display_lock(5)) {
+    const auto lock_begin = esp_timer_get_time();
+    const bool locked = bsp_display_lock(5);
+    r.ui_lock_wait.record(uint32_t(esp_timer_get_time() - lock_begin));
+    bool drew = false;
+    if (locked) {
       ms = now_ms();
       bool history_changed = false;
       auto record = [&](DiagnosticKind kind) {
@@ -1201,6 +1215,7 @@ void ui_task(void *) {
           pose.ear_right += target;
         }
         cat.draw(pose, snapshot.weather, ms);
+        drew = true;
       }
       if (status) {
         const lv_image_dsc_t *icon =
@@ -1247,10 +1262,25 @@ void ui_task(void *) {
           plugin->on_event(plugin_events[i]);
         plugin->update(snapshot, bands, ms);
       }
+      if (drew) // Keeps the first invalidation until the next REFR_START.
+        r.lcd_invalidate_pending.arm(uint32_t(esp_timer_get_time()));
       bsp_display_unlock();
+      // N3a: only requests an early port wake after an avatar invalidation.
+      // LVGL still renders when its refresh timer is due; whether this aligns
+      // the refresh with UI_Task is measured by invalidate_to_refr_start.
+      if (drew && lvgl_port_task_wake(LVGL_PORT_EVENT_USER, nullptr) == ESP_OK)
+        r.ui_port_wakes.fetch_add(1);
     } else
       r.ui_lock_misses.fetch_add(1);
     r.ui_us = uint32_t(esp_timer_get_time() - begin);
+    // Periodic windows include display pauses; not tied to flush starts.
+    const uint32_t window_now = now_ms();
+    if (r.lcd_rate.sample(window_now, r.lcd_completions.frames())) {
+      r.ui_lock_wait.publish();
+      r.lcd_invalidate_to_refr.publish();
+      r.lcd_refr_render.publish();
+      r.lcd_frame_gap.publish();
+    }
     // M measured 26.4–31.3 completed SPI frames/s at a 32 ms cadence.
     // Leave headroom above 30 FPS; DMA completion remains the measured rate.
     // This is a candidate cadence, not a hardware performance guarantee.

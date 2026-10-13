@@ -12,7 +12,7 @@ void maintenance_task(void *) {
   for (;;) {
     if (!r.boot_verified && now_ms() - started >= 30000) {
       const bool healthy =
-          r.ui_ready && r.lcd_dma_metrics && r.lcd_frames > 0 &&
+          r.ui_ready && r.lcd_dma_metrics && r.lcd_completions.frames() > 0 &&
           (xEventGroupGetBits(r.flags) & audio_bit) &&
           heap_caps_get_free_size(MALLOC_CAP_INTERNAL) >= 24000;
       if (shell::confirm_local_boot(healthy))

@@ -72,14 +72,39 @@ cJSON *telemetry() {
   cJSON_AddNumberToObject(ui, "last_update_us", r.ui_us);
   cJSON_AddNumberToObject(ui, "lock_misses", r.ui_lock_misses);
   cJSON_AddBoolToObject(ui, "spi_completion_metrics", r.lcd_dma_metrics);
-  cJSON_AddNumberToObject(ui, "completed_frames", r.lcd_frames);
-  cJSON_AddNumberToObject(ui, "completed_transfers", r.lcd_transfers);
+  cJSON_AddNumberToObject(ui, "completed_frames", r.lcd_completions.frames());
+  cJSON_AddNumberToObject(ui, "completed_transfers",
+                          r.lcd_completions.transfers());
   cJSON_AddNumberToObject(ui, "last_transfer_us", r.lcd_transfer_us);
   cJSON_AddNumberToObject(ui, "max_frame_gap_us",
                           r.lcd_frame_gap_max_us.exchange(0));
-  const bool fresh_frame = r.lcd_last_at_ms && ms - r.lcd_last_at_ms < 250;
+  // Rate of the last closed 1 s wall-clock window; pauses count as elapsed
+  // time. A window older than two periods is stale and reported as 0.
+  const bool fresh_window = r.lcd_rate.fresh(ms);
   cJSON_AddNumberToObject(ui, "completed_fps",
-                          fresh_frame ? r.lcd_fps_milli / 1000.0 : 0);
+                          fresh_window ? r.lcd_rate.fps_milli() / 1000.0 : 0);
+  cJSON_AddNumberToObject(ui, "port_wakes", r.ui_port_wakes);
+  auto *window = cJSON_AddObjectToObject(ui, "window");
+  cJSON_AddBoolToObject(window, "fresh", fresh_window);
+  cJSON_AddNumberToObject(window, "nominal_ms", r.lcd_rate.window_ms());
+  cJSON_AddNumberToObject(window, "elapsed_ms", r.lcd_rate.elapsed_ms());
+  cJSON_AddNumberToObject(window, "age_ms",
+                          r.lcd_rate.closed_at_ms()
+                              ? ms - r.lcd_rate.closed_at_ms()
+                              : 0);
+  cJSON_AddNumberToObject(window, "frames", r.lcd_rate.frames());
+  const auto latency = [&](const char *name, const LatencyWindow &w) {
+    const auto summary = w.summary();
+    auto *item = cJSON_AddObjectToObject(window, name);
+    cJSON_AddNumberToObject(item, "count", summary.count);
+    cJSON_AddNumberToObject(item, "p50_us", summary.p50_us);
+    cJSON_AddNumberToObject(item, "p95_us", summary.p95_us);
+    cJSON_AddNumberToObject(item, "max_us", summary.max_us);
+  };
+  latency("lock_wait", r.ui_lock_wait);
+  latency("invalidate_to_refr_start", r.lcd_invalidate_to_refr);
+  latency("refr_start_to_ready", r.lcd_refr_render);
+  latency("frame_gap", r.lcd_frame_gap);
   auto *reaction = cJSON_AddObjectToObject(j, "reaction_timing");
   // Touch starts at FT touch delivery; sensor starts at the sampled IMU event.
   // Both end at completion of the next affected frame's last SPI transfer.

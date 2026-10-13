@@ -3,6 +3,9 @@
 #include "bsp/m5stack_core_s3.h"
 #include "esp_timer.h"
 #include "platform.hpp"
+#if CONFIG_SAGWA_HIGGSFIELD_RIG
+#include "higgsfield_rig.hpp"
+#endif
 #include <cassert>
 #include <cmath>
 #include <cstdio>
@@ -64,7 +67,7 @@ static const std::vector<AnimationCase> animations = {
     {"sleep", sagwa::EventKind::sleep}, {"wake", sagwa::EventKind::wake},
     {"stretch", sagwa::EventKind::stretch}, {"tilt", sagwa::EventKind::tilt},
     {"voice-cancel", sagwa::EventKind::speak},
-    {"stale-sensors", sagwa::EventKind::tilt},
+    {"stale-sensors", sagwa::EventKind::done},
 };
 static unsigned sound_commands = 0;
 static unsigned decision_commands = 0;
@@ -582,6 +585,9 @@ void vTaskDelayUntil(TickType_t *next, TickType_t increment) {
   }
 }
 int main(int argc, char **argv) {
+#if CONFIG_SAGWA_HIGGSFIELD_RIG
+  assert(sagwa::valid_rig(higgsfield_rig));
+#endif
   assert(argc == 2 || (argc == 3 && std::string(argv[2]) == "--animate"));
   animate = argc == 3;
   output = argv[1];

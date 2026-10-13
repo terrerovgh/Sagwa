@@ -1,2 +1,3 @@
 idf_component_register(SRCS "core.cpp" "runtime.cpp" "skin_storage.cpp" "graphics.cpp" "audio.cpp" "cloud.cpp" "credentials.cpp" "network.cpp" "camera.cpp" "maintenance.cpp" "telemetry.cpp" "fonts/inter16.c" "badges.c" "rig_assets.c" INCLUDE_DIRS "include" REQUIRES m5stack_core_s3 esp-sr cjson esp_http_client esp-tls bootloader_support efuse nvs_flash spiffs esp_wifi esp_netif agentshell_storage agentshell_network agentshell_protocol agentshell_ota esp_video mbedtls EMBED_FILES "meow.pcm" "purr.pcm" "ack.pcm" "complaint.pcm")
 target_compile_definitions(${COMPONENT_LIB} PRIVATE LV_LVGL_H_INCLUDE_SIMPLE)
+target_sources(${COMPONENT_LIB} PRIVATE "higgsfield_rig.cpp")

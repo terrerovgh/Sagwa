@@ -1,0 +1,239 @@
+{
+  "derived": true,
+  "source": "agentshell/assets/sagwa/higgsfield-v1/idle.png",
+  "source_sha256": "7c3bba86cdde4c8b38b646978f3490749d2110306e7cc19e425b9e3771773eaa",
+  "source_modified": false,
+  "method": "Disjoint source masks; anatomy retained outside eyes and mouth",
+  "retouches": [
+    "Pupil interiors sampled from blue iris; independent 3x5 pupils",
+    "Eyelid fur interpolated from adjacent source rows; thin closed-eye line",
+    "Head eye/mouth underlays cleaned only inside declared feature boxes",
+    "Independent small open mouth and tongue, procedurally drawn derivative"
+  ],
+  "neutral_changed_pixels": 253,
+  "neutral_changed_pixels_outside_features": 0,
+  "masks": {
+    "tail": [
+      [
+        11,
+        5
+      ],
+      [
+        41,
+        5
+      ],
+      [
+        41,
+        27
+      ],
+      [
+        29,
+        30
+      ],
+      [
+        26,
+        40
+      ],
+      [
+        35,
+        51
+      ],
+      [
+        44,
+        56
+      ],
+      [
+        40,
+        62
+      ],
+      [
+        22,
+        57
+      ],
+      [
+        11,
+        42
+      ]
+    ],
+    "ear_left": [
+      [
+        69,
+        18
+      ],
+      [
+        76,
+        18
+      ],
+      [
+        87,
+        28
+      ],
+      [
+        92,
+        34
+      ],
+      [
+        86,
+        41
+      ],
+      [
+        77,
+        36
+      ]
+    ],
+    "ear_right": [
+      [
+        102,
+        25
+      ],
+      [
+        112,
+        12
+      ],
+      [
+        119,
+        12
+      ],
+      [
+        123,
+        23
+      ],
+      [
+        118,
+        37
+      ],
+      [
+        108,
+        40
+      ]
+    ]
+  },
+  "feature_boxes": [
+    [
+      83,
+      40,
+      94,
+      48
+    ],
+    [
+      100,
+      38,
+      111,
+      47
+    ],
+    [
+      94,
+      54,
+      104,
+      61
+    ]
+  ],
+  "layers": {
+    "tail": {
+      "sha256": "9ac598eb89014dfb784c2bc853d8c1b0e36841200df4b0199f57b9319d91a944",
+      "size": [
+        34,
+        57
+      ],
+      "bytes_bgra": 7752
+    },
+    "ear_left": {
+      "sha256": "3cac753a5eb369af4b8c2ac0ff4554119b65331efaa4bf4c6405d739917c8936",
+      "size": [
+        24,
+        24
+      ],
+      "bytes_bgra": 2304
+    },
+    "ear_right": {
+      "sha256": "6da9a38996d0e3bb6517605fbbf40631fbc807c747a621638796f6b5e05673a4",
+      "size": [
+        18,
+        29
+      ],
+      "bytes_bgra": 2088
+    },
+    "head": {
+      "sha256": "c0cea90ac8afe8bcac634d30e6b8e7ebbd5669bdab1d2579d82a93d35dfef74a",
+      "size": [
+        49,
+        41
+      ],
+      "bytes_bgra": 8036
+    },
+    "body": {
+      "sha256": "9e30b5c5102efce3d3b1b36c4d72d9707e052993dcd9c857bdf07cb9ca9e8999",
+      "size": [
+        113,
+        124
+      ],
+      "bytes_bgra": 56048
+    },
+    "eye_left": {
+      "sha256": "35ff247411d98b94742786aced1f78eafaac769dbc2929cc0fcac3ced3d5e86e",
+      "size": [
+        11,
+        8
+      ],
+      "bytes_bgra": 352
+    },
+    "pupil_left": {
+      "sha256": "2eaa34236c8272fca04fe31806ca2430ab1cd1f0dcf9e35470644338861cac4c",
+      "size": [
+        3,
+        5
+      ],
+      "bytes_bgra": 60
+    },
+    "lid_left": {
+      "sha256": "d1029e6d903996e9a5b6d59808fe39b2d3305c5baea42889e40430c6e52c65c4",
+      "size": [
+        11,
+        8
+      ],
+      "bytes_bgra": 352
+    },
+    "eye_right": {
+      "sha256": "3436b1b47eeb2bb34ed67a470df459bd53c4137aa2c17787b87056ecda3ba00a",
+      "size": [
+        11,
+        9
+      ],
+      "bytes_bgra": 396
+    },
+    "pupil_right": {
+      "sha256": "2eaa34236c8272fca04fe31806ca2430ab1cd1f0dcf9e35470644338861cac4c",
+      "size": [
+        3,
+        5
+      ],
+      "bytes_bgra": 60
+    },
+    "lid_right": {
+      "sha256": "35f5b0628d21645d34e53886d3f7f4ba5c55acd91ea46ea0ac9801859c7b6ee9",
+      "size": [
+        11,
+        9
+      ],
+      "bytes_bgra": 396
+    },
+    "mouth_closed": {
+      "sha256": "a04d1368dda2c7e03ec47cc9a68e90c9713ebd5f0fd4e921e8ac5211bef1bc7c",
+      "size": [
+        10,
+        7
+      ],
+      "bytes_bgra": 280
+    },
+    "mouth_open": {
+      "sha256": "e3f91031a6833d9cc5db5708d2d8d442b0d6f117c5608f8472d6f18fd0c22fed",
+      "size": [
+        10,
+        7
+      ],
+      "bytes_bgra": 280
+    }
+  },
+  "hardware_verified": false,
+  "visual_approval_pending": true
+}

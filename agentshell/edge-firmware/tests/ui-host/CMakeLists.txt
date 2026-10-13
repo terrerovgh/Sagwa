@@ -24,3 +24,8 @@ target_include_directories(sagwa-ui-gallery BEFORE PRIVATE shims
   "${EDGE_ROOT}/components/agentshell_storage"
   "${EDGE_ROOT}/components/agentshell_network")
 target_link_libraries(sagwa-ui-gallery PRIVATE lvgl cjson)
+option(SAGWA_HIGGSFIELD_RIG "Render the articulated Higgsfield rig" ON)
+target_sources(sagwa-ui-gallery PRIVATE "${EDGE_ROOT}/components/sagwa_edge/higgsfield_rig.cpp")
+if(SAGWA_HIGGSFIELD_RIG)
+  target_compile_definitions(sagwa-ui-gallery PRIVATE CONFIG_SAGWA_HIGGSFIELD_RIG=1)
+endif()

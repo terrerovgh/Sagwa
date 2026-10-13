@@ -4,6 +4,10 @@
 #include "network.hpp"
 #include "platform.hpp"
 #include "cat_raster.hpp"
+#include "rig_renderer.hpp"
+#if CONFIG_SAGWA_HIGGSFIELD_RIG
+#include "higgsfield_rig.hpp"
+#endif
 #include "diagnostics.hpp"
 #include "skin_template.h"
 #include <algorithm>
@@ -183,6 +187,7 @@ extern const lv_image_dsc_t sagwa_body, sagwa_head, sagwa_ear_left,
     sagwa_mouth_closed, sagwa_mouth_open, sagwa_lid_left, sagwa_lid_right;
 }
 struct Cat {
+  const RigDefinition *rig = nullptr;
   lv_obj_t *root = nullptr, *image = nullptr;
   std::vector<uint16_t> pixels;
   lv_image_dsc_t descriptor{};
@@ -195,6 +200,9 @@ struct Cat {
   void make(lv_obj_t *screen, const Skin &skin) {
     mode = skin.mode;
     fur = skin.fur;
+#if CONFIG_SAGWA_HIGGSFIELD_RIG
+    rig = valid_rig(higgsfield_rig) ? &higgsfield_rig : nullptr;
+#endif
     if (pixels.empty())
       pixels.resize(136 * 136); // One PSRAM allocation; no per-frame heap.
     descriptor.header.magic = LV_IMAGE_HEADER_MAGIC;
@@ -222,6 +230,12 @@ struct Cat {
   void draw(const Pose &pose, const WeatherSnapshot &weather, uint32_t ms) {
     const bool small = mode == SkinId::assistant;
     const bool climate = mode == SkinId::weather && weather.fresh(ms);
+    if (rig) {
+      render_rig(*rig, pose, pixels.data(), climate ? weather.tint() : fur,
+                 mode == SkinId::terminal ? 160 : climate ? 32 : 0, small);
+      lv_obj_invalidate(image);
+      return;
+    }
     CatRaster frame(pixels.data(), 136, 136, int(pose.lean * 120),
                     small ? 0 : 68, small ? 0 : 128, climate ? weather.tint() : fur,
                     mode == SkinId::terminal ? 160 : climate ? 32 : 0);

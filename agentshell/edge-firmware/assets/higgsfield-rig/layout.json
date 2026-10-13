@@ -1,0 +1,96 @@
+{
+  "id": "higgsfield",
+  "parts": {
+    "tail": {
+      "file": "tail.png",
+      "x": 11,
+      "y": 6,
+      "pivot_x": 28,
+      "pivot_y": 50
+    },
+    "body": {
+      "file": "body.png",
+      "x": 11,
+      "y": 6,
+      "pivot_x": 57,
+      "pivot_y": 122
+    },
+    "ear_left": {
+      "file": "ear_left.png",
+      "x": 69,
+      "y": 18,
+      "pivot_x": 12,
+      "pivot_y": 19
+    },
+    "ear_right": {
+      "file": "ear_right.png",
+      "x": 102,
+      "y": 12,
+      "pivot_x": 7,
+      "pivot_y": 23
+    },
+    "head": {
+      "file": "head.png",
+      "x": 75,
+      "y": 28,
+      "pivot_x": 0,
+      "pivot_y": 0
+    },
+    "eye_left": {
+      "file": "eye_left.png",
+      "x": 83,
+      "y": 40,
+      "pivot_x": 5.5,
+      "pivot_y": 4.0
+    },
+    "eye_right": {
+      "file": "eye_right.png",
+      "x": 100,
+      "y": 38,
+      "pivot_x": 5.5,
+      "pivot_y": 4.5
+    },
+    "pupil_left": {
+      "file": "pupil_left.png",
+      "x": 87,
+      "y": 42,
+      "pivot_x": 0,
+      "pivot_y": 0
+    },
+    "pupil_right": {
+      "file": "pupil_right.png",
+      "x": 104,
+      "y": 40,
+      "pivot_x": 0,
+      "pivot_y": 0
+    },
+    "lid_left": {
+      "file": "lid_left.png",
+      "x": 83,
+      "y": 40,
+      "pivot_x": 0,
+      "pivot_y": 0
+    },
+    "lid_right": {
+      "file": "lid_right.png",
+      "x": 100,
+      "y": 38,
+      "pivot_x": 0,
+      "pivot_y": 0
+    },
+    "mouth_closed": {
+      "file": "mouth_closed.png",
+      "x": 94,
+      "y": 54,
+      "pivot_x": 0,
+      "pivot_y": 0
+    },
+    "mouth_open": {
+      "file": "mouth_open.png",
+      "x": 94,
+      "y": 54,
+      "pivot_x": 0,
+      "pivot_y": 0
+    }
+  }
+}

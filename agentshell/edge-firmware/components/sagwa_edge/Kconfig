@@ -1,4 +1,11 @@
 menu "Sagwa Edge"
+config SAGWA_HIGGSFIELD_RIG
+    bool "Use the derived articulated Higgsfield rig (experimental)"
+    default y
+    help
+        Uses immutable native layers and the existing local animation FSM.
+        Disable to build the recoverable procedural reference rig instead.
+        This option does not certify visual quality or hardware performance.
 config SAGWA_WAKE_ENABLED
     bool "Enable local WakeNet (requires a matching custom Sagwa model)"
     default n

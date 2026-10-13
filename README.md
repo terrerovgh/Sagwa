@@ -4,6 +4,8 @@ Sagwa es una mascota interactiva para M5Stack CoreS3: personaje felino sobre neg
 
 **Estado al 13 de octubre de 2026:** CoreS3 con **0.2.0**; Edge **0.3.0-dev experimental**, sin promoción. N2 fue probado y rechazado por rendimiento; el dispositivo volvió a 0.2.0. La prueba válida de 24 horas y el modelo WakeNet «Sagwa» están pendientes. [Estado y evidencia](docs/STATUS.md).
 
+N3a y el rig articulado Higgsfield están integrados y compilados localmente; la galería de producción y su respaldo pasan sanitizers. La mejora de fluidez y la aceptación visual/física siguen pendientes.
+
 ## Empezar como agente
 
 Lea [AGENTS.md](AGENTS.md), [objetivo](docs/OBJECTIVE.md), [estado](docs/STATUS.md) y [coordinación](coord/README.md), en ese orden. La [historia](docs/HISTORY.md) explica las decisiones y pruebas anteriores; el [handoff actual](coord/handoffs/2026-10-13-baseline.md) permite continuar sin reconstruir conversaciones.

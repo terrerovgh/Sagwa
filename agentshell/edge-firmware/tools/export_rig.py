@@ -203,6 +203,11 @@ def run(argv=None):
     if len(set(outputs)) != len(outputs):
         raise ExportError('output, header and preview must be different files')
     parts_dir = args.parts_output.resolve() if args.parts_output else None
+    # Part PNGs never go into, below or above the input folder, so original
+    # sources such as the reviewed asset PNGs cannot be overwritten.
+    if parts_dir and (parts_dir == base or base in parts_dir.parents
+                      or parts_dir in base.parents):
+        raise ExportError(f'{parts_dir} overlaps the input layout folder')
     for path in outputs:
         # Inputs are read only: generated files never land in the layout folder.
         if path == layout_path or base == path.parent or base in path.parents:

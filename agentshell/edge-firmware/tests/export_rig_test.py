@@ -117,6 +117,23 @@ int main() {
             export_rig.run(args)
         self.assertEqual(sorted(p.name for p in self.tmp.rglob('*')), before)
 
+    def test_parts_output_cannot_overwrite_input_folder(self):
+        before = snapshot(ASSETS)
+        out = str(self.tmp / 'out.c')
+        for target in (ASSETS, ASSETS / 'nested', ASSETS.parent):
+            with self.assertRaisesRegex(export_rig.ExportError, 'overlaps the input'):
+                export_rig.run(['--output', out, '--parts-output', str(target)])
+        self.assertEqual(snapshot(ASSETS), before)  # originals intact
+        self.assertFalse((ASSETS / 'nested').exists())
+        self.assertFalse((self.tmp / 'out.c').exists())  # no output on rejection
+        layout = self.rig_fixture()
+        rig_before = snapshot(layout.parent)
+        with self.assertRaisesRegex(export_rig.ExportError, 'overlaps the input'):
+            export_rig.run(['--input', str(layout), '--output', out,
+                            '--parts-output', str(layout.parent)])
+        self.assertEqual(snapshot(layout.parent), rig_before)
+        self.assertFalse((self.tmp / 'out.c').exists())
+
     def test_validation_happens_before_any_write(self):
         out = str(self.tmp / 'out.cpp')
         good = str(self.rig_fixture())

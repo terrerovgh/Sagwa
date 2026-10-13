@@ -34,14 +34,14 @@
     }
   },
   "validation": {
-    "development_tests": 17,
+    "development_tests": 18,
     "typescript_tests": 60,
     "typescript_build": true,
     "native_sanitizer_suites": 4,
     "independent_review": "PASS limited; development, not product/hardware"
   },
   "reviewed_script_sha256": {
-    "scripts/sagwa-herdr.py": "5fe7a5e6f64c5ebda04e6df91785b75ac4e19c38a7437aaa7a98f19aae36d188",
+    "scripts/sagwa-herdr.py": "20dc5a7849d96919eb1109d0e1df57e4d7e6ae8232f0d18d432a921fa2bd656b",
     "scripts/check-publication.py": "5882aa04056e534023d6f23a32223c5a250bff71b2110a01d9b16e23ed35dfbf",
     "scripts/setup-git-access.py": "2268dd4860beece4f0fae83790596aba18b343c57d502f8a79a1606b69e9552d"
   },
@@ -53,5 +53,6 @@
   ],
   "services_changed": false,
   "firmware_changed": false,
-  "product_acceptance": false
+  "product_acceptance": false,
+  "herdr_start_instruction": "Run launcher from a different empty tab than target; start orchestrator from Codex tab."
 }

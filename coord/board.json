@@ -5,9 +5,9 @@
     "codex-docs": {
       "kind": "codex",
       "role": "orchestrator",
-      "status": "active",
+      "status": "inactive",
       "host": "mac-mini",
-      "last_seen": "2026-10-13T20:04:53.703405+00:00"
+      "last_seen": "2026-10-13T20:06:27.341233+00:00"
     },
     "claude-profile": {
       "kind": "claude",
@@ -35,7 +35,7 @@
       "role": "reviewer",
       "status": "inactive",
       "host": "mac-mini",
-      "last_seen": "2026-10-13T20:00:50.742478+00:00"
+      "last_seen": "2026-10-13T20:06:02.358750+00:00"
     }
   },
   "tasks": {
@@ -141,10 +141,18 @@
       "acceptance": "Rechazar target=caller con mensaje claro, guía desde otro tab y test de frontera sin tocar panes.",
       "risk": "R1",
       "owner": "codex-docs",
-      "state": "in_progress",
-      "artifact": null,
-      "reviews": [],
-      "updated_at": "2026-10-13T20:04:53.872952+00:00"
+      "state": "done",
+      "artifact": "361e5c95123535b3e71139b0c1241b30d4bd8bca",
+      "reviews": [
+        {
+          "agent": "codex-review-development",
+          "artifact": "361e5c95123535b3e71139b0c1241b30d4bd8bca",
+          "verdict": "pass",
+          "at": "2026-10-13T20:06:02.293285+00:00",
+          "note": "PASS limitado R1 por otro agente Codex de colaboración, no CLI Herdr. Código/guía/test del guard target=HERDR_PANE_ID revisados. 18 tests PASS; mock adicional con validate real rechaza self con cero agent start y permite caller distinto con un único inicio validado. sagwa-herdr.py SHA256 20dc5a7849d96919eb1109d0e1df57e4d7e6ae8232f0d18d432a921fa2bd656b. No verifiqué servicios/Herdr vivo, login o producto/hardware; sin red, UI, TUF, USB, Git push o lectura privada."
+        }
+      ],
+      "updated_at": "2026-10-13T20:06:27.270011+00:00"
     }
   }
 }

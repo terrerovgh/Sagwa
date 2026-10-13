@@ -1,0 +1,14 @@
+{
+  "google_catalog_url": "https://googlefonts.github.io/noto-emoji-files/data/emojis_data.js",
+  "google_catalog_sha256": "2a760b4a857ad5c3f42320bf1114d9e225fd4dddc0a514357a591da1e134783d",
+  "cldr_version": "release-48",
+  "cldr_base": "https://raw.githubusercontent.com/unicode-org/cldr/release-48/common/",
+  "count": 3988,
+  "animated": 881,
+  "files": {
+    "en.xml": "8511aadd046fdba2f0ffe590266ced8bbf48175ad139b2675d85d7141057b235",
+    "es-derived.xml": "ea9b3abc0a2c73a815faec1034764b6a503d14638ad4fb9556d8a7341838672c",
+    "es.xml": "fe8384e9cd2ee0998eb00ddf5549272eb5b56739e539ef33fedcd727fce5026a",
+    "en-derived.xml": "d76bd041c8c9e7b00b716aff8b7d9dbf509877010e191d5efd068be2553e066e"
+  }
+}

@@ -1,0 +1,12 @@
+menu "Sagwa Edge"
+config SAGWA_WAKE_ENABLED
+    bool "Enable local WakeNet (requires a matching custom Sagwa model)"
+    default n
+config SAGWA_MODEL_SHA256
+    string "SHA-256 of complete padded custom model partition"
+    default ""
+    depends on SAGWA_WAKE_ENABLED
+config SAGWA_SD_ENABLED
+    bool "Mount optional SD for skin descriptors"
+    default n
+endmenu

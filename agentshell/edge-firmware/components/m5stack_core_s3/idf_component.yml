@@ -1,0 +1,38 @@
+dependencies:
+  esp_codec_dev:
+    public: true
+    version: ~1.5
+  esp_video:
+    public: true
+    version: ~2.0
+  espressif/bmi270:
+    public: true
+    version: '*'
+  espressif/esp_io_expander_aw9523:
+    public: true
+    version: '*'
+  espressif/esp_lcd_ili9341:
+    public: false
+    version: '*'
+  espressif/esp_lcd_touch_ft5x06:
+    public: false
+    version: '*'
+  espressif/esp_lvgl_port:
+    public: true
+    version: ^2
+  idf: '>=5.4'
+  usb:
+    public: true
+    version: ^1
+description: Board Support Package (BSP) for M5Stack Core S3
+repository: git://github.com/espressif/esp-bsp.git
+repository_info:
+  commit_sha: 299f29dc50455c5d696f576ff69d82d09c5c0e33
+  path: bsp/m5stack_core_s3
+tags:
+- bsp
+- M5Stack
+targets:
+- esp32s3
+url: https://github.com/espressif/esp-bsp/tree/master/bsp/m5stack_core_s3
+version: 4.1.0

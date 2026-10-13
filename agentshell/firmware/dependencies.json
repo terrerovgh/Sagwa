@@ -1,0 +1,5 @@
+{
+  "esp_idf": "6.0.1",
+  "M5Unified": {"version":"0.2.24","repository":"https://github.com/m5stack/M5Unified.git","commit":"44d0c52dca65b5bf8e49fd75dde833ee800754f4"},
+  "M5GFX": {"version":"0.2.32","repository":"https://github.com/m5stack/M5GFX.git","commit":"c5a3fefad0b38a52cc750e2c4761e339a69a7208"}
+}

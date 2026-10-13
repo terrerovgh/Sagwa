@@ -1,0 +1,39 @@
+{
+  "source": "https://api.weather.gov/gridpoints/TOP/32,81/forecast/hourly",
+  "at": "2026-10-13T14:37:07.936Z",
+  "http_status": 200,
+  "subset": {
+    "properties": {
+      "updateTime": "2026-10-13T10:51:42+00:00",
+      "periods": [
+        {
+          "number": 1,
+          "name": "",
+          "startTime": "2026-10-13T09:00:00-05:00",
+          "endTime": "2026-10-13T10:00:00-05:00",
+          "isDaytime": true,
+          "temperature": 58,
+          "temperatureUnit": "F",
+          "temperatureTrend": null,
+          "probabilityOfPrecipitation": {
+            "unitCode": "wmoUnit:percent",
+            "value": 1
+          },
+          "dewpoint": {
+            "unitCode": "wmoUnit:degC",
+            "value": 11.666666666666666
+          },
+          "relativeHumidity": {
+            "unitCode": "wmoUnit:percent",
+            "value": 83
+          },
+          "windSpeed": "10 mph",
+          "windDirection": "NE",
+          "icon": "https://api.weather.gov/icons/land/day/sct?size=small",
+          "shortForecast": "Mostly Sunny",
+          "detailedForecast": ""
+        }
+      ]
+    }
+  }
+}

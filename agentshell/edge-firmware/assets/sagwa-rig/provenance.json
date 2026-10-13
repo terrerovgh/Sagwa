@@ -1,0 +1,12 @@
+{
+  "creator": "OpenAI imagegen built-in",
+  "derived_animation_assets": true,
+  "original_reference": "Muse Sagwa avatar-1791734962388088417-2.webp",
+  "originals_modified": false,
+  "source_sha256": "c3379f21535a4826f093986d879a689c4ffd8081dbf31799386352af771d36c4",
+  "prompts": [
+    "Identity-preserve 4x3 transparent rig atlas preserving cream-white-brown patches, light blue eyes, original proportions and illustration style; separate body/head/ears/tail/eyes/pupil/mouth/eyelids.",
+    "Precise cleanup retaining twelve pieces, original identity and true alpha; remove bright fringe and remove eye pupils for independent tracking."
+  ],
+  "conversion": "Explicit crop coordinates; trim transparent margins; resize for LVGL ARGB8888. No generated opaque background."
+}

@@ -1,0 +1,11 @@
+# Optional dev partition layout. Never flash over0.2.0 without migration/backups.
+nvs,data,nvs,0x11000,0xC000,
+otadata,data,ota,0x1D000,0x2000,
+phy_init,data,phy,0x1F000,0x1000,
+ota_0,app,ota_0,0x20000,4M,
+ota_1,app,ota_1,0x420000,4M,
+model,data,spiffs,0x820000,4M,
+storage,data,spiffs,0xC20000,0x3D7000,
+nvs_keys,data,nvs_keys,0xFF7000,0x1000,encrypted
+# NVS uses its XTS driver; raw flash encrypted flag is rejected by IDF lookup.
+vault, data, nvs, 0xFF8000, 0x8000,

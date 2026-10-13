@@ -1,0 +1,17 @@
+// Fragmento para incorporar a la política existente de la tailnet.
+// Conservar las identidades personales de los Mac. Revisar las reglas amplias
+// existentes: un grant adicional no restringe otro grant que ya permita todo.
+{
+  "grants": [
+    {
+      "src": ["100.65.98.90", "100.68.191.53", "100.70.149.102"],
+      "dst": ["100.65.98.90", "100.68.191.53", "100.70.149.102"],
+      "ip": ["tcp:2379", "tcp:2380", "tcp:9443"],
+    },
+    {
+      "src": ["100.76.70.69"],
+      "dst": ["100.68.191.53"],
+      "ip": ["tcp:9443"],
+    },
+  ],
+}

@@ -1,0 +1,275 @@
+{
+  "revisions": "See voice/download_sagwa_models.py",
+  "files": [
+    {
+      "file": "reference-ef_dora.wav",
+      "bytes": 295244,
+      "sha256": "5e03663b3decb8e717b53169c57a410c9f49c1bd8625fd776bf83610b36a553e"
+    },
+    {
+      "file": "chatterbox/grapheme_mtl_merged_expanded_v1.json",
+      "bytes": 69989,
+      "sha256": "69632f47220a788a52ce2661d096453c5655e9bf25289d89a8d832c46ee07dbf"
+    },
+    {
+      "file": "chatterbox/ve.pt",
+      "bytes": 5698626,
+      "sha256": "4b16d836bc598509860f6fa068165a8bb5e9ac84f05582dfcf278a5a372879f1"
+    },
+    {
+      "file": "chatterbox/conds.pt",
+      "bytes": 107374,
+      "sha256": "6552d70568833628ba019c6b03459e77fe71ca197d5c560cef9411bee9d87f4e"
+    },
+    {
+      "file": "chatterbox/s3gen_v3.pt",
+      "bytes": 1056903694,
+      "sha256": "f7abce4b196dae2d08d9296cbebc6521b046079577643b42a19a03499d08721e"
+    },
+    {
+      "file": "chatterbox/t3_es_mx_latam.safetensors",
+      "bytes": 2143990280,
+      "sha256": "c66c4517f11c2b35a56e28615c0689deb864cbc411e329552223bbd0a6a063f8"
+    },
+    {
+      "file": "kokoro/ef_dora.pt",
+      "bytes": 523420,
+      "sha256": "d9d69b0f8a2b87a345f269d89639f89dfbd1a6c9da0c498ae36dd34afcf35530"
+    },
+    {
+      "file": "kokoro/config.json",
+      "bytes": 2351,
+      "sha256": "5abb01e2403b072bf03d04fde160443e209d7a0dad49a423be15196b9b43c17f"
+    },
+    {
+      "file": "kokoro/kokoro-v1_0.pth",
+      "bytes": 327212226,
+      "sha256": "496dba118d1a58f5f3db2efc88dbdc216e0483fc89fe6e47ee1f2c53f18ad1e4"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/vc.py",
+      "bytes": 2701,
+      "sha256": "61ef544bbfbb0cbcbd2cf40fced02ddd41d3d94951e37ae33f6a66f9882a49a4"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/tts.py",
+      "bytes": 11076,
+      "sha256": "4aefe34d8873207fe4584e84528f702eb624f4de7d3ef7e982ae7d67dcb969ae"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/__init__.py",
+      "bytes": 60,
+      "sha256": "1bba4210a5920507896a96b96a266ce630ae18164d3aa3eeb354a8f8be6dc1e9"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/utils.py",
+      "bytes": 489,
+      "sha256": "13a8877860dcc1429248f72eda78bbeed1a294dce971c693ff362a479847bcb6"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/tokenizers/__init__.py",
+      "bytes": 36,
+      "sha256": "4d115c77deb2419d6174596f0dad9db560a8fb3a6647e3db3b405fb5db4ddf96"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/tokenizers/tokenizer.py",
+      "bytes": 1767,
+      "sha256": "47cdd749f083a520744b0e2ccbaa6b659042a62e611de3c359a60b33bb6b5b33"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3tokenizer/s3tokenizer.py",
+      "bytes": 5155,
+      "sha256": "76eae9f95b14608c4847c9d7acfcf08138c365640b0d4589de01e742b0e5eb43"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3tokenizer/__init__.py",
+      "bytes": 595,
+      "sha256": "7357ce9a0349bae51e8e8cabcdd01ba8534dd6a2373c1e092291ecb716414fe0"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/t3/__init__.py",
+      "bytes": 19,
+      "sha256": "cfecc1c7df7d22398157d40605abfa64f30ef9b697190dc4f57b229299f70538"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/t3/llama_configs.py",
+      "bytes": 1005,
+      "sha256": "02197c316d02359a96e1cf6c3c7ab0cf55ec145e165524e9edd6fe90384a4f74"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/t3/t3.py",
+      "bytes": 14451,
+      "sha256": "110bea7e9ad6dd0b81f50e5165ab446bcd0f6446444473d333ebc5f9132decfe"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/voice_encoder/config.py",
+      "bytes": 406,
+      "sha256": "0b41d794a16fd94929b37fd229dc61d3634178a11046a6b5834e109109a8e3c8"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/voice_encoder/__init__.py",
+      "bytes": 56,
+      "sha256": "adf1bcef74e90dae0fcb5c2945103cbc0bd9af15cc9be4288f960ad7d22ce678"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/voice_encoder/voice_encoder.py",
+      "bytes": 10555,
+      "sha256": "4b12e9d49cbb7ce81e6731c02d4f37a9b763ef7419dba95a7e66ea078d49a9c3"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/voice_encoder/melspec.py",
+      "bytes": 1940,
+      "sha256": "0f5fea173841c5150fa6ea9236160798c8ee24afba724d65da61dce78a4d48e8"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/decoder.py",
+      "bytes": 12709,
+      "sha256": "a548f097a15cb89289b498978f7876cdadfd99904bd4e48fcea5225aa99a24be"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/__init__.py",
+      "bytes": 68,
+      "sha256": "1eb98b785c481502e515676da0e65afbfd8fa2254ae303b6fa9714db6a52730c"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/flow.py",
+      "bytes": 10655,
+      "sha256": "6305c5d4b6e9727c65b2e3a56fedafab1e798595bf5f3644458be1594459e969"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/hifigan.py",
+      "bytes": 17652,
+      "sha256": "e49f4723323937493ecf5f6c7f1934f57766ef46c74eaf7c60bf456a1c6fe897"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/f0_predictor.py",
+      "bytes": 1993,
+      "sha256": "917825eec353b9601b9f7af0c0e3603eb1061d8b641539225e78c910d7bc2255"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/s3gen.py",
+      "bytes": 11060,
+      "sha256": "a5193548324b2849240f3632e347d8f7eb4e8f09a2e1bb6db968332351e54944"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/const.py",
+      "bytes": 17,
+      "sha256": "9fa86ee94de3354b8e32f8d09d96748916a9aa5d23262e4a27ea8376fb0e165a"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/xvector.py",
+      "bytes": 14141,
+      "sha256": "c7c759920cbf1aac9f12e0a15c1bf3d38da51ca9d3ea7a7b53cf740c86fe17fa"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/flow_matching.py",
+      "bytes": 10074,
+      "sha256": "5898d2a3ea41230126177ca7339f19ebd7b329f575b220fa14cbab82def45e0d"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/t3/inference/t3_hf_backend.py",
+      "bytes": 3990,
+      "sha256": "2d8407cf500ec1e6b707b060861145bb7802741328d76ec341280c06c7f3f2b5"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/t3/modules/cond_enc.py",
+      "bytes": 3317,
+      "sha256": "6766fd85d9c4db1b606169773382177055df784cb2f52c9f43fa34ade1255434"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/t3/modules/perceiver.py",
+      "bytes": 7719,
+      "sha256": "f9c4b0130652e94d05873ead931ecd399a9dd644b7a17edf1b76d7d7f2bfbf42"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/t3/modules/learned_pos_emb.py",
+      "bytes": 1099,
+      "sha256": "2ec5b09ce94d71261e9c25833a08f666bd6e2d5439b2314123e035c02df8b7af"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/t3/modules/t3_config.py",
+      "bytes": 660,
+      "sha256": "8f3e31b45715dddf3c2b4504acee0544b0172f9155c1f3877314b9fa768c4e5e"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/transformer/attention.py",
+      "bytes": 14415,
+      "sha256": "28c38f1e3ea1aeac1526e98f8349d9f068e25f1f6ae246c60badc3d540d62794"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/transformer/subsampling.py",
+      "bytes": 12666,
+      "sha256": "31fc0347a851abc1205dfd4cf68099c0c416589c3e99a07b250e8630cece19d0"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/transformer/convolution.py",
+      "bytes": 5230,
+      "sha256": "eb5f41f324a97225c73b9c430af8bb231bd77386ef18450bb0fd329f469ab4e1"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/transformer/upsample_encoder.py",
+      "bytes": 13694,
+      "sha256": "1794ff01b678791ad665d7b0c0999448e760fc1dcb3bc8208de5f58510c1f68c"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/transformer/embedding.py",
+      "bytes": 11399,
+      "sha256": "3646e748783fe6c069b424cc9cbfe81bc54a5ccfea1ae7041df398a603cccd3e"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/transformer/encoder_layer.py",
+      "bytes": 9602,
+      "sha256": "1920582be2c9b7cf7835e7b539118ec1eb9da8f2c711c6257f8598b3792951b9"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/transformer/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/transformer/activation.py",
+      "bytes": 3089,
+      "sha256": "a4a96caea9f7b05111286de5ea760bdfdf9c4e53448f53420857dc04a50440c2"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/transformer/positionwise_feed_forward.py",
+      "bytes": 4219,
+      "sha256": "6e8038e3bcc8ca086ddca508fb9b9d40bf3ab98bebabcf5c94935d032329d0f8"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/utils/class_utils.py",
+      "bytes": 2334,
+      "sha256": "02f3cb3a55ee124c279777245b09061fa15a8182e6e7d7762f8fa45c0a631948"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/utils/mask.py",
+      "bytes": 7637,
+      "sha256": "eae40f274d35941b78956b3e1fc8b36a699ae2f98b2803d4735089cafb5598ed"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/utils/mel.py",
+      "bytes": 2364,
+      "sha256": "3a78d1e46b489dd9ccbeedb527a034023e907f1db03dd6b6dff771e327388d7f"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/matcha/decoder.py",
+      "bytes": 14435,
+      "sha256": "a9f35df7b3eb1c7defb8744626b32ef0504a519a066f3240fde90393a39b3488"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/matcha/text_encoder.py",
+      "bytes": 14965,
+      "sha256": "a1e993ad219d95dee864e010d8415e7057abb6131a21550093d83db0279b01cb"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/matcha/transformer.py",
+      "bytes": 13237,
+      "sha256": "66ff2092d974a99b251b9d8e5c08bbcecceaedfaf41e2bd8af2b4bc7a56dcbea"
+    },
+    {
+      "file": "chatterbox-code/chatterbox/src/chatterbox/models/s3gen/matcha/flow_matching.py",
+      "bytes": 4556,
+      "sha256": "56614b92aad52f713c198ae089d47e6a7df13450f3cf5d1144f65fb34c35107d"
+    }
+  ]
+}

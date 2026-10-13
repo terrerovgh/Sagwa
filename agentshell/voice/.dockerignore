@@ -1,0 +1,7 @@
+__pycache__/
+test_*.py
+*.log
+*.wav
+*.json
+*.lock
+!requirements-mac.lock.txt

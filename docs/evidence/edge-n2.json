@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-13T18:54:56.511643+00:00",
+  "candidate": "N2",
+  "firmware_sha256": "acc0ff4b0ae2aee1b14dc80d7872869fcd4f63f29e9f7fd6387c06866db2d680",
+  "sample_count": 11,
+  "window_seconds": 52.2,
+  "completed_fps_min": 24.826,
+  "completed_fps_max": 26.653,
+  "completed_fps_median": 25.242,
+  "all_sample_fps_at_least_30": false,
+  "cpu_pct_range": [
+    57.12303924560547,
+    59.05116653442383
+  ],
+  "internal_free_min": 39907,
+  "ui_lock_misses_first_last": [
+    130,
+    627
+  ],
+  "maximum_reported_frame_gap_ms": 126.149,
+  "panic_seen": false,
+  "returned_baseline_0_2": true,
+  "telemetry_age_s": 4.968643,
+  "promoted": false,
+  "product_acceptance": false,
+  "valid_24h": false,
+  "scope": "Actual 95s app-only diagnostic and mandatory rollback; physical SPI and sensor telemetry only, no optical/touch/PWR/acoustic/camera/load acceptance",
+  "public_receipt_source_sha256": "dfc80bdfa85c5fedbe04b4fab1fff93fa23ffa95b41aff54868a560fa6171c3a"
+}

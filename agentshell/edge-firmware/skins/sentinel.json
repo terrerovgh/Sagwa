@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "revision": 1,
+  "id": "sentinel",
+  "title": "Centinela",
+  "brightness": 85,
+  "sounds": true,
+  "breath_hz": 0.23,
+  "fur": 15391686,
+  "patch": 5323043,
+  "eyes": 7978216,
+  "widgets": [
+    {
+      "id": "main",
+      "type": "status",
+      "label": "Centinela",
+      "x": 16,
+      "y": 156,
+      "w": 288,
+      "h": 64,
+      "page": "home"
+    }
+  ]
+}

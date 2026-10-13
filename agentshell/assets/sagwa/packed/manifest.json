@@ -1,0 +1,128 @@
+{
+  "version": "sagwa-v2-1",
+  "origin": "imagegen; identity reference: original Muse Sagwa",
+  "source_sha256": "30183b9362e6e384b2daf5159d7661979a7923d628a5df24ff90ec2b2aa2150a",
+  "width": 136,
+  "height": 136,
+  "clips": [
+    {
+      "state": 0,
+      "name": "idle",
+      "frames": 4,
+      "frame_ms": 250,
+      "sha256": "b03f98a1c77614f784a722ad14b32cc93f954718c072f6c39d61269fc46374c9",
+      "size": 147984,
+      "file": "b03f98a1c77614f784a722ad14b32cc93f954718c072f6c39d61269fc46374c9.sav"
+    },
+    {
+      "state": 1,
+      "name": "look",
+      "frames": 4,
+      "frame_ms": 250,
+      "sha256": "354be4bd18d6f156c598c5ead7d3d0f9e0ea673cfb72ba99f379042f9e1a7f8a",
+      "size": 147984,
+      "file": "354be4bd18d6f156c598c5ead7d3d0f9e0ea673cfb72ba99f379042f9e1a7f8a.sav"
+    },
+    {
+      "state": 2,
+      "name": "listen",
+      "frames": 4,
+      "frame_ms": 250,
+      "sha256": "c62ab4492f7865ad59d6a97acc5d727156e21b25c23ce3e702e54ab28d9bf929",
+      "size": 147984,
+      "file": "c62ab4492f7865ad59d6a97acc5d727156e21b25c23ce3e702e54ab28d9bf929.sav"
+    },
+    {
+      "state": 3,
+      "name": "think",
+      "frames": 4,
+      "frame_ms": 250,
+      "sha256": "e8880beb618d8a15729f5ab771a6511e751368d220ff5df21c386ba44938131d",
+      "size": 147984,
+      "file": "e8880beb618d8a15729f5ab771a6511e751368d220ff5df21c386ba44938131d.sav"
+    },
+    {
+      "state": 4,
+      "name": "speak",
+      "frames": 4,
+      "frame_ms": 250,
+      "sha256": "f7f0656e59e604a8c5d7334c4f6dc79519fc7a188b5bbc4099d762afbe6bb559",
+      "size": 147984,
+      "file": "f7f0656e59e604a8c5d7334c4f6dc79519fc7a188b5bbc4099d762afbe6bb559.sav"
+    },
+    {
+      "state": 5,
+      "name": "work",
+      "frames": 4,
+      "frame_ms": 250,
+      "sha256": "7f280d42d2a9166aa543eb6def50eb7497005735a6e016930d9a283bfe620758",
+      "size": 147984,
+      "file": "7f280d42d2a9166aa543eb6def50eb7497005735a6e016930d9a283bfe620758.sav"
+    },
+    {
+      "state": 6,
+      "name": "celebrate",
+      "frames": 4,
+      "frame_ms": 250,
+      "sha256": "be296c44c80520679b099bc0c4f15673da13eb621172c0e787627117d318b290",
+      "size": 147984,
+      "file": "be296c44c80520679b099bc0c4f15673da13eb621172c0e787627117d318b290.sav"
+    },
+    {
+      "state": 7,
+      "name": "purr",
+      "frames": 4,
+      "frame_ms": 250,
+      "sha256": "a0af0ab7c9d68b8bd6ff14f08bbe35394ab8efd4c90dd94ef140352bf2ecf177",
+      "size": 147984,
+      "file": "a0af0ab7c9d68b8bd6ff14f08bbe35394ab8efd4c90dd94ef140352bf2ecf177.sav"
+    },
+    {
+      "state": 8,
+      "name": "sleep",
+      "frames": 4,
+      "frame_ms": 250,
+      "sha256": "3b5f54c6a2c6656486475b9702412b60190572fe851acd4cdfc80c9f8372ee6c",
+      "size": 147984,
+      "file": "3b5f54c6a2c6656486475b9702412b60190572fe851acd4cdfc80c9f8372ee6c.sav"
+    },
+    {
+      "state": 9,
+      "name": "wake",
+      "frames": 4,
+      "frame_ms": 250,
+      "sha256": "803a7f36eb73228e9cdce5bb3de83aa008f02a6caad526ef8fa6b5e319e8d5fb",
+      "size": 147984,
+      "file": "803a7f36eb73228e9cdce5bb3de83aa008f02a6caad526ef8fa6b5e319e8d5fb.sav"
+    },
+    {
+      "state": 10,
+      "name": "stretch",
+      "frames": 4,
+      "frame_ms": 250,
+      "sha256": "40b0fd4443b76543f1c0ed3dc69ee512d2d1528cb6e2e7a0ea13c87dcd7a8a67",
+      "size": 147984,
+      "file": "40b0fd4443b76543f1c0ed3dc69ee512d2d1528cb6e2e7a0ea13c87dcd7a8a67.sav"
+    },
+    {
+      "state": 11,
+      "name": "tilt",
+      "frames": 4,
+      "frame_ms": 250,
+      "sha256": "58907d9f9dcb80b00d77f632c192b1e7e78610cc2c4c39849035b27618dd41a1",
+      "size": 147984,
+      "file": "58907d9f9dcb80b00d77f632c192b1e7e78610cc2c4c39849035b27618dd41a1.sav"
+    }
+  ],
+  "status_icons": [
+    "1f60a",
+    "1f3a4",
+    "1f914",
+    "2699_fe0f",
+    "1f50a",
+    "1f6e1_fe0f",
+    "26a0_fe0f",
+    "1f4f5",
+    "1f4f7"
+  ]
+}

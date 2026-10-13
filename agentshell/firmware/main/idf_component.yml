@@ -1,0 +1,9 @@
+dependencies:
+  idf: "==6.0.1"
+  espressif/cjson: "~1.7"
+  espressif/esp_websocket_client: "1.6.1"
+  espressif/esp32-camera: "2.1.8"
+  m5stack/m5unified:
+    version: "0.2.24"
+  m5stack/m5gfx:
+    version: "0.2.32"

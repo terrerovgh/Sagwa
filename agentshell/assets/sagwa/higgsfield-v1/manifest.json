@@ -1,0 +1,234 @@
+{
+  "at": "2026-10-13T18:18:42.282242+00:00",
+  "version": "higgsfield-poses-1",
+  "provider": "Higgsfield",
+  "model": "gpt_image_2_5",
+  "job_id": "1c69adce-e378-4f3b-bea0-11c9a952f08d",
+  "quoted_credits": 2.75,
+  "reference_media_id": "37421d15-a348-4809-87ba-082c4d36a884",
+  "reference": "Owned photo of Sagwa in Higgsfield library; not the Muse illustration",
+  "original_atlas_sha256": "1ddd0fb7c3598c935781ac23c8c720b23dfae365352136bb7d8473eac1d44be3",
+  "originals_modified": false,
+  "poses": [
+    {
+      "state": "idle",
+      "file": "idle.png",
+      "size": [
+        136,
+        136
+      ],
+      "sha256": "7c3bba86cdde4c8b38b646978f3490749d2110306e7cc19e425b9e3771773eaa",
+      "source_bbox": [
+        73,
+        70,
+        550,
+        595
+      ],
+      "alpha": true,
+      "animated": false,
+      "alpha_component_pixels": 136075
+    },
+    {
+      "state": "look",
+      "file": "look.png",
+      "size": [
+        136,
+        136
+      ],
+      "sha256": "196ad2223976afea0ff31537e3bdb69e86ab7015e17c2d326b4efd02f4d2259d",
+      "source_bbox": [
+        710,
+        46,
+        1110,
+        596
+      ],
+      "alpha": true,
+      "animated": false,
+      "alpha_component_pixels": 134016
+    },
+    {
+      "state": "listen",
+      "file": "listen.png",
+      "size": [
+        136,
+        136
+      ],
+      "sha256": "c4007d0e790493eb51d3d5e13ffea88af1fcdc24a709c017a740a9dd21480c4f",
+      "source_bbox": [
+        1327,
+        36,
+        1682,
+        596
+      ],
+      "alpha": true,
+      "animated": false,
+      "alpha_component_pixels": 110503
+    },
+    {
+      "state": "think",
+      "file": "think.png",
+      "size": [
+        136,
+        136
+      ],
+      "sha256": "b043ff50b22959542065d8003528db7aaa4671795b8111c48c39f976dc126a48",
+      "source_bbox": [
+        1901,
+        32,
+        2242,
+        596
+      ],
+      "alpha": true,
+      "animated": false,
+      "alpha_component_pixels": 111283
+    },
+    {
+      "state": "speak",
+      "file": "speak.png",
+      "size": [
+        136,
+        136
+      ],
+      "sha256": "b2c54836826239121967a22634f646a39d9460e8482798f7ff35e93da158bfb1",
+      "source_bbox": [
+        85,
+        628,
+        503,
+        1167
+      ],
+      "alpha": true,
+      "animated": false,
+      "alpha_component_pixels": 128185
+    },
+    {
+      "state": "work",
+      "file": "work.png",
+      "size": [
+        136,
+        136
+      ],
+      "sha256": "2d25761b8d00a254a78d96f7dea6da38d4c5adad49faaa396b2bba5d3defda2e",
+      "source_bbox": [
+        638,
+        631,
+        1160,
+        1141
+      ],
+      "alpha": true,
+      "animated": false,
+      "alpha_component_pixels": 121691
+    },
+    {
+      "state": "celebrate",
+      "file": "celebrate.png",
+      "size": [
+        136,
+        136
+      ],
+      "sha256": "caa457554c1afd9b1f17a8784bedb6d9ad3e0a6666dcc492320ff174ee5e6c7b",
+      "source_bbox": [
+        1290,
+        613,
+        1705,
+        1166
+      ],
+      "alpha": true,
+      "animated": false,
+      "alpha_component_pixels": 118918
+    },
+    {
+      "state": "purr",
+      "file": "purr.png",
+      "size": [
+        136,
+        136
+      ],
+      "sha256": "640a555e1d7ec25321b4dff9f4811e1b6eb8cf56f87147ff8448473c7ea7fd1c",
+      "source_bbox": [
+        1888,
+        614,
+        2221,
+        1158
+      ],
+      "alpha": true,
+      "animated": false,
+      "alpha_component_pixels": 109846
+    },
+    {
+      "state": "sleep",
+      "file": "sleep.png",
+      "size": [
+        136,
+        136
+      ],
+      "sha256": "6ca972cc913ed225054bf689c3760847a9e329f3c33ff7880448438987931a61",
+      "source_bbox": [
+        72,
+        1327,
+        559,
+        1676
+      ],
+      "alpha": true,
+      "animated": false,
+      "alpha_component_pixels": 130479
+    },
+    {
+      "state": "wake",
+      "file": "wake.png",
+      "size": [
+        136,
+        136
+      ],
+      "sha256": "40d3804d3cc79427b8465a4138dbc9825af00972db331a96812c7b701baacf44",
+      "source_bbox": [
+        648,
+        1281,
+        1138,
+        1696
+      ],
+      "alpha": true,
+      "animated": false,
+      "alpha_component_pixels": 123440
+    },
+    {
+      "state": "stretch",
+      "file": "stretch.png",
+      "size": [
+        136,
+        136
+      ],
+      "sha256": "c846b7c12021cb97e9e86ddf8750b0e9c099318cd23411db9f03755c693075b0",
+      "source_bbox": [
+        1224,
+        1161,
+        1703,
+        1702
+      ],
+      "alpha": true,
+      "animated": false,
+      "alpha_component_pixels": 119252
+    },
+    {
+      "state": "tilt",
+      "file": "tilt.png",
+      "size": [
+        136,
+        136
+      ],
+      "sha256": "cead694eb5f3a32ecf74efbc1cadf558061283f1ae82de61532635319fe38402",
+      "source_bbox": [
+        1856,
+        1195,
+        2214,
+        1697
+      ],
+      "alpha": true,
+      "animated": false,
+      "alpha_component_pixels": 90006
+    }
+  ],
+  "hardware_deployed": false,
+  "animation_integration_complete": false,
+  "scope": "Twelve derivative transparent poses; production procedural rig remains unchanged. New assets need rig integration and hardware visual acceptance.",
+  "segmentation": "Largest three alpha>8 regions per column locate whole-character crop bounds; original alpha retained within bounds plus 2px margin"
+}

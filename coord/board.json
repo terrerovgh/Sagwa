@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "max_workers": 3,
+  "agents": {
+    "codex-docs": {
+      "kind": "codex",
+      "role": "orchestrator",
+      "status": "active",
+      "host": "mac-mini",
+      "last_seen": "2026-10-13T19:37:32.792824+00:00"
+    },
+    "claude-profile": {
+      "kind": "claude",
+      "role": "worker",
+      "status": "inactive",
+      "host": "mac-mini",
+      "last_seen": "2026-10-13T19:37:32.891850+00:00"
+    },
+    "grok-profile": {
+      "kind": "grok",
+      "role": "worker",
+      "status": "inactive",
+      "host": "mac-mini",
+      "last_seen": "2026-10-13T19:37:32.960953+00:00"
+    },
+    "agy-profile": {
+      "kind": "agy",
+      "role": "worker",
+      "status": "inactive",
+      "host": "mac-mini",
+      "last_seen": "2026-10-13T19:37:33.025318+00:00"
+    }
+  },
+  "tasks": {
+    "S-001": {
+      "id": "S-001",
+      "title": "Consolidar documentación y desarrollo Herdr",
+      "acceptance": "Código y estado histórico saneados en GitHub; cinco tabs propios; coordinación concurrente probada; roles intercambiables y límites de disponibilidad documentados.",
+      "risk": "R1",
+      "owner": "codex-docs",
+      "state": "in_progress",
+      "artifact": null,
+      "reviews": [],
+      "updated_at": "2026-10-13T19:37:33.121086+00:00"
+    },
+    "S-101": {
+      "id": "S-101",
+      "title": "Fluidez LVGL/DMA",
+      "acceptance": "30+FPS sostenidos al terminar SPI, sin degradación de audio/gestos; propuesta y revisión antes de hardware.",
+      "risk": "R2",
+      "owner": null,
+      "state": "backlog",
+      "artifact": null,
+      "reviews": [],
+      "updated_at": "2026-10-13T19:37:33.184041+00:00"
+    },
+    "S-102": {
+      "id": "S-102",
+      "title": "WakeNet genuino Sagwa",
+      "acceptance": "Artefacto genuino/licencia/hash y evaluación local; no renombrar otro modelo.",
+      "risk": "R2",
+      "owner": null,
+      "state": "backlog",
+      "artifact": null,
+      "reviews": [],
+      "updated_at": "2026-10-13T19:37:33.215862+00:00"
+    },
+    "S-103": {
+      "id": "S-103",
+      "title": "Integración arte Higgsfield",
+      "acceptance": "Capas/FSM, negro/alfa, identidad, offline y recursos medidos; originales Muse intactos.",
+      "risk": "R1",
+      "owner": null,
+      "state": "backlog",
+      "artifact": null,
+      "reviews": [],
+      "updated_at": "2026-10-13T19:37:33.247268+00:00"
+    },
+    "S-104": {
+      "id": "S-104",
+      "title": "Voz y cámara Edge",
+      "acceptance": "PWR/stop/cancel/STT/TTS/fallback/cámara confirmada y latencias físicas documentadas.",
+      "risk": "R2",
+      "owner": null,
+      "state": "backlog",
+      "artifact": null,
+      "reviews": [],
+      "updated_at": "2026-10-13T19:37:33.279068+00:00"
+    },
+    "S-105": {
+      "id": "S-105",
+      "title": "Clima físico Ray City",
+      "acceptance": "Packet WSS, caducidad/omisión y visualización física verificados.",
+      "risk": "R2",
+      "owner": null,
+      "state": "backlog",
+      "artifact": null,
+      "reviews": [],
+      "updated_at": "2026-10-13T19:37:33.310851+00:00"
+    },
+    "S-106": {
+      "id": "S-106",
+      "title": "Migración datos y seguridad",
+      "acceptance": "Plan compatible model/storage/vault con backup/rollback y autorización de irreversible separada.",
+      "risk": "R2",
+      "owner": null,
+      "state": "backlog",
+      "artifact": null,
+      "reviews": [],
+      "updated_at": "2026-10-13T19:37:33.342791+00:00"
+    },
+    "S-107": {
+      "id": "S-107",
+      "title": "Aceptación y release",
+      "acceptance": "Vistas y voz aprobadas; firmware firmado, rollback y24h válidas de candidato final.",
+      "risk": "R2",
+      "owner": null,
+      "state": "backlog",
+      "artifact": null,
+      "reviews": [],
+      "updated_at": "2026-10-13T19:37:33.374543+00:00"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.16)
+include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+if(NOT DEFINED AGENTSHELL_RELEASE_VERSION)
+  set(AGENTSHELL_RELEASE_VERSION "0.1.14")
+endif()
+set(PROJECT_VER "${AGENTSHELL_RELEASE_VERSION}")
+project(agentshell)

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key>
+		<string>/Users/terrerov</string>
+		<key>PATH</key>
+		<string>/Users/terrerov/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+	</dict>
+	<key>KeepAlive</key>
+	<true/>
+	<key>Label</key>
+	<string>ai.agentshell.voice</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/terrerov/Library/Application Support/AgentShell/venv/bin/python</string>
+		<string>/Users/terrerov/Library/Application Support/AgentShell/voice/server.py</string>
+		<string>--config</string>
+		<string>/Users/terrerov/Library/Application Support/AgentShell/private/voice.json</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/Users/terrerov/Library/Application Support/AgentShell/state/logs/voice.err.log</string>
+	<key>StandardOutPath</key>
+	<string>/Users/terrerov/Library/Application Support/AgentShell/state/logs/voice.out.log</string>
+	<key>ThrottleInterval</key>
+	<integer>10</integer>
+	<key>UserName</key>
+	<string>terrerov</string>
+	<key>WorkingDirectory</key>
+	<string>/Users/terrerov/Library/Application Support/AgentShell</string>
+</dict>
+</plist>

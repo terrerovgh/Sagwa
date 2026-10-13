@@ -1,0 +1,43 @@
+name: sagwa-core-s3
+services:
+  voice:
+    image: agentshell-sagwa-mac-voice:0.2.0-docker
+    build:
+      context: .
+      dockerfile: Dockerfile.mac
+    platform: linux/arm64
+    container_name: sagwa-core-s3-voice
+    user: "${SAGWA_UID:?Run prepare-mac-container.py}:${SAGWA_GID:?Run prepare-mac-container.py}"
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9493:9450"
+    cpus: 2.0
+    mem_limit: 3g
+    memswap_limit: 3g
+    pids_limit: 128
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    tmpfs:
+      # phonemizer loads its temporary copy of libespeak-ng from here.
+      - /tmp:rw,exec,nosuid,nodev,size=256m,mode=1777
+    volumes:
+      - type: bind
+        source: ${SAGWA_MODELS_DIR:?Run prepare-mac-container.py first}
+        target: /models
+        read_only: true
+      - type: bind
+        source: ${SAGWA_CONTAINER_PRIVATE:?Run prepare-mac-container.py first}
+        target: /run/sagwa
+        read_only: true
+    healthcheck:
+      test: ["CMD", "python", "-c", "import json,urllib.request; r=json.load(urllib.request.urlopen('http://127.0.0.1:9450/health',timeout=3)); assert r['kokoro_warm'] and r['models_present']"]
+      interval: 30s
+      timeout: 5s
+      start_period: 90s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"

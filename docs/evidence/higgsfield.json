@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-13T19:36:46.653731+00:00",
+  "provider": "Higgsfield",
+  "original_muse_modified": false,
+  "photo_reference_published": false,
+  "atlas": {
+    "model": "GPT Image 2.5",
+    "job": "1c69adce-e378-4f3b-bea0-11c9a952f08d",
+    "sha256": "1ddd0fb7c3598c935781ac23c8c720b23dfae365352136bb7d8473eac1d44be3",
+    "poses": 12,
+    "pose_size": [
+      136,
+      136
+    ],
+    "transparent": true,
+    "quoted_credits": 2.75
+  },
+  "greeting": {
+    "model": "Seedance 2.5",
+    "job": "3314bc0e-c1f7-4581-ba2b-f777719123e0",
+    "completed": true,
+    "local_file_exists": true,
+    "sha256": "bcb9afe9d0c5b460a35da9432a210e3c529c70b7079418e4fb97d4527fa974a4",
+    "duration_s": 4.042,
+    "fps": 24,
+    "size": [
+      960,
+      960
+    ],
+    "audio": false,
+    "alpha": false,
+    "seamless_loop_verified": false,
+    "quoted_credits": 28
+  },
+  "firmware_integrated": false,
+  "hardware_deployed": false,
+  "purchase_made": false,
+  "billed_balance_audited": false
+}

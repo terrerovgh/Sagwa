@@ -1,0 +1,13 @@
+FROM python:3.12-slim@sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 \
+    OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 \
+    HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_HOME=/tmp/huggingface \
+    HOME=/tmp
+WORKDIR /app
+COPY requirements-mac.lock.txt ./requirements.txt
+RUN pip install --no-cache-dir torch==2.14.1+cpu --index-url https://download.pytorch.org/whl/cpu \
+    && pip install --no-cache-dir -r requirements.txt
+COPY server.py tts_router.py gpu_lease.py container_entry.py ./
+USER 65532:65532
+EXPOSE 9450
+ENTRYPOINT ["python", "/app/container_entry.py", "--config", "/run/sagwa/voice.json"]

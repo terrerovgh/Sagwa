@@ -1,0 +1,14 @@
+[
+  {
+    "repo": "hexgrad/Kokoro-82M",
+    "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987",
+    "license": "apache-2.0",
+    "source": "https://huggingface.co/api/models/hexgrad/Kokoro-82M/revision/f3ff3571791e39611d31c381e3a41a3af07b4987"
+  },
+  {
+    "repo": "ResembleAI/Chatterbox-Multilingual-es-mx-latam",
+    "revision": "27e595bf2fe7be0533ca299d9afafcde08b7cca7",
+    "license": "mit",
+    "source": "https://huggingface.co/api/models/ResembleAI/Chatterbox-Multilingual-es-mx-latam/revision/27e595bf2fe7be0533ca299d9afafcde08b7cca7"
+  }
+]

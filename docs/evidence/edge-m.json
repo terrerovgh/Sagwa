@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-13T15:28:19.373161+00:00",
+  "candidate": "M",
+  "firmware_sha256": "532115adda0c4163eeb077721c88003a693d5539ac54cda9e40c819378a104ac",
+  "sample_count": 9,
+  "window_seconds": 40.8,
+  "completed_fps_min": 26.392,
+  "completed_fps_max": 31.28,
+  "completed_fps_median": 31.189,
+  "all_sample_fps_at_least_30": false,
+  "cpu_pct_range": [
+    65.4443588256836,
+    67.81995391845703
+  ],
+  "internal_free_min": 39903,
+  "imu_to_last_spi_ms_range": [
+    38,
+    57
+  ],
+  "maximum_reported_frame_gap_ms": 129.734,
+  "panic_seen": false,
+  "returned_baseline_0_2": true,
+  "product_acceptance": false,
+  "valid_24h": false,
+  "scope": "Actual app-only M diagnostic and physical SPI telemetry; excludes optical LCD, acoustic voice, real touch/PWR, camera or load acceptance",
+  "public_receipt_source_sha256": "68a67445be0d875bae369dc53355922a2156590d6b712e0ae9f1d32c9b9a1cab"
+}

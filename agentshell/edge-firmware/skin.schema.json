@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema",
+    "revision",
+    "id",
+    "widgets"
+  ],
+  "properties": {
+    "schema": {
+      "const": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2147483647
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z_]{1,32}$"
+    },
+    "base": {
+      "enum": [
+        "pet",
+        "focus",
+        "telemetry",
+        "night",
+        "sentinel",
+        "terminal",
+        "multimedia",
+        "assistant",
+        "weather",
+        "recovery"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 64
+    },
+    "brightness": {
+      "type": "integer",
+      "minimum": 5,
+      "maximum": 100
+    },
+    "sounds": {
+      "type": "boolean"
+    },
+    "breath_hz": {
+      "type": "number",
+      "minimum": 0.08,
+      "maximum": 0.6
+    },
+    "widgets": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "label",
+          "x",
+          "y",
+          "w",
+          "h"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z_]{1,32}$"
+          },
+          "type": {
+            "type": "string",
+            "pattern": "^[a-z_]{1,32}$"
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 128
+          },
+          "page": {
+            "type": "string",
+            "pattern": "^[a-z_]{1,32}$",
+            "not": {
+              "enum": [
+                "approval",
+                "cancel"
+              ]
+            }
+          },
+          "x": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 319
+          },
+          "y": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 239
+          },
+          "w": {
+            "type": "integer",
+            "minimum": 44,
+            "maximum": 320
+          },
+          "h": {
+            "type": "integer",
+            "minimum": 44,
+            "maximum": 240
+          }
+        }
+      }
+    },
+    "fur": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 16777215
+    },
+    "patch": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 16777215
+    },
+    "eyes": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 16777215
+    }
+  }
+}

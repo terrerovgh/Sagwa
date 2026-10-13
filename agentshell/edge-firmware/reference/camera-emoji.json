@@ -1,0 +1,8 @@
+{
+  "creator": "Google Noto Emoji",
+  "source": "https://fonts.gstatic.com/s/e/notoemoji/latest/1f4f7/512.gif",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "sha256": "5f8bab0103b394f37aabc15913d56fd124b860a4eeecfc0b44c4624e8e93f89b",
+  "changes": "First frame resized28px and composited on pure black"
+}

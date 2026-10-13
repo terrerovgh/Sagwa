@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "profiles": {
+    "codex": {"kind": "codex", "command": "codex", "fallbacks": ["/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"], "instructions": "AGENTS.md"},
+    "claude": {"kind": "claude", "command": "claude", "fallbacks": ["~/.local/bin/claude"], "instructions": "CLAUDE.md"},
+    "grok": {"kind": "grok", "command": "grok", "fallbacks": ["~/.local/bin/grok", "~/.grok/bin/grok"], "instructions": "AGENTS.md"},
+    "agy": {"kind": "agy", "command": "agy", "fallbacks": ["~/.local/bin/agy"], "instructions": "AGENTS.md"}
+  }
+}

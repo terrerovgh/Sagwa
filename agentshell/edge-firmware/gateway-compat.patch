@@ -1,0 +1,25 @@
+--- a/agentshell/src/main.ts
++++ b/agentshell/src/main.ts
+@@ -370,12 +370,12 @@
+         if(session&&control.session_id===session&&['audio.cancel','task.cancel'].includes(control.type)){
+           if(!dedupe.accept(control.message_id))return;
+           canceledSpeech++;speechController?.abort();emojiGeneration++;send('audio.stop',{});
+-          if(control.type==='task.cancel'&&control.task_id){canceledTurns.add(control.task_id);while(canceledTurns.size>64)canceledTurns.delete(canceledTurns.values().next().value!);void this.command('cancel',{task_id:control.task_id,requester:id}).catch(()=>{});}return;
++          if(control.type==='task.cancel'&&control.task_id){if(media?.task===control.task_id)media=null;canceledTurns.add(control.task_id);while(canceledTurns.size>64)canceledTurns.delete(canceledTurns.values().next().value!);void this.command('cancel',{task_id:control.task_id,requester:id}).catch(()=>{});}return;
+         }
+       }catch{ws.close(1008,'invalid_message');return;}}
+       if(++pending>64){ws.close(1013,'queue_full');return;}
+       chain=chain.then(async()=>{
+-      if(binary){if(!media)throw new Error('invalid_media');const f=decodeMedia(Buffer.from(raw as Buffer));
++      if(binary){const f=decodeMedia(Buffer.from(raw as Buffer));if(f.session_id===session&&canceledTurns.has(f.task_id))return;if(!media)throw new Error('invalid_media');
+         if(f.session_id!==session||f.stream_id!==media.id||f.task_id!==media.task||f.kind!==media.kind||f.sequence!==media.next++)throw new Error('invalid_media');
+         media.size+=f.data.length;if(media.size>(media.kind===1?MAX_AUDIO:MAX_PHOTO))throw new Error('message_too_large');media.chunks.push(f.data);return;}
+       const msg=decodeEnvelope(Buffer.from(raw as Buffer));if(!dedupe.accept(msg.message_id))return;
+@@ -388,6 +388,7 @@
+         const snapshot=await this.command('snapshot',{requester:id});for(const item of snapshot.tasks??[]){const task=await this.coordinator.task(item.task_id);if(task){const reply=sagwaReply(task.summary);item.summary=task.brief??reply.brief;if(Buffer.byteLength(item.summary)>512)item.summary='El resultado está listo. Toca el texto para leerlo.';delete item.full_text;}}foreground.select(snapshot.tasks?.[0]?.task_id??null);send('device.snapshot',snapshot);preferences=await this.store.get<Record<string,boolean>>('devices/preferences/'+id)??{};settingsAt=0;await sendSettings();return;
+       }
+       if(!session||msg.session_id!==session)throw new Error('invalid_session');
++      if(msg.task_id&&canceledTurns.has(msg.task_id))return;
+       if(msg.type==='device.preferences'){
+         const keys=['voice_enabled','pet_enabled','pet_sounds','pet_sensors'];if(Object.keys(msg.payload).some(k=>!keys.includes(k))||keys.some(k=>typeof msg.payload[k]!=='boolean'))throw Error('invalid_preferences');preferences=msg.payload as Record<string,boolean>;await this.store.put('devices/preferences/'+id,preferences);if(preferences.voice_enabled===false){canceledSpeech++;speechController?.abort();send('audio.stop',{});}return;
+       }

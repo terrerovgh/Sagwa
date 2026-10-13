@@ -29,7 +29,7 @@ Setup/start exigen `HERDR_ENV=1`, no lo falsean. `doctor` permite lectura local 
 
 | Perfil | Mac mini | Login/modelo |
 |---|---|---|
-| Codex | BundledChatGPT.app,0.162.0-alpha.17.2 | No comprobado |
+| Codex | CLI incluida en ChatGPT.app, 0.162.0-alpha.17.2 | Sesión ChatGPT confirmada con `codex login status` |
 | AGY | ~/.local/bin/agy,1.3.3 | No comprobado |
 | Claude | No encontrado en rutas comprobadas | Pendiente |
 | Grok | No encontrado; sí se utilizó Grok enTUF anteriormente | Pendiente Mac |
@@ -59,3 +59,5 @@ herdr agent read sagwa-claude --source recent-unwrapped --lines 100
 ```
 
 Idle no demuestra que terminaron subjobs. Mensaje/respuesta relevantes se conservan en `coord/messages`; resultado aparte en journal. No enviar mensajes externos ni responder aprobaciones del usuario. No parar server, matar Herdr, cerrar tabs ajenos, cambiar proveedores o borrar logs para resolver timeout. TUF tiene IDs/sesión propios: no reutilizar IDs Mac.
+
+Acceso Git del proyecto: lectura/escritura verificada mediante llave dedicada a Sagwa, sin credenciales en Git. El checkout principal y sus worktrees comparten la configuración local; el login GitHub no autentica AGY/Claude/Grok.

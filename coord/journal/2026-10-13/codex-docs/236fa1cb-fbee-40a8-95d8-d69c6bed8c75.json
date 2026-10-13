@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "236fa1cb-fbee-40a8-95d8-d69c6bed8c75",
+  "at": "2026-10-13T20:01:37.688368+00:00",
+  "agent": "codex-docs",
+  "kind": "handoff",
+  "task": "S-001",
+  "note": "Entregar al siguiente orquestador AGENTS→STATUS→ROADMAP→coord/README→handoff. S-101 prioridad; baselineCore0.2, N2 rechazado, WakeNet/24h pendientes. TUF REGISTRY propio/revisor inactivos y locks propios liberados. No copiar llave privada a otros hosts."
+}

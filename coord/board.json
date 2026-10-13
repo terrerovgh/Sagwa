@@ -5,9 +5,9 @@
     "codex-docs": {
       "kind": "codex",
       "role": "orchestrator",
-      "status": "active",
+      "status": "inactive",
       "host": "mac-mini",
-      "last_seen": "2026-10-13T19:37:32.792824+00:00"
+      "last_seen": "2026-10-13T20:01:37.762206+00:00"
     },
     "claude-profile": {
       "kind": "claude",
@@ -29,6 +29,13 @@
       "status": "inactive",
       "host": "mac-mini",
       "last_seen": "2026-10-13T19:37:33.025318+00:00"
+    },
+    "codex-review-development": {
+      "kind": "codex",
+      "role": "reviewer",
+      "status": "inactive",
+      "host": "mac-mini",
+      "last_seen": "2026-10-13T20:00:50.742478+00:00"
     }
   },
   "tasks": {
@@ -38,10 +45,18 @@
       "acceptance": "Código y estado histórico saneados en GitHub; cinco tabs propios; coordinación concurrente probada; roles intercambiables y límites de disponibilidad documentados.",
       "risk": "R1",
       "owner": "codex-docs",
-      "state": "in_progress",
-      "artifact": null,
-      "reviews": [],
-      "updated_at": "2026-10-13T19:37:33.121086+00:00"
+      "state": "done",
+      "artifact": "fd82e7e3739ae24dae906935911d269f926295be",
+      "reviews": [
+        {
+          "agent": "codex-review-development",
+          "artifact": "fd82e7e3739ae24dae906935911d269f926295be",
+          "verdict": "pass",
+          "at": "2026-10-13T20:00:50.676986+00:00",
+          "note": "PASS limitado de otro agente Codex para tarea R1; revisor de colaboración del chat, no CLI Herdr. 17 tests PASS y nueve comprobaciones con mocks del helper Git. Correcciones verificadas: scope/terminal/pane, concurrencia, worktrees/cwd destino, publicación privada/credenciales detectables y aserción concurrente independiente del orden. SHA256 coord cc56ca59365e6e74685e0a95e8292376658035117cc46cd9c97667e701850684; Herdr 5fe7a5e6f64c5ebda04e6df91785b75ac4e19c38a7437aaa7a98f19aae36d188; publicación 5882aa04056e534023d6f23a32223c5a250bff71b2110a01d9b16e23ed35dfbf; Git helper 2268dd4860beece4f0fae83790596aba18b343c57d502f8a79a1606b69e9552d. Sin hallazgos pendientes en alcance local revisado. No verifiqué autenticación/red/GitHub remoto, Herdr vivo ni aceptación del producto/hardware/24h; sin fuentes modificadas o acceso privado."
+        }
+      ],
+      "updated_at": "2026-10-13T20:01:37.654870+00:00"
     },
     "S-101": {
       "id": "S-101",

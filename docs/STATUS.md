@@ -13,7 +13,7 @@ Este archivo es la entrada canónica de estado y prevalece sobre frases antiguas
 | Clima | NWS Ray City desplegado en ambos gateways a 18:15:51Z; smoke módulo instalado | Packet WSS y visualización física sin verificar |
 | WakeNet | Consulta empresarial enviada una vez y aceptada por transporte SMTP | Modelo «Sagwa» todavía no recibido; inbox del destinatario no demostrado |
 | Higgsfield | Atlas alfa12poses136px y saludo silencioso4.042s/24fps | No framepack Core, rig integrado o firmware actualizado |
-| Desarrollo | Tablero, bitácora, mensajes y espacio Herdr del proyecto | Claude/Grok Mac no encontrados en rutas comprobadas; login no verificado |
+| Desarrollo | Tablero, bitácora, mensajes y espacio Herdr del proyecto | Claude/Grok Mac no encontrados; Codex autenticado con ChatGPT, AGY sin verificación de login |
 
 ## Versión instalada y candidatos
 
@@ -36,3 +36,5 @@ N2: SHA256 `acc0ff4b0ae2aee1b14dc80d7872869fcd4f63f29e9f7fd6387c06866db2d680`;11
 ## Continuar
 
 Seguir [ROADMAP.md](ROADMAP.md), reclamar tarea y recurso en el [tablero](../coord/board.json), y leer el [handoff](../coord/handoffs/2026-10-13-baseline.md). No reiniciar ni flashear equipos para ponerse al día.
+
+Consolidación publicada en GitHub: `terrerovgh/Sagwa`. Lectura y escritura Git verificadas con deploy key limitada al repositorio, privada solo Mac. 17 tests de desarrollo, 60 TypeScript/build y cuatro suites nativas con sanitizers pasaron; revisión independiente acotada PASS. Sin despliegue del producto por esta consolidación.

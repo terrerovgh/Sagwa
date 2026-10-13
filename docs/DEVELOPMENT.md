@@ -29,7 +29,7 @@ python3 scripts/setup-git-access.py
 git ls-remote origin
 ```
 
-El helper comprueba origin exacto, usa la llave ya existente sin leer sus bytes, verifica host-keys oficiales y modifica solo config local/pushurl. No crea claves, cambia permisos GitHub o copia credenciales a otro equipo. El acceso Git no incluye login de proveedores ni funciones administrativas de GitHub.
+El helper comprueba origin exacto y usa la llave existente sin leer sus bytes. Escribe un archivo SSH privado, exige validación estricta con el archivo de host-keys oficiales preparado anteriormente y modifica config local/pushurl. No crea claves, cambia permisos GitHub o copia credenciales a otro equipo. El acceso Git no incluye login de proveedores ni funciones administrativas de GitHub.
 
 El checkout principal guarda tablero/bitácora compartidos. Ejecutar `coord.py` desde un worktree resuelve el Git common-dir hasta esa raíz. No incluir el directorio `.coord/runtime` en Git.
 

@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "3229e081-6b76-40c8-90f9-3062e9f37937",
+  "at": "2026-10-13T20:00:50.643624+00:00",
+  "agent": "codex-review-development",
+  "kind": "result",
+  "task": "S-001",
+  "note": "Revisión independiente R1 del sistema de desarrollo. Hallazgos originales: IDs Herdr sin servidor/sesión; excepción de privados bajo docs/evidence y patrones de credenciales incompletos; setup concurrente con temporal fijo; validación cwd de hermanos demasiado estricta. Corregidos y reproducidos con mocks. También se corrigió la aserción concurrente que asumía orden de scheduling. Verificación final: 17 tests unittest PASS; nueve comprobaciones sintéticas del helper Git PASS; 16 documentos sin enlaces relativos rotos. Artefacto fd82e7e3739ae24dae906935911d269f926295be. No se usaron servicios, Herdr vivo, red, TUF o USB, ni se leyeron bytes de claves privadas. Alcance: scripts/coord.py, sagwa-herdr.py, check-publication.py, setup-git-access.py, tests y documentación raíz/coord/docs. No certifica autenticación, ACL GitHub, publicación remota, despliegue, firmware, hardware, latencias o 24 horas. Los hechos operativos externos dependen de evidencia del orquestador."
+}

@@ -5,9 +5,9 @@
     "codex-docs": {
       "kind": "codex",
       "role": "orchestrator",
-      "status": "inactive",
+      "status": "active",
       "host": "mac-mini",
-      "last_seen": "2026-10-13T20:01:37.762206+00:00"
+      "last_seen": "2026-10-13T20:04:53.703405+00:00"
     },
     "claude-profile": {
       "kind": "claude",
@@ -134,6 +134,17 @@
       "artifact": null,
       "reviews": [],
       "updated_at": "2026-10-13T19:37:33.374543+00:00"
+    },
+    "S-002": {
+      "id": "S-002",
+      "title": "Evitar inicio desde el pane ocupado por el lanzador",
+      "acceptance": "Rechazar target=caller con mensaje claro, guía desde otro tab y test de frontera sin tocar panes.",
+      "risk": "R1",
+      "owner": "codex-docs",
+      "state": "in_progress",
+      "artifact": null,
+      "reviews": [],
+      "updated_at": "2026-10-13T20:04:53.872952+00:00"
     }
   }
 }

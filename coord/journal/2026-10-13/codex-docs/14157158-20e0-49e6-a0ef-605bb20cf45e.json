@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "14157158-20e0-49e6-a0ef-605bb20cf45e",
+  "at": "2026-10-13T20:04:53.873085+00:00",
+  "agent": "codex-docs",
+  "kind": "task.state",
+  "task": "S-002",
+  "note": "",
+  "task_snapshot": {
+    "id": "S-002",
+    "title": "Evitar inicio desde el pane ocupado por el lanzador",
+    "acceptance": "Rechazar target=caller con mensaje claro, guía desde otro tab y test de frontera sin tocar panes.",
+    "risk": "R1",
+    "owner": "codex-docs",
+    "state": "in_progress",
+    "artifact": null,
+    "reviews": [],
+    "updated_at": "2026-10-13T20:04:53.872952+00:00"
+  }
+}

@@ -152,6 +152,8 @@ def _start(kind, role):
     target_role = "orchestrator" if role == "orchestrator" else kind
     validate(state, target_role=target_role)
     pane = state["panes"][target_role]
+    if os.environ.get("HERDR_PANE_ID") == pane:
+        raise ValueError("El lanzador está ocupando el pane destino. Ejecute start desde otra pestaña de Herdr; para orquestador use la pestaña Codex vacía.")
     name = f"sagwa-{kind}" + ("-orch" if role == "orchestrator" else "") + "-" + uuid.uuid4().hex[:6]
     # Herdr validates that the pane is at a shell; never answers approval dialogs.
     result = cli("agent", "start", name, "--kind", kind, "--pane", pane)

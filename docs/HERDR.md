@@ -11,7 +11,7 @@ export PATH="$HOME/.local/bin:$PATH"
 herdr
 ```
 
-Dentro de esa terminal, raíz del proyecto:
+En la pestaña **Codex vacía** del workspace Sagwa, raíz del proyecto:
 
 ```sh
 python3 scripts/sagwa-herdr.py doctor
@@ -21,7 +21,7 @@ python3 scripts/sagwa-herdr.py start agy --role orchestrator
 
 `setup` serializa llamadas concurrentes, crea una sola topología sin tomar foco y guarda IDs, socket/sesión y terminales retornados. Antes de reutilizar valida label e identidad/pertenencia de panes vivos. Al iniciar valida el cwd del destino: raíz, subdirectorio o worktree del mismo Git common-dir; un hermano trabajando en su worktree no bloquea el inicio. `resume-setup` completa tabs ausentes tras interrupción. Si fue cerrado un pane o cambió servidor, falla sin controlar otro terminal; recuperar el layout propio explícitamente.
 
-`start` inicia **un** agente solo si existe su ejecutable; Herdr valida shell/readiness. Cada arranque tiene nombre único de sesión. Devuelve el comando `agent prompt` de incorporación. Login/trust/aprobaciones los resuelve el usuario en terminal; no se pulsan respuestas. Timeout no significa petición no entregada: inspeccionar antes de reenviar.
+`start` inicia **un** agente solo si existe su ejecutable; Herdr valida shell/readiness. Ejecute desde otra pestaña: el lanzador no puede ocupar el pane que intenta iniciar. Para el orquestador use Codex vacía; para un worker use otra pestaña disponible. Cada arranque tiene nombre único de sesión. Devuelve el comando `agent prompt` de incorporación, que se ejecuta después desde la pestaña de control. Login/trust/aprobaciones los resuelve el usuario en terminal; no se pulsan respuestas. Timeout no significa petición no entregada: inspeccionar antes de reenviar.
 
 Setup/start exigen `HERDR_ENV=1`, no lo falsean. `doctor` permite lectura local fuera. Esta consolidación creó solo un workspace nuevo sin foco por autorización expresa, sin controlar el pane enfocado previo.
 

@@ -14,7 +14,7 @@ python3 scripts/coord.py --agent mi-agente register --kind codex --role worker
 python3 scripts/coord.py --agent mi-agente status
 ```
 
-Dentro de una terminal de Herdr:
+Dentro de Herdr, seleccionar Sagwa y usar la pestaña **Codex vacía** para iniciar el orquestador en la pestaña Orquestación:
 
 ```sh
 python3 scripts/sagwa-herdr.py setup

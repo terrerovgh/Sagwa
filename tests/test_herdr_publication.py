@@ -83,3 +83,11 @@ class BoundaryTests(unittest.TestCase):
             self.assertEqual(len(created), 1)
             self.assertTrue(all(len(r["panes"]) == 5 for r in results))
             self.assertEqual(sum(bool(r.get("reused")) for r in results), 1)
+
+    def test_launcher_never_starts_its_own_occupied_pane(self):
+        with tempfile.TemporaryDirectory() as temp:
+            state = Path(temp) / "herdr.json"
+            state.write_text('{"panes":{"orchestrator":"w2:p1"}}')
+            with patch.object(herdr, "STATE", state), patch.dict(os.environ, {"HERDR_ENV":"1", "HERDR_PANE_ID":"w2:p1"}), patch.object(herdr, "doctor", return_value={"profiles":{"codex":{"executable":"/tmp/codex"}}}), patch.object(herdr, "validate"), patch.object(herdr, "cli") as cli:
+                with self.assertRaisesRegex(ValueError, "pane destino"): herdr.start("codex", "orchestrator")
+                cli.assert_not_called()

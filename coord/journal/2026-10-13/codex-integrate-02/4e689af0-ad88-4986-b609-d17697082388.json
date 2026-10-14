@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "id": "4e689af0-ad88-4986-b609-d17697082388",
+  "at": "2026-10-13T20:53:15.028814+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "lock.acquire",
+  "task": "S-204",
+  "note": "",
+  "lock": {
+    "resource": "rig-integration",
+    "agent": "codex-integrate-02",
+    "task": "S-204",
+    "expires_at_epoch": 1791931995.028007,
+    "at": "2026-10-13T20:53:15.028015+00:00"
+  }
+}

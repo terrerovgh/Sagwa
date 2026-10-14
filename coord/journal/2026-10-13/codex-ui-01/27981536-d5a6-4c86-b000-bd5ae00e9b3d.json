@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "27981536-d5a6-4c86-b000-bd5ae00e9b3d",
+  "at": "2026-10-13T20:19:22.772734+00:00",
+  "agent": "codex-ui-01",
+  "kind": "plan",
+  "task": "S-101",
+  "note": "Diagnosticar por qué Herdr y las CLI de agentes no arrancan en Terminal de Mac mini; comprobar doctor, entorno, rutas y autenticación disponible sin modificar servicios. Aceptación: causa concreta por comando, corrección reversible o pasos precisos; verificación limitada a doctor/CLI version y estado Codex no secreto; registrar resultado y límites."
+}

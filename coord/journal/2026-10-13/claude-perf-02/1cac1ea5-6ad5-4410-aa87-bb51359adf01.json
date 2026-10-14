@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "1cac1ea5-6ad5-4410-aa87-bb51359adf01",
+  "at": "2026-10-13T21:03:18.853119+00:00",
+  "agent": "claude-perf-02",
+  "kind": "result",
+  "task": "S-205",
+  "note": "Commit 1d27793ddfb69bec8752f66952f38df6487affa8 en claude/s205-exporter. export_rig.py argparse (--input --output --prefix --header --preview --parts-output). Legacy default byte-identico a rig_assets.c (hash comparado en temporal), ya no reescribe PNG de assets salvo --parts-output (PNG generados iguales a los existentes). Modo rig: 13 partes RigPart, const sagwa::RigDefinition <prefix>_rig BGRA straight alpha stride w*4, lados 1..136, |x,y,pivot|<=136. Validacion prefix/partes/rutas/tamanos/coords y outputs fuera de la carpeta de layout antes de escribir. Test: tests/export_rig_test.py 3 casos OK con venv Pillow 12.0 (legacy hash+assets sin cambios, rig compilado y renderizado con rig_renderer.hpp ASan/UBSan, 10 rechazos sin escritura). Compat Pillow 12.0: getdata si falta get_flattened_data. check-publication 0. Limites: sin build firmware; test no incluido en run.sh (requiere Pillow); no hay layout Higgsfield real probado."
+}

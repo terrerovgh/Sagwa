@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "cecc0d8c-d4ac-4239-b6c5-5da068164eef",
+  "at": "2026-10-13T20:53:44.151119+00:00",
+  "agent": "claude-perf-02",
+  "kind": "result",
+  "task": "S-201",
+  "note": "Commit 8c4362147670b2a849e87856803cba0a2a08425b en claude/s201-n3a. N3a: wake port LVGL tras unlock solo si cat.draw, cadencia 28ms intacta. Metricas atomicas acotadas (lock_wait, invalidate_to_refr_start, refr_start_to_ready, frame_gap) con PendingStamp timestamp exacto+flag valido; FPS por ventana 1s periodica desde UI_Task (incluye pausas); telemetria ui aditiva ui.window{fresh,nominal_ms,elapsed_ms,age_ms,frames,...}, port_wakes. Pruebas: tests/run.sh 5 suites ASan/UBSan PASS (nueva frame_metrics: multitransfer, pausa, wrap, mismo tick); ui-host gallery ASan build OK; idf.py build OK IDF6.0.1 con sdkconfig de main, 0 warnings, app 0x231ec0, sha256 181893a2453f260209744b950bfda9d928a24ce352a28965a55d273cccf4f7fe (no flasheado). check-publication 0 hallazgos. Limites: sin hardware/FPS real; wake no garantiza render inmediato ni fase fija (timer LVGL 16ms); percentiles = cota de bucket log2; host no ejecuto galeria visual; managed_components symlink local sin commit."
+}

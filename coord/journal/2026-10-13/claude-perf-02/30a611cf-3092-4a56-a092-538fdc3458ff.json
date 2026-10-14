@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "30a611cf-3092-4a56-a092-538fdc3458ff",
+  "at": "2026-10-13T21:05:09.399051+00:00",
+  "agent": "claude-perf-02",
+  "kind": "task.state",
+  "task": "S-205",
+  "note": "Patch parts_dir vs input base (b8b9e6df)",
+  "task_snapshot": {
+    "id": "S-205",
+    "title": "Exportador rig explicito y compatible",
+    "acceptance": "Input/output/prefix explicitos, legacy reproducible, nuevo RigDefinition13layers validado, input sin efectos; pruebas en temporales y commit revisable.",
+    "risk": "R1",
+    "owner": "claude-perf-02",
+    "state": "in_progress",
+    "artifact": null,
+    "reviews": [],
+    "updated_at": "2026-10-13T21:05:09.398936+00:00"
+  }
+}

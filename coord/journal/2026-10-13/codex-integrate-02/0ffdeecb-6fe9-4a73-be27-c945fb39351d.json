@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "0ffdeecb-6fe9-4a73-be27-c945fb39351d",
+  "at": "2026-10-13T21:13:07.204355+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "incident",
+  "task": "S-203",
+  "note": "Intento inicial reasignacion rechazado porque in_progress. Se registro paradaAGYconfirmada yblocked administrativo antesreasignar; bloqueo reclamado solo trasreasignacion correcta. Mensajebb0a3c02 anticipaba reclamacion, confirmada ahora. Preliminarconservado."
+}

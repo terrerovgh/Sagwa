@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "id": "25b0044c-6472-4b8c-9b94-815253c41a41",
+  "at": "2026-10-13T20:47:15.192799+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "orchestrator.claim",
+  "task": null,
+  "note": "Codex dirige S-201 y S-203; sin hardware ni gasto nuevo",
+  "lease": {
+    "agent": "codex-integrate-02",
+    "kind": "codex",
+    "expires_at_epoch": 1791931635.1924748,
+    "updated_at": "2026-10-13T20:47:15.192479+00:00"
+  }
+}

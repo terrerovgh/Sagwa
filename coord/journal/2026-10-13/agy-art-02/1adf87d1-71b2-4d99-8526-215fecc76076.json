@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "1adf87d1-71b2-4d99-8526-215fecc76076",
+  "at": "2026-10-13T20:54:16.234343+00:00",
+  "agent": "agy-art-02",
+  "kind": "task.state",
+  "task": "S-203",
+  "note": "",
+  "task_snapshot": {
+    "id": "S-203",
+    "title": "Rig completo Higgsfield derivado",
+    "acceptance": "Capas articuladas offline, provenance/hash y exportador explicito; FSM/audio/fallback integrados y galeria animada revisada localmente; hardware pendiente.",
+    "risk": "R1",
+    "owner": "agy-art-02",
+    "state": "in_progress",
+    "artifact": null,
+    "reviews": [],
+    "updated_at": "2026-10-13T20:54:16.234203+00:00"
+  }
+}

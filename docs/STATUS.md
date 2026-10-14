@@ -37,6 +37,6 @@ N3a + rig: compilación local ESP-IDF6.0.1, 2,381,072 bytes, SHA256 `7bcd4a04d69
 
 ## Continuar
 
-Seguir [ROADMAP.md](ROADMAP.md), reclamar tarea y recurso en el [tablero](../coord/board.json), y leer el [handoff](../coord/handoffs/2026-10-13-baseline.md). No reiniciar ni flashear equipos para ponerse al día.
+Seguir [ROADMAP.md](ROADMAP.md), reclamar tarea y recurso en el [tablero](../coord/board.json), y leer el [handoff](../coord/handoffs/2026-10-14-codex-integrate-02.md). No reiniciar ni flashear equipos para ponerse al día.
 
 Consolidación publicada en GitHub: `terrerovgh/Sagwa`. Lectura y escritura Git verificadas con deploy key limitada al repositorio, privada solo Mac. 18 tests de desarrollo, 60 TypeScript/build y cuatro suites nativas con sanitizers pasaron; revisión independiente acotada PASS. Sin despliegue del producto por esta consolidación.

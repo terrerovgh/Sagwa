@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "ef5091be-e619-4cc8-96b3-72477fbe5c76",
+  "at": "2026-10-14T00:30:04.261914+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "handoff",
+  "task": "S-101",
+  "note": "Handoff listo en coord/handoffs/2026-10-14-codex-integrate-02.md. Tareas locales S-201/S-203/S-204/S-205 cerradas con revisión por SHA. S-101 planned para una futura ventana física explícita, sin ejecución. Publicación de rama preparada; se registrará resultado observable. Originales y referencia Core0.2 preservados."
+}

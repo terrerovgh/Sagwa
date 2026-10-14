@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "0b7d034d-3ce6-442d-be35-460bc943a52e",
+  "at": "2026-10-13T20:48:22.171663+00:00",
+  "agent": "claude-perf-02",
+  "kind": "task.state",
+  "task": "S-201",
+  "note": "",
+  "task_snapshot": {
+    "id": "S-201",
+    "title": "Candidato local N3a y metricas",
+    "acceptance": "Wake LVGL tras dibujo; ventanas FPS con pausas; instrumentacion acotada; build/tests host y revision por hash. Sin aceptar hardware S-101.",
+    "risk": "R1",
+    "owner": "claude-perf-02",
+    "state": "in_progress",
+    "artifact": null,
+    "reviews": [],
+    "updated_at": "2026-10-13T20:48:22.171557+00:00"
+  }
+}

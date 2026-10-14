@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "b03d849e-985e-4d6c-ad14-606dae4c1f9a",
+  "at": "2026-10-14T00:28:59.658038+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "task.state",
+  "task": "S-203",
+  "note": "Preparación local aceptada: commit f67ef41 revisado PASS por Grok, derivación y renderizador probados; aprobación del usuario y aceptación física pendientes.",
+  "task_snapshot": {
+    "id": "S-203",
+    "title": "Rig completo Higgsfield derivado",
+    "acceptance": "Capas articuladas offline, provenance/hash y exportador explicito; FSM/audio/fallback integrados y galeria animada revisada localmente; hardware pendiente.",
+    "risk": "R1",
+    "owner": "codex-integrate-02",
+    "state": "done",
+    "artifact": "f67ef41c152ae37732cac65a1ea9234677cbef95",
+    "reviews": [
+      {
+        "agent": "grok-review-02",
+        "artifact": "f67ef41c152ae37732cac65a1ea9234677cbef95",
+        "verdict": "pass",
+        "at": "2026-10-14T00:25:47.902874+00:00",
+        "note": "PASS estatico del diff b64dfba..f67ef41c152ae37732cac65a1ea9234677cbef95. No reejecute derive, galeria ni IDF. build_higgsfield_rig.py premulplica sobre negro solo si alfa fuente >=240 y deja el borde translucido; el underlap copia bisagras al body/head donde el alfa ya es 255. El neutro se compara con el original sobre negro y aborta si hay diff RGB fuera de ojos/boca. provenance: 6939 px, 25 retocados, 0 fuera. El test exige alfa 255 del underlap en fuente >=240 y hash intacto; no relee el diff RGB. Docs actualizan hash 7bcd4a04..6c1ea y mantienen sin flash ni aceptacion visual. Hardware pendiente."
+      }
+    ],
+    "updated_at": "2026-10-14T00:28:59.657957+00:00"
+  }
+}

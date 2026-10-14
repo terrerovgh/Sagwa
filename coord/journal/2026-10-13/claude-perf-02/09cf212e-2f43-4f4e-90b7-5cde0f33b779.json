@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "09cf212e-2f43-4f4e-90b7-5cde0f33b779",
+  "at": "2026-10-13T21:05:22.671734+00:00",
+  "agent": "claude-perf-02",
+  "kind": "result",
+  "task": "S-205",
+  "note": "Commit f2020660ccfb98a59c5d03e525e22dd4ccf1f838 (sobre 1d27793) en claude/s205-exporter: --parts-output se rechaza si es la carpeta del layout, esta dentro o la contiene; validado antes de escribir. Test nuevo: ASSETS, ASSETS/nested, ASSETS.parent y carpeta fixture rechazados, hashes intactos, sin out.c. export_rig_test 4/4 OK venv Pillow 12.0; check-publication 0. Sin review Grok visible al commit; aplicare CHANGES si llegan."
+}

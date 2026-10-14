@@ -8,7 +8,7 @@ N3a y el rig articulado Higgsfield están integrados y compilados localmente; la
 
 ## Empezar como agente
 
-Lea [AGENTS.md](AGENTS.md), [objetivo](docs/OBJECTIVE.md), [estado](docs/STATUS.md) y [coordinación](coord/README.md), en ese orden. La [historia](docs/HISTORY.md) explica las decisiones y pruebas anteriores; el [handoff actual](coord/handoffs/2026-10-13-baseline.md) permite continuar sin reconstruir conversaciones.
+Lea [AGENTS.md](AGENTS.md), [objetivo](docs/OBJECTIVE.md), [estado](docs/STATUS.md) y [coordinación](coord/README.md), en ese orden. La [historia](docs/HISTORY.md) explica las decisiones y pruebas anteriores; el [handoff actual](coord/handoffs/2026-10-14-codex-integrate-02.md) permite continuar sin reconstruir conversaciones.
 
 ```sh
 python3 scripts/sagwa-herdr.py doctor

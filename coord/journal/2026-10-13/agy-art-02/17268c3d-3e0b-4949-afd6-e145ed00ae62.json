@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "17268c3d-3e0b-4949-afd6-e145ed00ae62",
+  "at": "2026-10-13T21:13:06.996109+00:00",
+  "agent": "agy-art-02",
+  "kind": "task.state",
+  "task": "S-203",
+  "note": "Registro administrativo Codex: propietario confirma parada9fb0597a; entrega preliminar no aceptada por artefactosvisuales. AGY paso a auditoria lectura; se permite reasignacion explicita.",
+  "task_snapshot": {
+    "id": "S-203",
+    "title": "Rig completo Higgsfield derivado",
+    "acceptance": "Capas articuladas offline, provenance/hash y exportador explicito; FSM/audio/fallback integrados y galeria animada revisada localmente; hardware pendiente.",
+    "risk": "R1",
+    "owner": "agy-art-02",
+    "state": "blocked",
+    "artifact": null,
+    "reviews": [],
+    "updated_at": "2026-10-13T21:13:06.996035+00:00"
+  }
+}

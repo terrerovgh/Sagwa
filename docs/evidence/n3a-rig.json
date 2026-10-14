@@ -1,0 +1,44 @@
+{
+  "scope": "Local N3a and articulated Higgsfield rig candidate; no hardware acceptance",
+  "source_commit": "f67ef41c152ae37732cac65a1ea9234677cbef95",
+  "branch": "codex/s204-integration",
+  "build": {
+    "esp_idf": "6.0.1",
+    "result": "pass",
+    "warnings": 0,
+    "app_bytes": 2381072,
+    "app_sha256": "7bcd4a04d6990bf4b545c60694f527d46ef40fb1f9087222c2086fe0fa46c1ea",
+    "ota_slot_bytes": 4194304,
+    "free_slot_bytes": 1813232,
+    "flashed": false
+  },
+  "validation": {
+    "native_sanitizer_suites": 6,
+    "exporter_test_methods": 4,
+    "derivation_test_methods": 3,
+    "screens_per_rig": 33,
+    "gestures_per_rig": 21,
+    "animation_clips_per_rig": 14,
+    "new_rig_host_result": "pass",
+    "reference_rig_host_result": "pass",
+    "independent_static_review": "grok-review-02 PASS for exact source_commit",
+    "original_files_audited": 34,
+    "original_files_modified": 0
+  },
+  "rig": {
+    "layers": 13,
+    "texture_bytes_in_flash": 78404,
+    "reused_rgb565_target_bytes": 36992,
+    "neutral_changed_pixels": 25,
+    "neutral_changed_pixels_outside_eyes_and_mouth": 0,
+    "opaque_hinge_underlap": true,
+    "visual_approval_by_user": false
+  },
+  "limitations": [
+    "Wake request does not force LVGL refresh timer expiry or prove a phase relationship",
+    "No physical FPS, latency, memory, CPU or acoustic measurements",
+    "No USB, service changes, partition migration, irreversible security changes or paid API calls",
+    "Host ticks, sensors and playback bands are synthetic; GIF duration is not a performance measurement",
+    "Release, signed OTA, hardware rollback acceptance and 24-hour stability remain pending"
+  ]
+}

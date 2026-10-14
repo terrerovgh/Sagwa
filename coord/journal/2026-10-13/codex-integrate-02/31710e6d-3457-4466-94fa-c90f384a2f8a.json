@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "31710e6d-3457-4466-94fa-c90f384a2f8a",
+  "at": "2026-10-13T20:55:43.052953+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "decision",
+  "task": "S-203",
+  "note": "Usuario pide flag auto approve al enviar agentes a tareas. AGY se relanza con --continue --dangerously-skip-permissions --effort high; Claude modo auto y Grok always-approve observados. Mantener alcance local autorizado, sin ampliar hardware/API/servicios."
+}

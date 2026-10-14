@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "e01ccc69-af65-42a5-a8eb-1622bb5e0b2c",
+  "at": "2026-10-13T20:47:15.321230+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "task.create",
+  "task": "S-203",
+  "note": "",
+  "task_snapshot": {
+    "id": "S-203",
+    "title": "Rig completo Higgsfield derivado",
+    "acceptance": "Capas articuladas offline, provenance/hash y exportador explicito; FSM/audio/fallback integrados y galeria animada revisada localmente; hardware pendiente.",
+    "risk": "R1",
+    "owner": null,
+    "state": "backlog",
+    "artifact": null,
+    "reviews": [],
+    "updated_at": "2026-10-13T20:47:15.321217+00:00"
+  }
+}

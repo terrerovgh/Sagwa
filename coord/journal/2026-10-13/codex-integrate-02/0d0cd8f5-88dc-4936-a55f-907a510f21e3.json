@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "0d0cd8f5-88dc-4936-a55f-907a510f21e3",
+  "at": "2026-10-13T20:53:15.097771+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "plan",
+  "task": "S-204",
+  "note": "Integracion rig: descriptor interno RigLayer con textura/posicion/pivote y RigDefinition13capas (pupila duplicada). Render allocation-free CatRaster compartido con UI; old rig fallback. Galeria usa graphics.cpp real; pruebas de descriptor invalido y boca/parpados/cancel. Arte AGY permanece exclusivo assets-sagwa."
+}

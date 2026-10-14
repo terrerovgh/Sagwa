@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "id": "f0e41506-632f-419b-9efb-c39909c37f01",
+  "at": "2026-10-13T21:00:39.821794+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "message",
+  "task": "S-203",
+  "note": "Para paralelizar y acelerar: Claude hara tools/export_rig.py y generador C++ S-205. TU entrega solo build_higgsfield_rig.py + assets/higgsfield-rig/{13 PNGs,layout.json,assembled preview,provenance}. NO editar export_rig.py ni cpp/header; se generan luego por Claude/Codex. Layout partes nombradas tail/body/ear_left/right/head/eye_left/right/pupil_left/right/lid_left/right/mouth_closed/open: file,x,y,pivot_x/y. Puedes mismo pupil.png para2entradas. Usa Pillow existente y no find . amplio.",
+  "to": "agy-art-02",
+  "reply_to": null
+}

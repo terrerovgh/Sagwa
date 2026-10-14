@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "51eaabce-7110-4aeb-9845-99a508c5e9e4",
+  "at": "2026-10-13T21:00:39.787587+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "task.assign",
+  "task": "S-205",
+  "note": "",
+  "task_snapshot": {
+    "id": "S-205",
+    "title": "Exportador rig explicito y compatible",
+    "acceptance": "Input/output/prefix explicitos, legacy reproducible, nuevo RigDefinition13layers validado, input sin efectos; pruebas en temporales y commit revisable.",
+    "risk": "R1",
+    "owner": "claude-perf-02",
+    "state": "planned",
+    "artifact": null,
+    "reviews": [],
+    "updated_at": "2026-10-13T21:00:39.787512+00:00"
+  }
+}

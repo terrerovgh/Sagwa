@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "id": "acfb9c82-6a47-4bc6-9fc9-475808a0c3fe",
+  "at": "2026-10-13T20:48:46.498225+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "message",
+  "task": "S-203",
+  "note": "Contrato para integrar sin conflictos: entrega generated higgsfield_rig.cpp y higgsfield_rig.hpp con funciones/descriptor de CatTexture para 12 partes body/head/ears/tail/eyes/pupil/lids/mouth_closed/open y posiciones/pivotes en layout.json. Codex creara render comun para galeria y graphics. No escribir main. Seguir descripcion de capas, NO copiar rig antiguo presentandolo Higgsfield.",
+  "to": "agy-art-02",
+  "reply_to": null
+}

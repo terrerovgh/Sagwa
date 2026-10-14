@@ -36,6 +36,41 @@
       "status": "inactive",
       "host": "mac-mini",
       "last_seen": "2026-10-13T20:06:02.358750+00:00"
+    },
+    "codex-ui-01": {
+      "kind": "codex",
+      "role": "worker",
+      "status": "inactive",
+      "host": "mac-mini",
+      "last_seen": "2026-10-13T20:19:38.685073+00:00"
+    },
+    "codex-integrate-02": {
+      "kind": "codex",
+      "role": "orchestrator",
+      "status": "active",
+      "host": "mac-mini",
+      "last_seen": "2026-10-13T20:47:15.159108+00:00"
+    },
+    "claude-perf-02": {
+      "kind": "claude",
+      "role": "worker",
+      "status": "inactive",
+      "host": "mac-mini",
+      "last_seen": "2026-10-14T00:28:59.816501+00:00"
+    },
+    "agy-art-02": {
+      "kind": "agy",
+      "role": "worker",
+      "status": "inactive",
+      "host": "mac-mini",
+      "last_seen": "2026-10-13T21:14:44.766537+00:00"
+    },
+    "grok-review-02": {
+      "kind": "grok",
+      "role": "reviewer",
+      "status": "inactive",
+      "host": "mac-mini",
+      "last_seen": "2026-10-14T00:28:59.848228+00:00"
     }
   },
   "tasks": {
@@ -63,11 +98,11 @@
       "title": "Fluidez LVGL/DMA",
       "acceptance": "30+FPS sostenidos al terminar SPI, sin degradación de audio/gestos; propuesta y revisión antes de hardware.",
       "risk": "R2",
-      "owner": null,
-      "state": "backlog",
+      "owner": "codex-integrate-02",
+      "state": "planned",
       "artifact": null,
       "reviews": [],
-      "updated_at": "2026-10-13T19:37:33.184041+00:00"
+      "updated_at": "2026-10-14T00:28:59.721606+00:00"
     },
     "S-102": {
       "id": "S-102",
@@ -153,6 +188,89 @@
         }
       ],
       "updated_at": "2026-10-13T20:06:27.270011+00:00"
+    },
+    "S-201": {
+      "id": "S-201",
+      "title": "Candidato local N3a y metricas",
+      "acceptance": "Wake LVGL tras dibujo; ventanas FPS con pausas; instrumentacion acotada; build/tests host y revision por hash. Sin aceptar hardware S-101.",
+      "risk": "R1",
+      "owner": "claude-perf-02",
+      "state": "done",
+      "artifact": "8c4362147670b2a849e87856803cba0a2a08425b",
+      "reviews": [
+        {
+          "agent": "grok-review-02",
+          "artifact": "8c4362147670b2a849e87856803cba0a2a08425b",
+          "verdict": "pass",
+          "at": "2026-10-13T20:59:27.581807+00:00",
+          "note": "PASS estatico del diff 43a5eef..8c436214. No reejecute tests ni probe hardware. FrameRateWindow cierra por reloj en UI y fresh() exige cierre dentro de dos periodos; el test cubre pausa, wrap y sello en el mismo tick. PendingStamp arma/toma bajo el lock de display. Wake USER tras unlock solo sale del wait del puerto (esp_lvgl_port.c:224); el parametro se ignora. Limites: max_frame_gap_us sigue con exchange(0) por lectura; el gap de la ventana es window.frame_gap. refr_start_to_ready acaba en REFR_READY (lv_refr.c:439), no en el ISR SPI. REFR_START puede salir sin READY solo si el evento devuelve INVALID (lv_refr.c:388); el callback local no lo hace."
+        }
+      ],
+      "updated_at": "2026-10-13T21:00:39.721504+00:00"
+    },
+    "S-203": {
+      "id": "S-203",
+      "title": "Rig completo Higgsfield derivado",
+      "acceptance": "Capas articuladas offline, provenance/hash y exportador explicito; FSM/audio/fallback integrados y galeria animada revisada localmente; hardware pendiente.",
+      "risk": "R1",
+      "owner": "codex-integrate-02",
+      "state": "done",
+      "artifact": "f67ef41c152ae37732cac65a1ea9234677cbef95",
+      "reviews": [
+        {
+          "agent": "grok-review-02",
+          "artifact": "f67ef41c152ae37732cac65a1ea9234677cbef95",
+          "verdict": "pass",
+          "at": "2026-10-14T00:25:47.902874+00:00",
+          "note": "PASS estatico del diff b64dfba..f67ef41c152ae37732cac65a1ea9234677cbef95. No reejecute derive, galeria ni IDF. build_higgsfield_rig.py premulplica sobre negro solo si alfa fuente >=240 y deja el borde translucido; el underlap copia bisagras al body/head donde el alfa ya es 255. El neutro se compara con el original sobre negro y aborta si hay diff RGB fuera de ojos/boca. provenance: 6939 px, 25 retocados, 0 fuera. El test exige alfa 255 del underlap en fuente >=240 y hash intacto; no relee el diff RGB. Docs actualizan hash 7bcd4a04..6c1ea y mantienen sin flash ni aceptacion visual. Hardware pendiente."
+        }
+      ],
+      "updated_at": "2026-10-14T00:28:59.657957+00:00"
+    },
+    "S-204": {
+      "id": "S-204",
+      "title": "Integracion local fluidez y rig",
+      "acceptance": "Entregas integradas y revisadas por Grok; suites host/build/publicacion PASS; galeria y memoria/OTA documentadas, handoff y limites fisicos claros.",
+      "risk": "R1",
+      "owner": "codex-integrate-02",
+      "state": "done",
+      "artifact": "f67ef41c152ae37732cac65a1ea9234677cbef95",
+      "reviews": [
+        {
+          "agent": "grok-review-02",
+          "artifact": "f67ef41c152ae37732cac65a1ea9234677cbef95",
+          "verdict": "pass",
+          "at": "2026-10-14T00:25:47.934751+00:00",
+          "note": "PASS estatico del diff b64dfba..f67ef41c152ae37732cac65a1ea9234677cbef95. No reejecute derive, galeria ni IDF. build_higgsfield_rig.py premulplica sobre negro solo si alfa fuente >=240 y deja el borde translucido; el underlap copia bisagras al body/head donde el alfa ya es 255. El neutro se compara con el original sobre negro y aborta si hay diff RGB fuera de ojos/boca. provenance: 6939 px, 25 retocados, 0 fuera. El test exige alfa 255 del underlap en fuente >=240 y hash intacto; no relee el diff RGB. Docs actualizan hash 7bcd4a04..6c1ea y mantienen sin flash ni aceptacion visual. Hardware pendiente."
+        }
+      ],
+      "updated_at": "2026-10-14T00:28:59.690055+00:00"
+    },
+    "S-205": {
+      "id": "S-205",
+      "title": "Exportador rig explicito y compatible",
+      "acceptance": "Input/output/prefix explicitos, legacy reproducible, nuevo RigDefinition13layers validado, input sin efectos; pruebas en temporales y commit revisable.",
+      "risk": "R1",
+      "owner": "claude-perf-02",
+      "state": "done",
+      "artifact": "f2020660ccfb98a59c5d03e525e22dd4ccf1f838",
+      "reviews": [
+        {
+          "agent": "grok-review-02",
+          "artifact": "f2020660ccfb98a59c5d03e525e22dd4ccf1f838",
+          "verdict": "pass",
+          "at": "2026-10-13T21:07:30.095085+00:00",
+          "note": "PASS del arbol de f202066 (mismo contenido que f690a35). 1d27793 ya no esta en el tablero: ahi --parts-output podia escribir en la carpeta del layout. f202066 rechaza parts_dir igual, dentro o padre del layout antes de escribir; el test nuevo exige que out.c no exista y que los PNG originales no cambien. Diff acotado a export_rig.py y export_rig_test.py. Modo rig: 13 RigPart en orden, BGRA, stride width*4. Default sin clave file sigue legacy. No reejecute tests. Limite: el preview rig pega en (round(x),round(y)) sobre lienzo 136 y una parte de lado 136 puede sobresalir."
+        },
+        {
+          "agent": "grok-review-02",
+          "artifact": "f2020660ccfb98a59c5d03e525e22dd4ccf1f838",
+          "verdict": "pass",
+          "at": "2026-10-13T21:08:37.385789+00:00",
+          "note": "PASS del diff completo 57ce546..f2020660ccfb98a59c5d03e525e22dd4ccf1f838 en claude/s205-exporter. Solo export_rig.py y export_rig_test.py. parts_dir se resuelve con Path.resolve() y se rechaza si es la carpeta del layout, esta dentro o es un padre, antes de escribir; el test cubre ASSETS, nested, ASSETS.parent y el padre del fixture, y comprueba que out.c no existe y los hashes no cambian. Rig: 13 RigPart en orden, BGRA, stride width*4, bytes stride*height. Legacy por ausencia de file. No reejecute los 17 tests. Limite: el test no crea un symlink; el rechazo de alias depende de resolve(). El preview rig puede sobresalir del lienzo 136."
+        }
+      ],
+      "updated_at": "2026-10-13T21:09:28.431868+00:00"
     }
   }
 }

@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "ba637df1-c4f5-4454-90dc-b340e7080628",
+  "at": "2026-10-13T21:07:30.095206+00:00",
+  "agent": "grok-review-02",
+  "kind": "task.review",
+  "task": "S-205",
+  "note": "PASS del arbol de f202066 (mismo contenido que f690a35). 1d27793 ya no esta en el tablero: ahi --parts-output podia escribir en la carpeta del layout. f202066 rechaza parts_dir igual, dentro o padre del layout antes de escribir; el test nuevo exige que out.c no exista y que los PNG originales no cambien. Diff acotado a export_rig.py y export_rig_test.py. Modo rig: 13 RigPart en orden, BGRA, stride width*4. Default sin clave file sigue legacy. No reejecute tests. Limite: el preview rig pega en (round(x),round(y)) sobre lienzo 136 y una parte de lado 136 puede sobresalir.",
+  "task_snapshot": {
+    "id": "S-205",
+    "title": "Exportador rig explicito y compatible",
+    "acceptance": "Input/output/prefix explicitos, legacy reproducible, nuevo RigDefinition13layers validado, input sin efectos; pruebas en temporales y commit revisable.",
+    "risk": "R1",
+    "owner": "claude-perf-02",
+    "state": "review",
+    "artifact": "f2020660ccfb98a59c5d03e525e22dd4ccf1f838",
+    "reviews": [
+      {
+        "agent": "grok-review-02",
+        "artifact": "f2020660ccfb98a59c5d03e525e22dd4ccf1f838",
+        "verdict": "pass",
+        "at": "2026-10-13T21:07:30.095085+00:00",
+        "note": "PASS del arbol de f202066 (mismo contenido que f690a35). 1d27793 ya no esta en el tablero: ahi --parts-output podia escribir en la carpeta del layout. f202066 rechaza parts_dir igual, dentro o padre del layout antes de escribir; el test nuevo exige que out.c no exista y que los PNG originales no cambien. Diff acotado a export_rig.py y export_rig_test.py. Modo rig: 13 RigPart en orden, BGRA, stride width*4. Default sin clave file sigue legacy. No reejecute tests. Limite: el preview rig pega en (round(x),round(y)) sobre lienzo 136 y una parte de lado 136 puede sobresalir."
+      }
+    ],
+    "updated_at": "2026-10-13T21:07:30.095190+00:00"
+  }
+}

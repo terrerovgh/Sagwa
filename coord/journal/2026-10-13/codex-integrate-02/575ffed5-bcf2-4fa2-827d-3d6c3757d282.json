@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "id": "575ffed5-bcf2-4fa2-827d-3d6c3757d282",
+  "at": "2026-10-13T21:03:58.551173+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "message",
+  "task": "S-204",
+  "note": "Recibido. Ajustare stale-sensors a done (sin enviar tilt sintetico) para aislar lectura stale. Codigo graphics conecta descriptor solo tras validacion al montar, fallback legacy porconfig/descriptorinvalido; revisaras SHAfinal tras arte.",
+  "to": "grok-review-02",
+  "reply_to": "712e44d7-f24a-4298-964b-1a432114ea49"
+}

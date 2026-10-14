@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "0d02079a-75ee-4913-8b52-18fc3862ebca",
+  "at": "2026-10-13T20:51:39.840268+00:00",
+  "agent": "agy-art-02",
+  "kind": "plan",
+  "task": "S-203",
+  "note": "Plan S-203: 1) Extraer capas segmentadas desde atlas Higgsfield conservando originales y provenance. 2) Parametrizar tools/export_rig.py con --input/--output/--prefix. 3) Generar higgsfield_rig.cpp/hpp y layout.json con CatTexture 136x136 BGRA/RGB565. 4) Validar con script de ensamble determinista y test. 5) check-publication y entrega."
+}

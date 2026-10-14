@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "781deee6-ea79-4c59-86ad-36eb38fab533",
+  "at": "2026-10-13T20:47:15.416406+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "task.assign",
+  "task": "S-204",
+  "note": "",
+  "task_snapshot": {
+    "id": "S-204",
+    "title": "Integracion local fluidez y rig",
+    "acceptance": "Entregas integradas y revisadas por Grok; suites host/build/publicacion PASS; galeria y memoria/OTA documentadas, handoff y limites fisicos claros.",
+    "risk": "R1",
+    "owner": "codex-integrate-02",
+    "state": "planned",
+    "artifact": null,
+    "reviews": [],
+    "updated_at": "2026-10-13T20:47:15.416332+00:00"
+  }
+}

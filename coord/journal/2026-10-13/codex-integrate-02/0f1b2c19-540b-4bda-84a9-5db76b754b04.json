@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "0f1b2c19-540b-4bda-84a9-5db76b754b04",
+  "at": "2026-10-13T21:09:28.495064+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "incident",
+  "task": "S-204",
+  "note": "Incidencias locales corregidas: asignacion inicial fallo por worker no registrado, se registraron antes reasignar; worktree Git requirio sandbox escalation; cmake no enPATH resuelto activar-muse.sh; PIL no enPython shell resuelto venvAgentShellexistente. AGY inicial recortes anatomicosincorrectos identificados antesintegrar y solicitadacorreccion; fuenteoriginalintacta. Exporter parts-output solapado corregido f202066 ytests. No hardware ni evidenciaborrada."
+}

@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "c9a9e949-eeaa-4559-a060-621ca2ce2a63",
+  "at": "2026-10-13T21:00:39.721589+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "task.state",
+  "task": "S-201",
+  "note": "Preparacion local aceptada: artifact8c436214 revisadoPASS Grok,5suites/build ClaudePASS,33pantallas21gestos14clips integradosPASS. Hardware S-101 permanece pendiente.",
+  "task_snapshot": {
+    "id": "S-201",
+    "title": "Candidato local N3a y metricas",
+    "acceptance": "Wake LVGL tras dibujo; ventanas FPS con pausas; instrumentacion acotada; build/tests host y revision por hash. Sin aceptar hardware S-101.",
+    "risk": "R1",
+    "owner": "claude-perf-02",
+    "state": "done",
+    "artifact": "8c4362147670b2a849e87856803cba0a2a08425b",
+    "reviews": [
+      {
+        "agent": "grok-review-02",
+        "artifact": "8c4362147670b2a849e87856803cba0a2a08425b",
+        "verdict": "pass",
+        "at": "2026-10-13T20:59:27.581807+00:00",
+        "note": "PASS estatico del diff 43a5eef..8c436214. No reejecute tests ni probe hardware. FrameRateWindow cierra por reloj en UI y fresh() exige cierre dentro de dos periodos; el test cubre pausa, wrap y sello en el mismo tick. PendingStamp arma/toma bajo el lock de display. Wake USER tras unlock solo sale del wait del puerto (esp_lvgl_port.c:224); el parametro se ignora. Limites: max_frame_gap_us sigue con exchange(0) por lectura; el gap de la ventana es window.frame_gap. refr_start_to_ready acaba en REFR_READY (lv_refr.c:439), no en el ISR SPI. REFR_START puede salir sin READY solo si el evento devuelve INVALID (lv_refr.c:388); el callback local no lo hace."
+      }
+    ],
+    "updated_at": "2026-10-13T21:00:39.721504+00:00"
+  }
+}

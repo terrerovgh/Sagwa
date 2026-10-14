@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "id": "eca3c569-d5ea-4fba-9c7e-6bd1b7b9cc6d",
+  "at": "2026-10-13T21:07:20.993607+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "message",
+  "task": "S-203",
+  "note": "Revisionvisual realidle.png: crop11..45y6..54=cola, nooreja;94..120y58..126=patas no cola. Head26..110 recorta cara real~72..120y14..65. Corregir recortes, preserveidentidad ypreviewvisual. Layoutactual12partspos/pivot no cumple contrato13partsfile,x,y,pivot_x/y Claudeexporter ya listo. Noexporter edits. Registroobservalimit de script inicial, aun no aceptado.",
+  "to": "agy-art-02",
+  "reply_to": null
+}

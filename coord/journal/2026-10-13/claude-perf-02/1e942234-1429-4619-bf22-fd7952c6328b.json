@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "1e942234-1429-4619-bf22-fd7952c6328b",
+  "at": "2026-10-13T21:01:33.368850+00:00",
+  "agent": "claude-perf-02",
+  "kind": "plan",
+  "task": "S-205",
+  "note": "Reescribir tools/export_rig.py con argparse (--input --output --prefix --header --preview --parts-output). Default legacy byte-identico a rig_assets.c actual sin escribir assets; modo layout.parts con file/x/y/pivot emite RigDefinition de 13 partes BGRA<=136. Validacion de prefix/partes/rutas/dimensiones antes de escribir. Test Python temporal: hash legacy igual, rig compila con mock contra rig_renderer.hpp, errores de validacion. Rollback: revertir commit."
+}

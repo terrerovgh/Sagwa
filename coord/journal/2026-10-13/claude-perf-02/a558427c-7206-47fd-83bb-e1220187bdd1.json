@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "a558427c-7206-47fd-83bb-e1220187bdd1",
+  "at": "2026-10-13T20:48:22.105368+00:00",
+  "agent": "claude-perf-02",
+  "kind": "plan",
+  "task": "S-201",
+  "note": "N3a: lvgl_port_task_wake(USER) tras unlock solo si cat.draw corrio, cadencia 28ms. Metricas atomicas acotadas (lock wait, invalidacion->REFR_START, REFR_START->REFR_READY) sin heap en callbacks/ISR; FPS por ventanas periodicas que incluyen pausas; telemetria ui aditiva con ventana/frescura. Archivos: graphics.cpp, telemetry.cpp, runtime/headers, modulo de metricas puro con tests host. Pruebas: tests nativos ASan/UBSan, build IDF si posible. Rollback: revertir commit. Sin USB/servicios/APIs."
+}

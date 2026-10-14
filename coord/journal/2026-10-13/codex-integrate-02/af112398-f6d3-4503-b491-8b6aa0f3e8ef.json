@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "af112398-f6d3-4503-b491-8b6aa0f3e8ef",
+  "at": "2026-10-13T21:23:21.144908+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "incident",
+  "task": "S-204",
+  "note": "IDFfinal inicial fallo sandbox psutil sysctlEPERM; rerun autorizado fuera sandbox buildPASS0warnings. No flash commands ejecutados; sugerencias flash enlog son texto deIDF."
+}

@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "2e31ac83-f30b-406a-bcb7-407fa70b5dc7",
+  "at": "2026-10-13T21:12:42.654283+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "plan",
+  "task": "S-203",
+  "note": "Sustituir recortes/infill defectuosos con mascaras de particion disjunta de fuenteidle: neutral conserva todos pixeles fuera ojos/boca. Pupilas/lids/mouthlocales independientes;13parts layout exportable. Validar reconstruccion fuera regionesfeatures=0 diferencias, hashes fuentesiguales y rendering C++/galeria. PreliminarAGY preservado enworktree sincommit."
+}

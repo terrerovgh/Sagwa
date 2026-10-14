@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "ae99c12c-567a-4e25-ad1b-448dc5673898",
+  "at": "2026-10-13T21:09:28.431952+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "task.state",
+  "task": "S-205",
+  "note": "Artifactf202066 revisadoPASSGrok; exporter4testsPASS enintegracion (legacyhash+inputinmutable+rigC++ASan/rechazos+partsdir). Integrado1d27793/f202066 como7eed88e/f690a35. Sinbuildfisico requerido para exporter.",
+  "task_snapshot": {
+    "id": "S-205",
+    "title": "Exportador rig explicito y compatible",
+    "acceptance": "Input/output/prefix explicitos, legacy reproducible, nuevo RigDefinition13layers validado, input sin efectos; pruebas en temporales y commit revisable.",
+    "risk": "R1",
+    "owner": "claude-perf-02",
+    "state": "done",
+    "artifact": "f2020660ccfb98a59c5d03e525e22dd4ccf1f838",
+    "reviews": [
+      {
+        "agent": "grok-review-02",
+        "artifact": "f2020660ccfb98a59c5d03e525e22dd4ccf1f838",
+        "verdict": "pass",
+        "at": "2026-10-13T21:07:30.095085+00:00",
+        "note": "PASS del arbol de f202066 (mismo contenido que f690a35). 1d27793 ya no esta en el tablero: ahi --parts-output podia escribir en la carpeta del layout. f202066 rechaza parts_dir igual, dentro o padre del layout antes de escribir; el test nuevo exige que out.c no exista y que los PNG originales no cambien. Diff acotado a export_rig.py y export_rig_test.py. Modo rig: 13 RigPart en orden, BGRA, stride width*4. Default sin clave file sigue legacy. No reejecute tests. Limite: el preview rig pega en (round(x),round(y)) sobre lienzo 136 y una parte de lado 136 puede sobresalir."
+      },
+      {
+        "agent": "grok-review-02",
+        "artifact": "f2020660ccfb98a59c5d03e525e22dd4ccf1f838",
+        "verdict": "pass",
+        "at": "2026-10-13T21:08:37.385789+00:00",
+        "note": "PASS del diff completo 57ce546..f2020660ccfb98a59c5d03e525e22dd4ccf1f838 en claude/s205-exporter. Solo export_rig.py y export_rig_test.py. parts_dir se resuelve con Path.resolve() y se rechaza si es la carpeta del layout, esta dentro o es un padre, antes de escribir; el test cubre ASSETS, nested, ASSETS.parent y el padre del fixture, y comprueba que out.c no existe y los hashes no cambian. Rig: 13 RigPart en orden, BGRA, stride width*4, bytes stride*height. Legacy por ausencia de file. No reejecute los 17 tests. Limite: el test no crea un symlink; el rechazo de alias depende de resolve(). El preview rig puede sobresalir del lienzo 136."
+      }
+    ],
+    "updated_at": "2026-10-13T21:09:28.431868+00:00"
+  }
+}

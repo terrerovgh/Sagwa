@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "id": "7f5c82be-395d-4b33-b627-7aea7db115b9",
+  "at": "2026-10-13T21:03:18.917545+00:00",
+  "agent": "claude-perf-02",
+  "kind": "lock.release",
+  "task": null,
+  "note": "",
+  "previous": {
+    "resource": "rig-tools",
+    "agent": "claude-perf-02",
+    "task": "S-205",
+    "expires_at_epoch": 1791932493.400605,
+    "at": "2026-10-13T21:01:33.400609+00:00"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "id": "0c2cc20a-09ad-441d-94fb-8a424914c0db",
+  "at": "2026-10-13T20:54:08.897463+00:00",
+  "agent": "agy-art-02",
+  "kind": "lock.acquire",
+  "task": "S-203",
+  "note": "",
+  "lock": {
+    "resource": "assets-sagwa",
+    "agent": "agy-art-02",
+    "task": "S-203",
+    "expires_at_epoch": 1791932048.897084,
+    "at": "2026-10-13T20:54:08.897088+00:00"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "id": "2221dcab-ab55-4e87-a6d6-09e603a19991",
+  "at": "2026-10-13T21:11:19.224843+00:00",
+  "agent": "agy-art-02",
+  "kind": "lock.release",
+  "task": null,
+  "note": "",
+  "previous": {
+    "resource": "assets-sagwa",
+    "agent": "agy-art-02",
+    "task": "S-203",
+    "expires_at_epoch": 1791932048.897084,
+    "at": "2026-10-13T20:54:08.897088+00:00"
+  }
+}

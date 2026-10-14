@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "6c07da7d-6143-4e06-a2c2-e323ad9cc199",
+  "at": "2026-10-14T00:28:59.753060+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "plan",
+  "task": "S-101",
+  "note": "Continuidad: versionar recibos y handoff del candidato local bajo git-integration. S-101 permanece planned: ninguna ventana física autorizada en esta etapa. Su aceptación exige 30+ FPS medidos al terminar SPI, gestos/audio sin regresión y revisión antes de hardware; no abrir USB ni desplegar por esta preparación documental."
+}

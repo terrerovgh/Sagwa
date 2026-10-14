@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "f4554d1f-f17e-42ee-a60d-d71a994af968",
+  "at": "2026-10-13T20:19:38.651564+00:00",
+  "agent": "codex-ui-01",
+  "kind": "progress",
+  "task": "S-101",
+  "note": "Diagnóstico en terrerovs-Mac-Mini.local: ~/.local/bin no estaba en PATH de zsh login; ~/.zprofile solo añadía Docker. Herdr 0.9.4 funciona por ruta absoluta, server 0.9.3 running y compatible, server_binary_stale=yes sin restart_needed; hooks de integración no instalados (opcionales). Codex CLI 0.162.0-alpha.17.2 responde y `codex login status` confirma ChatGPT. AGY 1.3.3 responde por ruta absoluta; autenticación no comprobada. Doctor no encuentra Claude ni Grok en PATH/fallbacks configurados. Añadida línea PATH=/Users/terrerov/.local/bin:$PATH a ~/.zprofile; shell nueva encuentra herdr, agy, codex y sus tres --version responden. `sagwa-herdr.py doctor`: herdr/codex/agy detectados, claude/grok ausentes, inside_herdr=false desde Terminal ordinaria. No tests de proyecto ni cambios de servidor. Límite: no instalé Claude/Grok ni autentiqué AGY; setup/start se deben invocar desde pestaña Herdr administrada."
+}

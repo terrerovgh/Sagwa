@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "id": "4a0be6b0-f0b8-4308-9e84-2197e6ee56ec",
+  "at": "2026-10-13T21:13:07.140870+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "lock.acquire",
+  "task": "S-203",
+  "note": "PropietarioAGYconfirmoparada/liberacion; reasignacion explicita aCodex",
+  "lock": {
+    "resource": "assets-sagwa",
+    "agent": "codex-integrate-02",
+    "task": "S-203",
+    "expires_at_epoch": 1791933187.140523,
+    "at": "2026-10-13T21:13:07.140528+00:00"
+  }
+}

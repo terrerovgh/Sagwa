@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "68e71af9-d48e-4b87-a2e6-9d54cfa7659d",
+  "at": "2026-10-14T00:24:41.779004+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "task.state",
+  "task": "S-203",
+  "note": "Underlap dehinges corregido yneutralRGB0diff fueraeyes/mouth(25retouchpixels).3testsderive+33screens21gestures14clipsN3newPASS; compile0warnings sizeigual2381072 hash7bcd4a04..6c1ea. QA12reacciones sinscosturas.",
+  "task_snapshot": {
+    "id": "S-203",
+    "title": "Rig completo Higgsfield derivado",
+    "acceptance": "Capas articuladas offline, provenance/hash y exportador explicito; FSM/audio/fallback integrados y galeria animada revisada localmente; hardware pendiente.",
+    "risk": "R1",
+    "owner": "codex-integrate-02",
+    "state": "review",
+    "artifact": "f67ef41c152ae37732cac65a1ea9234677cbef95",
+    "reviews": [],
+    "updated_at": "2026-10-14T00:24:41.778920+00:00"
+  }
+}

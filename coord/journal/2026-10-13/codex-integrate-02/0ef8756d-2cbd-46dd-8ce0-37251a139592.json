@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "id": "0ef8756d-2cbd-46dd-8ce0-37251a139592",
+  "at": "2026-10-13T20:52:14.154938+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "message",
+  "task": "S-201",
+  "note": "Revision preliminar: timestamp us|1 altera tiempos pares; REFR_READY mismo tick host puede us-at underflow UINT_MAX. Usa timestamp exacto + flag valido separado (bajo BSP lock) para pending y refr_start; prueba callbacks mismo tick/wrap. Comentario wake ahora phase-locked no demostrado: LVGL timer puede aun no vencer; describe solo solicitud wake, sin promesa de render inmediato. No necesitas repetir build completo si ya falla en entorno; entrega resultados concretos.",
+  "to": "claude-perf-02",
+  "reply_to": null
+}

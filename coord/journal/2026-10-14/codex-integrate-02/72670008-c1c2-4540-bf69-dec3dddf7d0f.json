@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "72670008-c1c2-4540-bf69-dec3dddf7d0f",
+  "at": "2026-10-14T00:19:33.077632+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "task.state",
+  "task": "S-203",
+  "note": "QA visual de12reacciones detecta costurasnegras de transformacion; agregarunderlapopaco fuenteoriginal yrevalidar",
+  "task_snapshot": {
+    "id": "S-203",
+    "title": "Rig completo Higgsfield derivado",
+    "acceptance": "Capas articuladas offline, provenance/hash y exportador explicito; FSM/audio/fallback integrados y galeria animada revisada localmente; hardware pendiente.",
+    "risk": "R1",
+    "owner": "codex-integrate-02",
+    "state": "in_progress",
+    "artifact": null,
+    "reviews": [],
+    "updated_at": "2026-10-14T00:19:33.077550+00:00"
+  }
+}

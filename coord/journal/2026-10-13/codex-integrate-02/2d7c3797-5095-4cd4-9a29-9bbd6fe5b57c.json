@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "2d7c3797-5095-4cd4-9a29-9bbd6fe5b57c",
+  "at": "2026-10-13T20:47:15.224986+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "plan",
+  "task": null,
+  "note": "S-201 N3a sincronizacion y metricas; S-203 rig completo derivado; S-204 integracion. Aceptacion: build Edge, sanitizers y galeria, recursos/OTA medidos y revision independiente por hash. Core0.2 intacto; sin USB/TUF/API. Worktrees concurrentes y cambios previos preservados."
+}

@@ -12,7 +12,7 @@ def inspect(path, content):
     parts = path.lower().split("/")
     if any(p in {".private", ".state", "node_modules", "managed_components", "backups", ".venv", ".git", ".coord"} for p in parts):
         issues.append("private/runtime directory")
-    public_receipts = {"README.md", "edge-m.json", "edge-n2.json", "weather-deployed.json", "higgsfield.json", "development-setup.json"}
+    public_receipts = {"README.md", "edge-m.json", "edge-n2.json", "weather-deployed.json", "higgsfield.json", "development-setup.json", "n3a-rig.json"}
     if "evidence" in parts and not (len(parts) == 3 and parts[:2] == ["docs", "evidence"] and path.split("/")[-1] in public_receipts):
         issues.append("unreviewed evidence path")
     if any(p.startswith(".env") and p != ".env.example" for p in parts):

@@ -42,6 +42,14 @@ class BoundaryTests(unittest.TestCase):
         for prefix in [b"sk-" + b"proj-", b"xai-", b"AIza", b"tskey-" + b"auth-"]:
             self.assertTrue(guard.inspect("config/test.json", prefix + b"A" * 40))
 
+    def test_n3a_receipt_allows_only_exact_path_and_keeps_secret_filter(self):
+        content = (ROOT / "docs/evidence/n3a-rig.json").read_bytes()
+        self.assertFalse(guard.inspect("docs/evidence/n3a-rig.json", content))
+        self.assertTrue(guard.inspect("docs/evidence/raw/n3a-rig.json", content))
+        self.assertTrue(guard.inspect("docs/evidence/n3a-raw.json", content))
+        fake_secret = b"sk-" + b"proj-" + b"A" * 40
+        self.assertTrue(guard.inspect("docs/evidence/n3a-rig.json", fake_secret))
+
     def test_wrong_session_or_replaced_pane_never_started(self):
         scope = {"socket": "/tmp/herdr.sock", "session": None}
         state = {"cwd": str(ROOT), "scope": scope, "workspace": "w2", "panes": {"codex": "w2:p2"},

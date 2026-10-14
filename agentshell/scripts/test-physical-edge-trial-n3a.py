@@ -76,7 +76,7 @@ class Emulator:
         if already_exact:
             memory[0x20000:0x20000 + len(IMAGE)] = IMAGE
         self.memory, self.before = memory, bytes(memory)
-        self.writes, self.connections, self.offers, self.captures = [], [], [], []
+        self.writes, self.connections, self.offers, self.captures, self.resets = [], [], [], [], []
         self.traces, self.failed, self.offer_failure = [], False, None
         self.tmp = tempfile.TemporaryDirectory()
         root = Path(self.tmp.name)
@@ -142,6 +142,9 @@ class Emulator:
             test.assertEqual(esp.stage, 'download', 'Flash write against application session')
             for offset, data in rows:
                 emu.writes.append((offset, len(data)))
+                if emu.failure == 'app' and offset == 0x20000:
+                    emu.memory[offset:offset + 64] = data[:64]
+                    raise OSError('Injected app write interruption')
                 if emu.failure == 'metadata' and offset == 0x1d000 and not emu.failed:
                     emu.failed = True
                     emu.memory[offset:offset + 16] = data[:16]
@@ -149,6 +152,8 @@ class Emulator:
                 emu.memory[offset:offset + len(data)] = data
 
         def reset(esp, *a):
+            test.assertEqual(esp.stage, 'download')
+            emu.resets.append(selected(bytes(emu.memory[0x1d000:0x1f000])))
             esp.stage = 'application'
 
         return types.SimpleNamespace(detect_chip=detect, run_stub=lambda e: e, read_flash=read_flash,
@@ -305,14 +310,29 @@ class N3aTrial(unittest.TestCase):
         self.assertEqual(len(emu.connections), 2)
         self.assertEqual(selected(bytes(emu.memory[0x1d000:0x1f000])), 1)
 
-    def test_offer_failure_writes_nothing(self):
+    def test_offer_failure_writes_nothing_and_leaves_stub_into_baseline(self):
         emu = self.emulator()
         emu.offer_failure = lambda digest: True
         with self.assertRaisesRegex(OSError, 'admin'):
             emu.apply('--leave-installed')
         self.assertEqual(emu.writes, [])
         self.assertEqual(bytes(emu.memory), emu.before)
-        self.assertEqual(emu.receipt('apply')['status'], 'failed')
+        receipt = emu.receipt('apply')
+        self.assertEqual(receipt['status'], 'failed')
+        self.assertTrue(receipt['pre_metadata_reset_to_baseline'])
+        self.assertEqual(emu.resets, [1])  # device leaves ROM/stub into 0.2.0
+
+    def test_app_write_failure_resets_into_baseline_and_restores_offer(self):
+        emu = self.emulator(failure='app')
+        with self.assertRaisesRegex(OSError, 'app write'):
+            emu.apply('--leave-installed')
+        receipt = emu.receipt('apply')
+        self.assertTrue(receipt['pre_metadata_reset_to_baseline'])
+        self.assertTrue(receipt['baseline_offer_acknowledged'])
+        self.assertEqual(emu.offers, [trial.sha(IMAGE), trial.sha(BASELINE_IMAGE)])
+        self.assertEqual(emu.resets, [1])
+        self.assertEqual(bytes(emu.memory[0x1d000:0x1f000]), emu.before[0x1d000:0x1f000])
+        self.assertEqual(len(emu.connections), 1)
 
     def test_gates_fail_before_usb(self):
         cases = {
@@ -341,10 +361,17 @@ class N3aTrial(unittest.TestCase):
         emu.traces = ['valid']
         emu.apply('--leave-installed')
         checkpoint = emu.checkpoint()
-        # Offline: no image, review, gate or admin server is required.
+        # Offline: no image, review, gate, backups or admin server is required.
         emu.image.unlink()
         emu.review.unlink()
         emu.gate.unlink()
+        for path in emu.root.glob('.private/edge-hardware/backup*.bin'):
+            path.unlink()
+        (emu.evidence / 'physical-flash-reads.json').unlink()
+        # The user changed preferences during the manual trial: live NVS differs
+        # from the checkpoint and must be preserved, not block recovery.
+        emu.memory[0x11000:0x11010] = b'user-preference!'
+        user_nvs = bytes(emu.memory[0x11000:0x1d000])
         emu.offer_failure = lambda digest: True
         emu.traces = ['baseline']
         emu.run(['rollback', '--port', 'synthetic', '--execute', '--checkpoint', checkpoint])
@@ -353,7 +380,26 @@ class N3aTrial(unittest.TestCase):
         self.assertFalse(receipt['baseline_offer_acknowledged'])
         self.assertTrue(all(o == 0x1d000 for o, _ in emu.writes[-1:]))
         self.assertEqual(selected(bytes(emu.memory[0x1d000:0x1f000])), 1)
+        self.assertEqual(bytes(emu.memory[0x11000:0x1d000]), user_nvs)
+        self.assertEqual(emu.resets[-1], 1)
+        emu.memory[0x11000:0x1d000] = emu.before[0x11000:0x1d000]
         emu.assert_protected()
+
+    def test_rollback_refuses_changed_boot_or_table_and_stays_safe(self):
+        emu = self.emulator()
+        emu.traces = ['valid']
+        emu.apply('--leave-installed')
+        checkpoint = emu.checkpoint()
+        emu.memory[0x10000] ^= 1  # partition table differs from checkpoint
+        resets = len(emu.resets)
+        with self.assertRaisesRegex(ValueError, 'Boot/table'):
+            emu.run(['rollback', '--port', 'synthetic', '--execute', '--checkpoint', checkpoint])
+        receipt = emu.receipt('rollback')
+        # N3a is the live selection, so the stub is not reset into it blindly.
+        self.assertFalse(receipt['pre_metadata_reset_to_baseline'])
+        self.assertTrue(receipt['device_left_in_download_mode'])
+        self.assertEqual(len(emu.resets), resets)
+        self.assertEqual([o for o, _ in emu.writes].count(0x1d000), 1)  # only apply's write
 
     def test_rollback_rejects_tampered_or_foreign_checkpoints_before_usb(self):
         emu = self.emulator()

@@ -13,8 +13,13 @@ rolls itself back at 30 s). On success USB is closed and never reopened.
 Otherwise the baseline selection is restored and verified.
 
 rollback: offline recovery from the private checkpoint alone. It needs neither
-the candidate image, review, signed release nor the admin server; restoring
-the baseline firmware offer is best effort and never blocks the local return.
+the candidate image, review, backup acquisitions, signed release nor the admin
+server. Boot/table must equal the checkpoint and ota_1 the baseline hash; live
+NVS may differ (user preferences during the trial) and is only preserved.
+Restoring the baseline firmware offer is best effort.
+
+A failure after entering ROM/stub but before any metadata write resets into
+the baseline when the live selection is the verified baseline.
 Run with ESP-IDF's Python environment.
 """
 import argparse
@@ -73,6 +78,11 @@ def entries(data, allow_pending=False):
         result.append(dict(bank=bank, sequence=sequence, state=state, crc_valid=valid,
                            slot=(sequence - 1) % 2))
     return result
+
+
+def selected_slot(data):
+    rows = [x for x in entries(data, allow_pending=True) if x['crc_valid'] and x['state'] not in (3, 4)]
+    return max(rows, key=lambda x: x['sequence'])['slot'] if rows else None
 
 
 def baseline_bank_confirmed(data):
@@ -165,6 +175,7 @@ def load_checkpoint(path):
         raise ValueError('Checkpoint outside private N3a trial directory')
     if checkpoint.get('baseline_sha256') != BASELINE or checkpoint.get('candidate_sha256') != N3A:
         raise ValueError('Checkpoint for another baseline/candidate')
+    # File hashes guard checkpoint integrity; live NVS is not compared later.
     files = {}
     for name in PROTECTED_FILES:
         data = (directory / name).read_bytes()
@@ -319,7 +330,7 @@ def main(argv=None):
         check_review(a.review)
         check_offer_gate(a.offer_gate)
         check_services()
-    backup = check_backups()
+        backup = check_backups()
     from esptool import cmds
     os.umask(0o077)
     directory = Path(tempfile.mkdtemp(prefix='physical-n3a-', dir=private_dir()))
@@ -331,12 +342,13 @@ def main(argv=None):
                'efuses_written': False, 'partition_table_written': False,
                'product_acceptance': False}
     esp = None
-    metadata_started = reset_started = False
+    metadata_started = reset_started = connected = False
     before = recovery_sector = None
     try:
         with (directory / 'operations.log').open('w') as log, \
                 contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
             esp = connect_download(cmds, a.port)
+            connected = True
 
             def read(offset, size, name):
                 file = directory / name
@@ -349,8 +361,11 @@ def main(argv=None):
 
             boot = read(*BOOT, 'boot-before.bin')
             table = read(*TABLE, 'table-before.bin')
-            if sha(boot) != BOOT_SHA or table != backup[TABLE[0]:TABLE[0] + TABLE[1]]:
-                raise ValueError('Boot/table changed since audited backups')
+            expected_table = (backup[TABLE[0]:TABLE[0] + TABLE[1]] if a.operation == 'apply'
+                              else saved['table-before.bin'])
+            if sha(boot) != BOOT_SHA or table != expected_table or \
+                    (a.operation == 'rollback' and boot != saved['boot-before.bin']):
+                raise ValueError('Boot/table differ from audited backups/checkpoint')
             if sha(read(BASELINE_OFFSET, BASELINE_SIZE, 'baseline-before.bin')) != BASELINE:
                 raise ValueError('ota_1 baseline changed')
             provision = read(*NVS, 'nvs-before.bin')
@@ -376,9 +391,6 @@ def main(argv=None):
                     raise ValueError('Candidate read-back differs; selection unchanged')
                 recovery_sector = before[:SECTOR]
             else:
-                if provision != saved['nvs-before.bin'] or boot != saved['boot-before.bin'] or \
-                        table != saved['table-before.bin']:
-                    raise ValueError('Protected bytes differ from checkpoint')
                 if not baseline_bank_confirmed(before):
                     raise ValueError('Rollback baseline record unavailable')
                 original = saved['metadata-before.bin']
@@ -488,6 +500,30 @@ def main(argv=None):
                 receipt.update(metadata_recovered=False, recovery_error_type=type(recovery).__name__)
         if receipt.get('self_offer_acknowledged') and 'baseline_offer_acknowledged' not in receipt:
             restore_baseline_offer(receipt)
+        if connected and not metadata_started and esp is not None:
+            # Still in ROM/stub with no metadata write: leave download mode
+            # only into the verified baseline, never into an unverified slot.
+            try:
+                with (directory / 'recovery.log').open('a') as log, \
+                        contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
+                    live_file = directory / 'metadata-pre-write-failure.bin'
+                    cmds.read_flash(esp, OTADATA, 2 * SECTOR, output=str(live_file),
+                                    flash_size='16MB', no_progress=True)
+                    base_file = directory / 'baseline-pre-write-failure.bin'
+                    cmds.read_flash(esp, BASELINE_OFFSET, BASELINE_SIZE, output=str(base_file),
+                                    flash_size='16MB', no_progress=True)
+                    live = live_file.read_bytes()
+                    if (baseline_bank_confirmed(live) and selected_slot(live) == 1 and
+                            sha(base_file.read_bytes()) == BASELINE):
+                        cmds.reset_chip(esp, 'hard-reset')
+                        receipt['pre_metadata_reset_to_baseline'] = True
+                    else:
+                        receipt.update(pre_metadata_reset_to_baseline=False,
+                                       device_left_in_download_mode=True)
+            except BaseException as reset_error:
+                receipt.update(pre_metadata_reset_to_baseline=False,
+                               device_left_in_download_mode=True,
+                               pre_metadata_reset_error_type=type(reset_error).__name__)
         raise
     finally:
         # A close error must never prevent the durable recovery receipt.

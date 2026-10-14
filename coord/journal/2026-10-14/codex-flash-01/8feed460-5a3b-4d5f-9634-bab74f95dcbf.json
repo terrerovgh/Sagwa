@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "8feed460-5a3b-4d5f-9634-bab74f95dcbf",
+  "at": "2026-10-14T01:31:48.645514+00:00",
+  "agent": "codex-flash-01",
+  "kind": "task.state",
+  "task": "S-206",
+  "note": "",
+  "task_snapshot": {
+    "id": "S-206",
+    "title": "Instalar N3a para prueba manual del usuario",
+    "acceptance": "Artefacto exacto N3a revisado; app-only sin migracion/eFuses; backup y rollback 0.2 verificables; boot N3a sin panic observado; dejar candidato para prueba manual y registrar limites.",
+    "risk": "R2",
+    "owner": "codex-flash-01",
+    "state": "in_progress",
+    "artifact": null,
+    "reviews": [],
+    "updated_at": "2026-10-14T01:31:48.645380+00:00"
+  }
+}

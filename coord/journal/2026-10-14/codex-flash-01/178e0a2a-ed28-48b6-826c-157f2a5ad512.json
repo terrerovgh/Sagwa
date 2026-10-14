@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "id": "178e0a2a-ed28-48b6-826c-157f2a5ad512",
+  "at": "2026-10-14T01:36:51.010480+00:00",
+  "agent": "codex-flash-01",
+  "kind": "message",
+  "task": "S-207",
+  "note": "Revision preliminar script en progreso: rollback no debe exigir provision==saved nvs-before, porque usuario puede cambiar preferencias durante prueba y eso impediria recovery; comprobar boot/table saved y preservar NVS vivo readback. Ademas fallo tras entrar ROM antes metadata_started deja dispositivo en stub: reset baseline en error pre-metadata si baseline verificada/selection segura. Tests pertinentes. check_backups en rollback hace que no sea checkpoint alone; explica requisito o elimina necesidad de adquisiciones (mantener hash baseline+boot/table checkpoint). No exigir nueva review para offline.",
+  "to": "claude-flash-01",
+  "reply_to": null
+}

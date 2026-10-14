@@ -1,14 +1,14 @@
 # Sagwa · compañera Edge-AI para CoreS3
 
-Sagwa es una mascota interactiva para M5Stack CoreS3: personaje felino sobre negro puro, texto breve en español, gestos, sensores y voz natural, con capacidades de Mac mini y TUF-1. Muse sigue siendo el agente principal del **producto**. El orquestador de **desarrollo** puede ser Codex, Claude, Grok o AGY.
+Sagwa es una mascota interactiva para M5Stack CoreS3: personaje felino sobre negro puro, texto breve en español, gestos, sensores y voz natural, con capacidades de Mac mini y TUF-1. Muse sigue siendo el agente principal del **producto**. El desarrollo se coordina mediante **Herdr**, con **Codex como orquestador** y Claude, Grok y AGY como agentes disponibles según su sesión y autenticación.
 
-**Estado al 13 de octubre de 2026:** CoreS3 con **0.2.0**; Edge **0.3.0-dev experimental**, sin promoción. N2 fue probado y rechazado por rendimiento; el dispositivo volvió a 0.2.0. La prueba válida de 24 horas y el modelo WakeNet «Sagwa» están pendientes. [Estado y evidencia](docs/STATUS.md).
+**Estado al 13 de octubre de 2026:** CoreS3 con **N3a · 0.3.0-dev experimental**, instalado para la prueba manual del usuario; **0.2.0** preservado para recuperación. Arranque y comprobación de salud verificados, sin promoción a release. N2 continúa rechazado por rendimiento. La fluidez, la prueba válida de 24 horas y el modelo WakeNet «Sagwa» están pendientes. [Estado y evidencia](docs/STATUS.md).
 
-N3a y el rig articulado Higgsfield están integrados y compilados localmente; la galería de producción y su respaldo pasan sanitizers. La mejora de fluidez y la aceptación visual/física siguen pendientes.
+N3a y el rig articulado Higgsfield están integrados y flasheados mediante una prueba app-only revisada; la galería de producción y su respaldo pasan sanitizers. Las dos primeras ventanas físicas registraron unos 23 FPS; la mejora de fluidez y la aceptación visual/física siguen pendientes.
 
 ## Empezar como agente
 
-Lea [AGENTS.md](AGENTS.md), [objetivo](docs/OBJECTIVE.md), [estado](docs/STATUS.md) y [coordinación](coord/README.md), en ese orden. La [historia](docs/HISTORY.md) explica las decisiones y pruebas anteriores; el [handoff actual](coord/handoffs/2026-10-14-codex-integrate-02.md) permite continuar sin reconstruir conversaciones.
+Lea [AGENTS.md](AGENTS.md), [objetivo](docs/OBJECTIVE.md), [estado](docs/STATUS.md) y [coordinación](coord/README.md), en ese orden. La [historia](docs/HISTORY.md) explica las decisiones y pruebas anteriores; el [handoff actual](coord/handoffs/2026-10-14-codex-flash-01.md) permite continuar sin reconstruir conversaciones.
 
 ```sh
 python3 scripts/sagwa-herdr.py doctor
@@ -16,14 +16,14 @@ python3 scripts/coord.py --agent mi-agente register --kind codex --role worker
 python3 scripts/coord.py --agent mi-agente status
 ```
 
-Dentro de Herdr, seleccionar Sagwa y usar la pestaña **Codex vacía** para iniciar el orquestador en la pestaña Orquestación:
+El modo de desarrollo del proyecto es **Herdr**. Seleccionar Sagwa y usar una pestaña de control libre para iniciar Codex en la pestaña Orquestación:
 
 ```sh
 python3 scripts/sagwa-herdr.py setup
 python3 scripts/sagwa-herdr.py start codex --role orchestrator
 ```
 
-El último comando muestra el prompt de incorporación que debe enviar al agente. Cambie `codex` por `claude`, `grok` o `agy` cuando su CLI y autenticación estén disponibles. No cambia el proveedor ni inicia cuatro trabajos automáticamente. [Guía de Herdr](docs/HERDR.md).
+El último comando muestra el prompt de incorporación que debe enviar al agente. Codex asigna tareas y revisiones a Claude, Grok y AGY mediante Herdr y registra planes, mensajes, recursos y entregas en `coord`. Cada agente requiere una CLI y autenticación disponibles; su presencia en el sistema no demuestra acceso al proveedor. El usuario puede cambiar el orquestador mediante una entrega explícita de la concesión. [Guía de Herdr](docs/HERDR.md).
 
 ## Código y documentación
 

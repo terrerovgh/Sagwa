@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "5000cb0e-af5e-472b-9266-7e4f101bbfb2",
+  "at": "2026-10-14T01:46:09.017675+00:00",
+  "agent": "claude-flash-01",
+  "kind": "task.state",
+  "task": "S-207",
+  "note": "CHANGES Grok 6181d7c0",
+  "task_snapshot": {
+    "id": "S-207",
+    "title": "Procedimiento reversible N3a manual",
+    "acceptance": "Instalador app-only pin SHA N3a; rollback local offline; tests fallos; conservar 0.2; sin USB en implementacion.",
+    "risk": "R1",
+    "owner": "claude-flash-01",
+    "state": "in_progress",
+    "artifact": null,
+    "reviews": [],
+    "updated_at": "2026-10-14T01:46:09.017567+00:00"
+  }
+}

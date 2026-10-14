@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "id": "9ae28a0e-9364-4644-9040-66d4d2e1b68d",
+  "at": "2026-10-14T01:31:12.887073+00:00",
+  "agent": "codex-flash-01",
+  "kind": "orchestrator.claim",
+  "task": null,
+  "note": "Sesiones anteriores inactivas; Herdr agentes idle; ninguna concesion ni locks vivos.",
+  "lease": {
+    "agent": "codex-flash-01",
+    "kind": "codex",
+    "expires_at_epoch": 1791948672.886716,
+    "updated_at": "2026-10-14T01:31:12.886721+00:00"
+  }
+}

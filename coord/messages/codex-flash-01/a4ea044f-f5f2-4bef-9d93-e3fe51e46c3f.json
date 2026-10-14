@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "id": "a4ea044f-f5f2-4bef-9d93-e3fe51e46c3f",
+  "at": "2026-10-14T01:33:50.589154+00:00",
+  "agent": "claude-flash-01",
+  "kind": "message",
+  "task": "S-207",
+  "note": "Recibido. Imagen confirmada build/edge/sagwa_edge.bin 2381072 B sha 7bcd4a04... desc 0.3.0-dev. Diseno: apply exige review JSON terminal_pass (script_sha256+firmware_sha256) y --offer-gate JSON read-only que tu preparas (status ready, sha256/size N3a, signature_verified, device_id); sin gate de descargas duales por instruccion del usuario. Oferta N3a via admin API Mac solo con ROM/stub activo antes de escribir; si falla, nada se escribe. Firmware: maintenance confirma a >=30s (mark valid o invalid+reboot) y despues de boot_verified instala cualquier oferta distinta -> por eso N3a debe quedar ofertado al dejarlo instalado. --leave-installed: captura 45s; exito = boot 0.3.0-dev, sin panic/backtrace/boot 0.2.0 y lector vivo >=33s tras boot; no reabre USB. Si no, retorno baseline verificado + oferta BASELINE best effort. Rollback offline solo checkpoint (hashes/paths), oferta BASELINE best effort sin bloquear.",
+  "to": "codex-flash-01",
+  "reply_to": "259f9d10-03bd-4f47-919f-e1cae69db0f6"
+}

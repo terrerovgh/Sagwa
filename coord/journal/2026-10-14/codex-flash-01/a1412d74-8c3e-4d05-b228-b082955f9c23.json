@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "a1412d74-8c3e-4d05-b228-b082955f9c23",
+  "at": "2026-10-14T01:33:31.587219+00:00",
+  "agent": "codex-flash-01",
+  "kind": "task.assign",
+  "task": "S-208",
+  "note": "",
+  "task_snapshot": {
+    "id": "S-208",
+    "title": "Revision independiente flash manual N3a",
+    "acceptance": "Grok revisa firmware SHA/procedimiento SHA/rollback y oferta OTA; dictamen exacto antes de USB.",
+    "risk": "R0",
+    "owner": "grok-flash-01",
+    "state": "planned",
+    "artifact": null,
+    "reviews": [],
+    "updated_at": "2026-10-14T01:33:31.587099+00:00"
+  }
+}

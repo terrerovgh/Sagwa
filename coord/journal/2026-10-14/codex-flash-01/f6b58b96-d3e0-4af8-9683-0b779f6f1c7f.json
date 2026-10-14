@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "f6b58b96-d3e0-4af8-9683-0b779f6f1c7f",
+  "at": "2026-10-14T01:31:12.994513+00:00",
+  "agent": "codex-flash-01",
+  "kind": "plan",
+  "task": "S-206",
+  "note": "Verificar hash 7bcd4a04d6990bf4b545c60694f527d46ef40fb1f9087222c2086fe0fa46c1ea y backups; preparar instalador app-only con rollback local; revision Grok por hashes antes de USB; observar boot sin nueva apertura; dejar N3a al usuario si sano, restaurar 0.2 si falla. README declarara Herdr y Codex orquestador. Sin servicios TUF ni gastos."
+}

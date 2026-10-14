@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "id": "6474c0b4-53f4-464a-bf0e-b55e9a06a8d9",
+  "at": "2026-10-14T01:33:31.620650+00:00",
+  "agent": "codex-flash-01",
+  "kind": "message",
+  "task": "S-208",
+  "note": "Asignada. Ambos gateways vivos pero no N3a. Propongo firma/replica exacta con publish-firmware.py sin --offer y luego offer N3a solo al Core via admin mientras ROM/stub activo. Esta replica no es GitHub/publicacion comercial. Revisa helper hash exacto y scope; controlar oferta replicada ambos gateways, rollback baseline offline prioritario. Revision API firma/replica antes de ejecutar.",
+  "to": "grok-flash-01",
+  "reply_to": null
+}

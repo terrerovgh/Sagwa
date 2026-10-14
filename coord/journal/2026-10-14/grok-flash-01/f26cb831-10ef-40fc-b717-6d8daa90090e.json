@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "f26cb831-10ef-40fc-b717-6d8daa90090e",
+  "at": "2026-10-14T01:44:30.348618+00:00",
+  "agent": "grok-flash-01",
+  "kind": "task.review",
+  "task": "S-207",
+  "note": "CHANGES. Arbol 1146a473 y 1b21486 identico c46a9f64. Script a02b12442cfee785853cd7df152beb3d52db320c241c4834635dadf293b4468e. Firmware 7bcd4a04d6990bf4b545c60694f527d46ef40fb1f9087222c2086fe0fa46c1ea, 2381072. Suite host 17 tests OK, sin USB. No escribi review-n3a.json. physical-edge-trial-n3a.py:501-502 ofrece BASELINE aunque la recuperacion post-reset no haya devuelto el stub con ota_1 confirmado. Si connect_download falla tras reset_chip, N3a sigue en marcha y esa oferta escribe ota_1. El POST baseline solo cabe tras selection(restored) en linea 497, o pre-metadata con selected_slot==1. Si la reconexion falla, no ofrecer.",
+  "task_snapshot": {
+    "id": "S-207",
+    "title": "Procedimiento reversible N3a manual",
+    "acceptance": "Instalador app-only pin SHA N3a; rollback local offline; tests fallos; conservar 0.2; sin USB en implementacion.",
+    "risk": "R1",
+    "owner": "claude-flash-01",
+    "state": "review",
+    "artifact": "1146a473e989ae94333f0b346771641b89676f3c",
+    "reviews": [
+      {
+        "agent": "grok-flash-01",
+        "artifact": "1146a473e989ae94333f0b346771641b89676f3c",
+        "verdict": "changes",
+        "at": "2026-10-14T01:44:30.348479+00:00",
+        "note": "CHANGES. Arbol 1146a473 y 1b21486 identico c46a9f64. Script a02b12442cfee785853cd7df152beb3d52db320c241c4834635dadf293b4468e. Firmware 7bcd4a04d6990bf4b545c60694f527d46ef40fb1f9087222c2086fe0fa46c1ea, 2381072. Suite host 17 tests OK, sin USB. No escribi review-n3a.json. physical-edge-trial-n3a.py:501-502 ofrece BASELINE aunque la recuperacion post-reset no haya devuelto el stub con ota_1 confirmado. Si connect_download falla tras reset_chip, N3a sigue en marcha y esa oferta escribe ota_1. El POST baseline solo cabe tras selection(restored) en linea 497, o pre-metadata con selected_slot==1. Si la reconexion falla, no ofrecer."
+      }
+    ],
+    "updated_at": "2026-10-14T01:44:30.348597+00:00"
+  }
+}

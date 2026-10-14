@@ -1,6 +1,6 @@
 # Herdr para Sagwa
 
-Un workspace dedicado tiene tabs **Orquestación, Codex, Claude, Grok, AGY**. Cualquier familia puede dirigir; el tab expresa rol. Código/documentación comunes y worktrees por trabajo concurrente.
+El modo de desarrollo elegido por el usuario es Herdr: **Codex dirige** y asigna trabajo a **Claude, Grok y AGY** cuando sus sesiones están disponibles. Un workspace dedicado tiene tabs **Orquestación, Codex, Claude, Grok, AGY**. Los roles siguen siendo intercambiables mediante entrega de la concesión; el tab expresa rol. Código/documentación comunes y worktrees por trabajo concurrente.
 
 ## Uso en esta Mac
 
@@ -16,7 +16,7 @@ En la pestaña **Codex vacía** del workspace Sagwa, raíz del proyecto:
 ```sh
 python3 scripts/sagwa-herdr.py doctor
 python3 scripts/sagwa-herdr.py setup
-python3 scripts/sagwa-herdr.py start agy --role orchestrator
+python3 scripts/sagwa-herdr.py start codex --role orchestrator
 ```
 
 `setup` serializa llamadas concurrentes, crea una sola topología sin tomar foco y guarda IDs, socket/sesión y terminales retornados. Antes de reutilizar valida label e identidad/pertenencia de panes vivos. Al iniciar valida el cwd del destino: raíz, subdirectorio o worktree del mismo Git common-dir; un hermano trabajando en su worktree no bloquea el inicio. `resume-setup` completa tabs ausentes tras interrupción. Si fue cerrado un pane o cambió servidor, falla sin controlar otro terminal; recuperar el layout propio explícitamente.

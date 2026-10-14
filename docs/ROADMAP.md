@@ -14,6 +14,8 @@ El orden reduce dependencias y evita confundir preparación con aceptación. Los
 
 Prioridad actual: **S-101**. M fue mejor que N2 pero tampoco alcanzó todas las muestras≥30 FPS. Conservar ambos datos. N3 solo es una hipótesis; establecer presupuesto temporal/memoria/CPU y pruebas de contención antes de elegir una solución.
 
-Preparación local posterior: N3a solicita wake del port tras dibujo, con métricas acotadas y cadencia28ms; rig Higgsfield13capas integrado. Build y galería host pasan; todavía no hay medición física N3a. S-201/S-203/S-204/S-205 registran esta entrega local, sin cerrar la aceptación física S-101 ni S-107.
+Preparación local posterior: N3a solicita wake del port tras dibujo, con métricas acotadas y cadencia28ms; rig Higgsfield13capas integrado. Build y galería host pasaron; la prueba física posterior se resume abajo. S-201/S-203/S-204/S-205 registran esta entrega local, sin cerrar la aceptación física S-101 ni S-107.
 
 Los trabajos de documentación/arte no deben abrir USB ni detener servicios. Las revisiones de infraestructura TUF siguen `_coord`; las entregas host pueden avanzar independientemente mientras falte WakeNet o revisión de hardware.
+
+Prueba manual posterior autorizada por el usuario: N3a y rig instalados app-only, arranque sano y telemetría `boot_verified` comprobados. Dos ventanas preliminares de 23.278/23.833 FPS no cierran S-101; S-107 sigue pendiente. S-206 registra la instalación para prueba del usuario; 0.2.0 permanece recuperable. [Estado](STATUS.md).

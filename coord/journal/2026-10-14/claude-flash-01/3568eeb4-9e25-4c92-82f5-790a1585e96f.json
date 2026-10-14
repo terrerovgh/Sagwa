@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "3568eeb4-9e25-4c92-82f5-790a1585e96f",
+  "at": "2026-10-14T01:37:42.633226+00:00",
+  "agent": "claude-flash-01",
+  "kind": "result",
+  "task": "S-207",
+  "note": "Commit 8153e9acdab7e6e23ea8b21494f8264e8583fb52 en claude/s207-n3a-installer. Script physical-edge-trial-n3a.py sha256 6edc82b2b3bf0cf8275c326c3050d57fa6c3f8b02dd954c7e5e0e7b1d6df2da9; imagen build/edge/sagwa_edge.bin 7bcd4a04.. 2381072 B. apply --execute exige review terminal_pass (script_sha256+firmware_sha256) y --offer-gate JSON read-only {status:ready, sha256, size, signature_verified:true, device_id:device:cores3-80456b4d5f7c}; oferta N3a via admin Mac con stub activo antes de escribir. --leave-installed: 45s, exito solo 1 boot 0.3.0-dev sin panic/backtrace/0.2.0 y lector vivo >=33s tras boot; no reabre USB; si no, retorno baseline verificado. rollback offline solo --checkpoint, oferta BASELINE best effort. Tests emulador 14 OK/1 skip (imagen no en worktree); dry-run imagen real OK, otra rechazada; check-publication 0. Limites: VALID no releido tras exito; sin hardware/API reales. Handoff coord/handoffs/2026-10-14-claude-flash-01.md (sin commit). S-206 no cerrada."
+}

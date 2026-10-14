@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "f81dfd18-5b8f-45fd-babb-1729987aaf2d",
+  "at": "2026-10-14T01:39:16.354115+00:00",
+  "agent": "codex-flash-01",
+  "kind": "progress",
+  "task": "S-206",
+  "note": "Store compartido consultado solo lectura: oferta activa Core SHA baseline88e9... y legacy ota_is_current presente; no delete/reconfiguracion etcd necesario. N3a se ofertara solo con ROM activo. Origenes permitidos192.168.4.64/192.168.4.82 verificados, no usar origen admin Tailscale en manifest."
+}

@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "43b799a6-0b2f-4b17-9516-aa2d1d92873e",
+  "at": "2026-10-14T01:37:09.799529+00:00",
+  "agent": "grok-flash-01",
+  "kind": "progress",
+  "task": "S-208",
+  "note": "Plan: revisar publish-firmware.py/admin.py, hash local del bin y la clave compartida de oferta antes de USB. Sin task.review ni JSON terminal_pass hasta el script de S-207. No USB, servicios, TUF ni commits."
+}

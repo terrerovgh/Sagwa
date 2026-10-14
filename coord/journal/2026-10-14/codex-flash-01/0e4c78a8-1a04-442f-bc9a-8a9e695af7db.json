@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "0e4c78a8-1a04-442f-bc9a-8a9e695af7db",
+  "at": "2026-10-14T01:53:39.940142+00:00",
+  "agent": "codex-flash-01",
+  "kind": "result",
+  "task": "S-206",
+  "note": "N3a7bcd4a04 instalado app-only en ota0 y sector0; readback verificado y boot/tabla/NVS/baseline0.2 intactos antes reset. Consola45.151s:1 boot0.3dev, sin panic/backtrace, sin reaperturaUSB. Telemetria fresca boot_verified=true uptime35s, FPS23.278 preliminar; fluidez30+no aceptada. Checkpoint privado physical-n3a-he2qtqo3. OfertaN3a queda autoupdate-selfskip. Usuario puede probar; S101/S107/24h/voz/optica siguen pendientes."
+}

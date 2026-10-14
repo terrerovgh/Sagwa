@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "d9d923d8-9e2e-4e2b-b26f-22399d17ad6f",
+  "at": "2026-10-14T01:39:34.119594+00:00",
+  "agent": "claude-flash-01",
+  "kind": "task.state",
+  "task": "S-207",
+  "note": "Commit 1146a473e989ae94333f0b346771641b89676f3c (sobre 8153e9a) en claude/s207-n3a-installer; script sha256 a02b12442cfee785853cd7df152beb3d52db320c241c4834635dadf293b4468e (el anterior 6edc82b2 queda obsoleto). (1) Rollback no compara NVS vivo con checkpoint; lo preserva por readback; boot/tabla deben igualar checkpoint y BOOT_SHA, ota_1 hash baseline. (2) Rollback ya no llama check_backups ni exige review: checkpoint+hash baseline bastan (hashes de archivos del checkpoint validan integridad antes de USB). (3) Fallo tras entrar ROM/stub sin escritura de metadata: reset hard solo si seleccion viva = baseline confirmada (bank1 VALID, slot1) y ota_1 hash ok; si no, device_left_in_download_mode en recibo. Oferta BASELINE best effort antes del reset. Tests 17: 16 OK, 1 skip (imagen no en worktree): nuevos fallo escritura app->reset baseline+oferta, fallo oferta->reset baseline sin escrituras, rollback con NVS cambiado y sin adquisiciones/review/imagen/gate/API, tabla cambiada->rechazo sin reset ciego. Dry-run imagen real OK. check-publication 0. Sin USB.",
+  "task_snapshot": {
+    "id": "S-207",
+    "title": "Procedimiento reversible N3a manual",
+    "acceptance": "Instalador app-only pin SHA N3a; rollback local offline; tests fallos; conservar 0.2; sin USB en implementacion.",
+    "risk": "R1",
+    "owner": "claude-flash-01",
+    "state": "review",
+    "artifact": "1146a473e989ae94333f0b346771641b89676f3c",
+    "reviews": [],
+    "updated_at": "2026-10-14T01:39:34.119476+00:00"
+  }
+}

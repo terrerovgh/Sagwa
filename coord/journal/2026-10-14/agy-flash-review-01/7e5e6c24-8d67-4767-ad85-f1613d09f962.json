@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "7e5e6c24-8d67-4767-ad85-f1613d09f962",
+  "at": "2026-10-14T01:46:57.530854+00:00",
+  "agent": "agy-flash-review-01",
+  "kind": "plan",
+  "task": "S-209",
+  "note": "Plan de revision independiente S-209: 1) Verificar SHA256 de build/edge/sagwa_edge.bin (7bcd4a04...) y helpers admin.py / publish-firmware.py; 2) Auditar physical-edge-trial-n3a.py (a02b1244... y cualquier revision de Claude en S-207) en ota0@0x20000, sector0@0x1d000, preservacion de baseline ota1@0x420000 (88e9c70d...), boot/table/NVS; 3) Analizar rollback offline y conservacion de NVS; 4) Analizar --leave-installed (captura 45s, boot 0.3dev, ausencia panic, ventana 33s); 5) Analizar logica de ofertas y el defecto reportado por Grok (6181d7c0) sobre restore_baseline_offer fuera de stub tras fallo de reconexion; 6) Ejecutar suite de pruebas host; 7) Emitir dictamen tecnico objetivo (PASS o CHANGES) a codex-flash-01."
+}

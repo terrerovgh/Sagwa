@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "2c3f5415-d6bd-4adf-b9de-34417a2e7ebb",
+  "at": "2026-10-14T01:51:23.044073+00:00",
+  "agent": "agy-flash-review-01",
+  "kind": "task.review",
+  "task": "S-206",
+  "note": "PASS estatico del bundle exacto N3a y del instalador 68bf6ad436788f8d0c3f3baf0f32174f634a1a2bc6fe11a4139a5c1676f523d0 en commit fc302fe/6883023. Validacion app-only ota0@0x20000, sector0@0x1d000, preservacion ota1 baseline 88e9c70d... rollback offline con NVS preservado, captura 45s sin reapertura de USB tras exito y boot_selfcheck30s. Sin USB, sin flash ni aceptacion fisica/24h.",
+  "task_snapshot": {
+    "id": "S-206",
+    "title": "Instalar N3a para prueba manual del usuario",
+    "acceptance": "Artefacto exacto N3a revisado; app-only sin migracion/eFuses; backup y rollback 0.2 verificables; boot N3a sin panic observado; dejar candidato para prueba manual y registrar limites.",
+    "risk": "R2",
+    "owner": "codex-flash-01",
+    "state": "review",
+    "artifact": "N3a:7bcd4a04d6990bf4b545c60694f527d46ef40fb1f9087222c2086fe0fa46c1ea:installer:68bf6ad436788f8d0c3f3baf0f32174f634a1a2bc6fe11a4139a5c1676f523d0",
+    "reviews": [
+      {
+        "agent": "grok-flash-01",
+        "artifact": "N3a:7bcd4a04d6990bf4b545c60694f527d46ef40fb1f9087222c2086fe0fa46c1ea:installer:68bf6ad436788f8d0c3f3baf0f32174f634a1a2bc6fe11a4139a5c1676f523d0",
+        "verdict": "pass",
+        "at": "2026-10-14T01:49:52.925693+00:00",
+        "note": "PASS del bundle exacto firmware 7bcd4a04d6990bf4b545c60694f527d46ef40fb1f9087222c2086fe0fa46c1ea e instalador 68bf6ad436788f8d0c3f3baf0f32174f634a1a2bc6fe11a4139a5c1676f523d0 en fc302fe. Misma revision que S-207. No acepta hardware, flash ni ventana de 24 h."
+      },
+      {
+        "agent": "agy-flash-review-01",
+        "artifact": "N3a:7bcd4a04d6990bf4b545c60694f527d46ef40fb1f9087222c2086fe0fa46c1ea:installer:68bf6ad436788f8d0c3f3baf0f32174f634a1a2bc6fe11a4139a5c1676f523d0",
+        "verdict": "pass",
+        "at": "2026-10-14T01:51:23.043935+00:00",
+        "note": "PASS estatico del bundle exacto N3a y del instalador 68bf6ad436788f8d0c3f3baf0f32174f634a1a2bc6fe11a4139a5c1676f523d0 en commit fc302fe/6883023. Validacion app-only ota0@0x20000, sector0@0x1d000, preservacion ota1 baseline 88e9c70d... rollback offline con NVS preservado, captura 45s sin reapertura de USB tras exito y boot_selfcheck30s. Sin USB, sin flash ni aceptacion fisica/24h."
+      }
+    ],
+    "updated_at": "2026-10-14T01:51:23.044054+00:00"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "aeb57390-1c9d-4bc6-a84e-87724dd57de5",
+  "at": "2026-10-14T01:46:06.341938+00:00",
+  "agent": "codex-flash-01",
+  "kind": "task.assign",
+  "task": "S-209",
+  "note": "",
+  "task_snapshot": {
+    "id": "S-209",
+    "title": "Segunda revision USB N3a por AGY",
+    "acceptance": "Dictamen independiente sobre firmware7bcd4a04/procedimientoa02b1244 congelados; no USB; limites explicitos.",
+    "risk": "R0",
+    "owner": "agy-flash-review-01",
+    "state": "planned",
+    "artifact": null,
+    "reviews": [],
+    "updated_at": "2026-10-14T01:46:06.341813+00:00"
+  }
+}

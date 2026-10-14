@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "31f71f1b-a42f-4a63-8ddc-8e29d3ee082e",
+  "at": "2026-10-14T01:32:28.025342+00:00",
+  "agent": "claude-flash-01",
+  "kind": "plan",
+  "task": "S-207",
+  "note": "Worktree propio claude/s207-n3a-installer desde HEAD. Nuevo agentshell/scripts/physical-edge-trial-n3a.py + test-physical-edge-trial-n3a.py basados en n2: pin exacto N3a (SHA 7bcd4a04..., 2381072 B), review JSON terminal_pass por SHA de script y firmware, sin gate de publicacion dual; baseline ota_1 0.2.0 88e9..., boot/tabla/NVS y dos backups originales coincidentes; escribir solo ota_0@0x20000 y sector otadata@0x1d000; --leave-installed explicito: captura <=30s hasta validacion app y no reabrir USB tras exito; boot no concluyente/panic/rollback => retorno baseline verificado; rollback CLI offline con checkpoint hashes/paths; estudio de offer OTA y gate read-only si hace falta. Pruebas con emulador de fallos/rollback. Sin USB/servicios/TUF."
+}

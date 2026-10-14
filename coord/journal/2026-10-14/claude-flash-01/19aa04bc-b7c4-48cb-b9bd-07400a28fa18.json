@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "id": "19aa04bc-b7c4-48cb-b9bd-07400a28fa18",
+  "at": "2026-10-14T01:46:50.838510+00:00",
+  "agent": "claude-flash-01",
+  "kind": "task.state",
+  "task": "S-207",
+  "note": "Commit fc302fe93471f06ba6e48586f571a7e4a88ab3d8 (sobre 1146a47) en claude/s207-n3a-installer; script sha256 68bf6ad436788f8d0c3f3baf0f32174f634a1a2bc6fe11a4139a5c1676f523d0 (a02b1244 obsoleto). Corrige CHANGES Grok 6181d7c0: eliminado fallback incondicional restore_baseline_offer. BASELINE solo se ofrece (a) dentro de stub tras readback de seleccion baseline (retorno/recovery/rollback, sin cambios) o (b) pre-metadata sin reset previo, tras verificar seleccion viva slot1+bank1 VALID+hash ota_1, justo antes del reset. Si no, oferta N3a queda y recibo offer_left_n3a=true. Test nuevo: fallo captura + fallo reconexion => cero POST baseline, offers=[N3a], ota_1/bank1 intactos. Suite 18: 17 OK, 1 skip (imagen no en worktree). Dry-run imagen real OK. check-publication 0. Sin USB. Requiere review final del nuevo SHA.",
+  "task_snapshot": {
+    "id": "S-207",
+    "title": "Procedimiento reversible N3a manual",
+    "acceptance": "Instalador app-only pin SHA N3a; rollback local offline; tests fallos; conservar 0.2; sin USB en implementacion.",
+    "risk": "R1",
+    "owner": "claude-flash-01",
+    "state": "review",
+    "artifact": "fc302fe93471f06ba6e48586f571a7e4a88ab3d8",
+    "reviews": [],
+    "updated_at": "2026-10-14T01:46:50.838354+00:00"
+  }
+}

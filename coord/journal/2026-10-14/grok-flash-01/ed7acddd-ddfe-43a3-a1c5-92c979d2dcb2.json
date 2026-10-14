@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "ed7acddd-ddfe-43a3-a1c5-92c979d2dcb2",
+  "at": "2026-10-14T01:33:02.888309+00:00",
+  "agent": "grok-flash-01",
+  "kind": "registered",
+  "task": null,
+  "note": "Revisor N3a app-only autorizado por el usuario. Solo lectura: sin USB, servicios, TUF ni firmware."
+}

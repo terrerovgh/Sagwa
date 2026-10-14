@@ -1,0 +1,23 @@
+# Handoff · 2026-10-14 UTC · claude-flash-01
+
+- Tarea/objetivo y criterio de aceptación: S-207, procedimiento reversible N3a manual. Instalador app-only con SHA N3a fijado, rollback local offline, pruebas de fallos, 0.2.0 conservado, sin USB durante la implementación.
+- Rama/commit/artefacto exacto: `claude/s207-n3a-installer`, commit `fc302fe93471f06ba6e48586f571a7e4a88ab3d8` (CHANGES Grok sobre `1146a47`, que corrigió recovery sobre `8153e9a`). Script SHA256 `68bf6ad436788f8d0c3f3baf0f32174f634a1a2bc6fe11a4139a5c1676f523d0`. Imagen fijada `build/edge/sagwa_edge.bin` 2,381,072 bytes, SHA256 `7bcd4a04…c1ea`, descriptor `0.3.0-dev`.
+- Estado: preparado y probado solo en emulador. No desplegado, no aceptado y no ejecutado en hardware.
+- Cambios y motivo:
+  - Escribe solo `ota_0@0x20000` y el sector0 de otadata en `0x1d000`. Verifica por relectura boot, tabla, NVS, banco1 y la baseline 0.2.0 en `ota_1`, y exige dos backups coincidentes.
+  - `apply --execute` exige un JSON de review `terminal_pass` con `script_sha256` y `firmware_sha256`, y un `--offer-gate` de solo lectura con `status: ready`, sha/size de N3a, `signature_verified` y `device_id`. Por instrucción del usuario no hay gate de descargas duales.
+  - La oferta N3a solo al Core se fija vía API de la Mac con ROM/stub activo y antes de cualquier escritura. El firmware valida a los 30 s (`maintenance_task`) y después instala cualquier oferta distinta, así que la oferta N3a debe quedar vigente mientras N3a siga instalado.
+  - `--leave-installed`: captura de 45 s. Se considera éxito solo con un único boot `0.3.0-dev`, sin panic, backtrace ni boot `0.2.0`, y con el lector vivo al menos 33 s después de ese boot. En ese caso cierra USB y no lo reabre. Si no, restaura la selección de la baseline y la verifica.
+  - `rollback`: offline, solo con el checkpoint y el hash de la baseline. No requiere adquisiciones, review, imagen, gate ni API. Boot y tabla deben igualar el checkpoint; el NVS vivo se preserva aunque haya cambiado durante la prueba. Restaurar la oferta BASELINE es best effort.
+  - Si algo falla tras entrar en ROM/stub y antes de escribir metadatos, se resetea a 0.2.0 solo si la selección viva es la baseline verificada; si no, el recibo indica `device_left_in_download_mode`.
+  - La oferta BASELINE solo se envía con ROM/stub bajo control y la selección de la baseline releída. Si falla la reconexión tras el reset, la oferta N3a se queda (inocua mientras corre N3a) y el recibo marca `offer_left_n3a`.
+- Pruebas, fecha, resultado y alcance: 2026-10-14, `test-physical-edge-trial-n3a.py`: 18 pruebas, 17 OK y 1 omitida (la imagen fijada no existe en el worktree). Dry-run con la imagen real del checkout principal: aceptada; otra imagen rechazada. `check-publication.py`: 0 hallazgos. El emulador no prueba el hardware, el monitor serie real, la API de ofertas ni el comportamiento del bootloader.
+- Fallos/límites:
+  - El estado VALID de otadata no se relee tras el éxito, para evitar un reset por USB; la validación se infiere de la consola.
+  - La regex de consola depende del texto `App version:`.
+  - El gate de oferta lo prepara Codex; todavía no existe.
+- Servicios/dispositivo afectados; rollback y estado final: ninguno. Sin USB, servicios, TUF ni API.
+- Bloqueos liberados; concesión y registro: `edge-flash-procedure` se libera al entregar. S-207 queda en `review`. S-206 no se cierra.
+- Autorización vigente; intervención humana necesaria: el flash de S-206 requiere una revisión independiente de este SHA exacto, el gate de oferta de Codex y una ventana USB explícita.
+- Siguiente paso concreto: revisión de otra familia del commit y del SHA del script. Codex prepara la firma o réplica de N3a y el JSON del gate. Ejecutar `apply --execute --leave-installed --review … --offer-gate …` desde el checkout principal.
+- Mensajes/recibos públicos; evidencia privada mediante referencia segura: mensajes a `codex-flash-01`. Los recibos de ejecución se escribirán en `agentshell/evidence/sagwa-v2/physical-n3a-*.json`; las lecturas raw van a `.private/edge-hardware/physical-n3a-*`.

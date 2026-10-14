@@ -130,6 +130,8 @@ class Emulator:
                 return 24 << 16
 
         def detect(*a, **k):
+            if emu.failure == 'capture_reconnect' and emu.connections:
+                raise OSError('Injected reconnect failure')
             esp = ESP()
             emu.connections.append(esp)
             return esp
@@ -161,7 +163,7 @@ class Emulator:
 
     def capture(self, port, path, seconds=45):
         self.captures.append(seconds)
-        if self.failure == 'capture' and len(self.captures) == 1:
+        if self.failure in ('capture', 'capture_reconnect') and len(self.captures) == 1:
             raise OSError('Injected post-reset read failure')
         kind = self.traces.pop(0) if self.traces else 'baseline'
         # Emulate what the bootloader/app would do to sector0 during the boot.
@@ -309,6 +311,18 @@ class N3aTrial(unittest.TestCase):
         self.assertTrue(receipt['metadata_recovered'])
         self.assertEqual(len(emu.connections), 2)
         self.assertEqual(selected(bytes(emu.memory[0x1d000:0x1f000])), 1)
+
+    def test_failed_reconnection_never_offers_baseline_to_running_n3a(self):
+        emu = self.emulator(failure='capture_reconnect')
+        with self.assertRaisesRegex(OSError, 'post-reset'):
+            emu.apply('--leave-installed')
+        receipt = emu.receipt('apply')
+        self.assertFalse(receipt['metadata_recovered'])
+        self.assertNotIn(True, (receipt.get('baseline_offer_acknowledged'),))
+        self.assertTrue(receipt['offer_left_n3a'])
+        self.assertEqual(emu.offers, [trial.sha(IMAGE)])  # zero baseline POSTs
+        self.assertEqual(len(emu.connections), 1)
+        emu.assert_protected()  # ota_1 baseline and metadata bank1 untouched
 
     def test_offer_failure_writes_nothing_and_leaves_stub_into_baseline(self):
         emu = self.emulator()

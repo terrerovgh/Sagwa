@@ -498,9 +498,10 @@ def main(argv=None):
                     cmds.reset_chip(esp, 'hard-reset')
             except BaseException as recovery:
                 receipt.update(metadata_recovered=False, recovery_error_type=type(recovery).__name__)
-        if receipt.get('self_offer_acknowledged') and 'baseline_offer_acknowledged' not in receipt:
-            restore_baseline_offer(receipt)
-        if connected and not metadata_started and esp is not None:
+        # No unconditional offer fallback: a baseline offer reaching a running
+        # N3a app would be installed into ota_1. Baseline is offered only above
+        # (stub control, baseline selection read back) or below (same).
+        if connected and not metadata_started and not reset_started and esp is not None:
             # Still in ROM/stub with no metadata write: leave download mode
             # only into the verified baseline, never into an unverified slot.
             try:
@@ -515,6 +516,8 @@ def main(argv=None):
                     live = live_file.read_bytes()
                     if (baseline_bank_confirmed(live) and selected_slot(live) == 1 and
                             sha(base_file.read_bytes()) == BASELINE):
+                        if receipt.get('self_offer_acknowledged'):
+                            restore_baseline_offer(receipt)
                         cmds.reset_chip(esp, 'hard-reset')
                         receipt['pre_metadata_reset_to_baseline'] = True
                     else:
@@ -528,6 +531,10 @@ def main(argv=None):
     finally:
         # A close error must never prevent the durable recovery receipt.
         safe_close(esp, receipt)
+        if receipt.get('self_offer_acknowledged') and not receipt.get('baseline_offer_acknowledged'):
+            # Expected after a validated install; after a failure it means the
+            # baseline could not be offered under verified stub control.
+            receipt['offer_left_n3a'] = True
         receipt['ended_at'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
         path = ROOT / 'evidence/sagwa-v2' / f'physical-n3a-{a.operation}-{directory.name}.json'
         path.write_text(json.dumps(receipt, indent=2) + '\n')

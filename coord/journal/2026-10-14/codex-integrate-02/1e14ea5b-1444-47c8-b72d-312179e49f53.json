@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "id": "1e14ea5b-1444-47c8-b72d-312179e49f53",
+  "at": "2026-10-14T00:31:13.557331+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "incident",
+  "task": "S-101",
+  "note": "Guard bloqueó ruta docs/evidence/n3a-rig.json por falta de allowlist. Commit local f98a150 se creó por error de secuencia tras BLOCK; no se ha enviado. Se conserva evidencia, se solicitará revisión del recibo y alta exacta de esa ruta, sin permitir evidencia raw. Antes de push se volverán a inspeccionar sus185blobs."
+}

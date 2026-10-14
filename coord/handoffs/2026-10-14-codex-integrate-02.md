@@ -7,6 +7,13 @@ integrado en `codex/s204-integration`, artefacto revisado
 `f67ef41c152ae37732cac65a1ea9234677cbef95`. S-201, S-203, S-204 y S-205
 corresponden a preparación local; S-101/S-103 físicos y S-107 siguen pendientes.
 
+Rama publicada en GitHub Sagwa: `codex/s204-integration`, publicación verificada
+de `ee0656e4235834a6956dbb76ef53cb8db1d1a9f1`. El guard admite únicamente el
+recibo nuevo depurado tras revisión de Grok;19pruebas de coordinación/publicación
+PASS y185blobs de documentación reinspeccionados sin hallazgos. Los registros
+administrativos de cierre se versionan por el integrador; no son un dictamen
+de aceptación del hardware. Sesiones de implementación/revisión inactivas.
+
 - Claude Opus5.5: N3a/métricas y exportador. Commits de origen `8c436214` y
   `f202066`; integrados por cherry-pick y revisados por Grok.
 - AGY Gemini3.8 Flash High: preparación preliminar de capas y auditoría de34

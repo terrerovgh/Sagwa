@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "id": "4d8caa0c-8dea-4290-a6f4-78fa5c9130c8",
+  "at": "2026-10-14T00:31:13.523606+00:00",
+  "agent": "codex-integrate-02",
+  "kind": "lock.acquire",
+  "task": "S-101",
+  "note": "Registrar recibo público nuevo tras revisión de contenido; no ampliar rutas de evidencia raw",
+  "lock": {
+    "resource": "publication-guard",
+    "agent": "codex-integrate-02",
+    "task": "S-101",
+    "expires_at_epoch": 1791945073.523239,
+    "at": "2026-10-14T00:31:13.523243+00:00"
+  }
+}

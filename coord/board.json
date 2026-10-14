@@ -47,9 +47,9 @@
     "codex-integrate-02": {
       "kind": "codex",
       "role": "orchestrator",
-      "status": "active",
+      "status": "inactive",
       "host": "mac-mini",
-      "last_seen": "2026-10-13T20:47:15.159108+00:00"
+      "last_seen": "2026-10-14T00:45:15.502847+00:00"
     },
     "claude-perf-02": {
       "kind": "claude",
@@ -70,7 +70,7 @@
       "role": "reviewer",
       "status": "inactive",
       "host": "mac-mini",
-      "last_seen": "2026-10-14T00:28:59.848228+00:00"
+      "last_seen": "2026-10-14T00:45:15.470697+00:00"
     }
   },
   "tasks": {

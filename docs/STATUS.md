@@ -23,7 +23,7 @@ M: SHA256 `532115adda0c4163eeb077721c88003a693d5539ac54cda9e40c819378a104ac`;9 m
 
 N2: SHA256 `acc0ff4b0ae2aee1b14dc80d7872869fcd4f63f29e9f7fd6387c06866db2d680`;11 muestras/52.2s dentro de ensayo95s y rollback obligatorio. Prueba real18:39:33–18:42:58Z. Sin panic observado; retorno confirmado a 0.2.0. La cadencia28ms sigue siendo experimental.
 
-N3a + rig: compilación local ESP-IDF6.0.1, 2,381,072 bytes, SHA256 `69eb5c49beb6679cd9b3b6d4459f09b0da3bab6c8e98859d2132ff8de2cff508`. Solicita despertar LVGL tras dibujar y añade ventanas de métricas; no fuerza refresco inmediato ni acredita mejora de FPS. Rig13capas,78,404bytes de texturas en flash; mismo targetRGB565 de36,992bytes. Neutral conserva todos los píxeles fuera de ojos/boca. **Sin flash, ensayo físico, promoción o aceptación visual del usuario.** [Diseño y límites](decisions/2026-10-13-n3a-rig.md).
+N3a + rig: compilación local ESP-IDF6.0.1, 2,381,072 bytes, SHA256 `7bcd4a04d6990bf4b545c60694f527d46ef40fb1f9087222c2086fe0fa46c1ea`. Solicita despertar LVGL tras dibujar y añade ventanas de métricas; no fuerza refresco inmediato ni acredita mejora de FPS. Rig13capas,78,404bytes de texturas en flash; mismo targetRGB565 de36,992bytes. Neutral conserva todos los píxeles visibles fuera de ojos/boca. Uniones solapadas con píxeles del original evitan costuras durante el movimiento. **Sin flash, ensayo físico, promoción o aceptación visual del usuario.** [Diseño y límites](decisions/2026-10-13-n3a-rig.md).
 
 [Recibos públicos acotados](evidence/README.md). Los archivos privados y las instantáneas originales se conservan localmente; no son necesarios para consultar el estado ni deben subirse a GitHub.
 

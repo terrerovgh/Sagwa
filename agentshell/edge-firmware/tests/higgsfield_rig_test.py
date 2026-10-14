@@ -33,6 +33,17 @@ class DerivationTests(unittest.TestCase):
                     self.assertEqual(image.mode, 'RGBA')
                     self.assertTrue(0 < image.width <= 136 and 0 < image.height <= 136)
             # Neutral image retains the source silhouette, including all paws.
+            # Near-opaque fur must cover shared moving hinges; disjoint masks
+            # at these roots caused visible black seams during animation.
+            with Image.open(SOURCE) as source:
+                for name, boxes in derive.UNDERLAPS.items():
+                    part = layout['parts'][name]
+                    with Image.open(output / part['file']) as layer:
+                        for left, top, right, bottom in boxes:
+                            for y in range(top, bottom):
+                                for x in range(left, right):
+                                    if source.getpixel((x, y))[3] >= 240:
+                                        self.assertEqual(layer.getpixel((x - part['x'], y - part['y']))[3], 255)
             self.assertIn('assembled-black-preview.png', first)
 
     def test_input_overlap_rejected(self):

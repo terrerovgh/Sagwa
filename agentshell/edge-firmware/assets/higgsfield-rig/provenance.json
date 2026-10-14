@@ -3,14 +3,20 @@
   "source": "agentshell/assets/sagwa/higgsfield-v1/idle.png",
   "source_sha256": "7c3bba86cdde4c8b38b646978f3490749d2110306e7cc19e425b9e3771773eaa",
   "source_modified": false,
-  "method": "Disjoint source masks; anatomy retained outside eyes and mouth",
+  "method": "Source partitions with opaque original hinge underlap; anatomy retained outside eyes and mouth",
   "retouches": [
     "Pupil interiors sampled from blue iris; independent 3x5 pupils",
     "Eyelid fur interpolated from adjacent source rows; thin closed-eye line",
     "Head eye/mouth underlays cleaned only inside declared feature boxes",
     "Independent small open mouth and tongue, procedurally drawn derivative"
   ],
-  "neutral_changed_pixels": 253,
+  "opaque_interior_normalization": {
+    "pixels": 6939,
+    "source_alpha_min": 240,
+    "background": "#000000",
+    "visible_rgb_unchanged": true
+  },
+  "neutral_changed_pixels": 25,
   "neutral_changed_pixels_outside_features": 0,
   "masks": {
     "tail": [
@@ -108,6 +114,36 @@
       ]
     ]
   },
+  "opaque_hinge_underlaps": {
+    "body": [
+      [
+        75,
+        61,
+        124,
+        70
+      ],
+      [
+        24,
+        49,
+        44,
+        64
+      ]
+    ],
+    "head": [
+      [
+        77,
+        33,
+        91,
+        42
+      ],
+      [
+        105,
+        32,
+        120,
+        41
+      ]
+    ]
+  },
   "feature_boxes": [
     [
       83,
@@ -130,7 +166,7 @@
   ],
   "layers": {
     "tail": {
-      "sha256": "9ac598eb89014dfb784c2bc853d8c1b0e36841200df4b0199f57b9319d91a944",
+      "sha256": "97315cafe749695815f026d2d7aaaa6686443cfc4f4f350dca0e1df6c2900ce7",
       "size": [
         34,
         57
@@ -138,7 +174,7 @@
       "bytes_bgra": 7752
     },
     "ear_left": {
-      "sha256": "3cac753a5eb369af4b8c2ac0ff4554119b65331efaa4bf4c6405d739917c8936",
+      "sha256": "55298804dbc17038f8660647e86cd6f30f8bb1accd5d71a7b0f09b7790a63365",
       "size": [
         24,
         24
@@ -146,7 +182,7 @@
       "bytes_bgra": 2304
     },
     "ear_right": {
-      "sha256": "6da9a38996d0e3bb6517605fbbf40631fbc807c747a621638796f6b5e05673a4",
+      "sha256": "57fc6c9b2076190e13db8cce2b1996728d5705670f73d94eb87e3c285252f430",
       "size": [
         18,
         29
@@ -154,7 +190,7 @@
       "bytes_bgra": 2088
     },
     "head": {
-      "sha256": "c0cea90ac8afe8bcac634d30e6b8e7ebbd5669bdab1d2579d82a93d35dfef74a",
+      "sha256": "24a80e0b3bd8913b701adc3f4d0ca622e016ba0515b7ebf667a412565246e7a9",
       "size": [
         49,
         41
@@ -162,7 +198,7 @@
       "bytes_bgra": 8036
     },
     "body": {
-      "sha256": "9e30b5c5102efce3d3b1b36c4d72d9707e052993dcd9c857bdf07cb9ca9e8999",
+      "sha256": "d4b907f500a368e9fc0e1e5d1529057324e15178d1ed05ff815355096c367066",
       "size": [
         113,
         124
@@ -170,7 +206,7 @@
       "bytes_bgra": 56048
     },
     "eye_left": {
-      "sha256": "35ff247411d98b94742786aced1f78eafaac769dbc2929cc0fcac3ced3d5e86e",
+      "sha256": "ac922a76236e88e3e06b5dafe20c97abf826b593dc4349042ce9a380be72b941",
       "size": [
         11,
         8
@@ -186,7 +222,7 @@
       "bytes_bgra": 60
     },
     "lid_left": {
-      "sha256": "d1029e6d903996e9a5b6d59808fe39b2d3305c5baea42889e40430c6e52c65c4",
+      "sha256": "4d3750813a1badc4ab5c91ab4a7edf1b5a9ffafd893252387a537248075a4174",
       "size": [
         11,
         8
@@ -194,7 +230,7 @@
       "bytes_bgra": 352
     },
     "eye_right": {
-      "sha256": "3436b1b47eeb2bb34ed67a470df459bd53c4137aa2c17787b87056ecda3ba00a",
+      "sha256": "d5bdf8b569931c48924d4b07ba63b74d2448d7076f524e8a387ac4c74dfd4b19",
       "size": [
         11,
         9
@@ -210,7 +246,7 @@
       "bytes_bgra": 60
     },
     "lid_right": {
-      "sha256": "35f5b0628d21645d34e53886d3f7f4ba5c55acd91ea46ea0ac9801859c7b6ee9",
+      "sha256": "0ba25b1119b08ec1d9043c29e89dbe71fbd4ad387bfbdc33b9373a2f4522486e",
       "size": [
         11,
         9
@@ -218,7 +254,7 @@
       "bytes_bgra": 396
     },
     "mouth_closed": {
-      "sha256": "a04d1368dda2c7e03ec47cc9a68e90c9713ebd5f0fd4e921e8ac5211bef1bc7c",
+      "sha256": "cc90ff405e629b948336aa3da69653b86cdfc33b8a5a085de6e026135fd8452d",
       "size": [
         10,
         7

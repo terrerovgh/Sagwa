@@ -23,6 +23,8 @@ POLYGONS = {
 }
 EYES = {'eye_left': (83, 40, 94, 48), 'eye_right': (100, 38, 111, 47)}
 MOUTH = (94, 54, 104, 61)
+UNDERLAPS = {'body': [(75, 61, 124, 70), (24, 49, 44, 64)],
+             'head': [(77, 33, 91, 42), (105, 32, 120, 41)]}
 
 
 def digest(path):
@@ -36,9 +38,22 @@ def build(source, output):
         raise ValueError('Output must be separate from the source folder')
     before = digest(source)
     with Image.open(source) as image:
-        idle = image.convert('RGBA')
+        original_idle = image.convert('RGBA')
+    idle = original_idle.copy()
     if idle.size != (136, 136):
         raise ValueError('Expected immutable 136x136 source')
+    # The source contains near-opaque alpha throughout the fur. Normalize only
+    # that interior onto the mandated black LCD: the visible RGB is unchanged,
+    # and identical opaque hinge pixels can overlap without becoming brighter.
+    # Truly translucent silhouette edges retain their original alpha.
+    opaque_interior = 0
+    for y in range(136):
+        for x in range(136):
+            red, green, blue, alpha = idle.getpixel((x, y))
+            if alpha >= 240:
+                idle.putpixel((x, y), tuple((c * alpha + 127) // 255
+                                           for c in (red, green, blue)) + (255,))
+                opaque_interior += 1
     masks = {}
     occupied = Image.new('L', idle.size, 0)
     for name in ('tail', 'ear_left', 'ear_right'):
@@ -52,6 +67,15 @@ def build(source, output):
     masks['head'] = ImageChops.subtract(head, occupied)
     occupied = ImageChops.lighter(occupied, masks['head'])
     masks['body'] = ImageChops.invert(occupied)
+    # Shared hinge pixels are copied only where the original is fully opaque.
+    # At rest the upper layer replaces identical RGB, preserving reconstruction;
+    # while a lower layer moves it cannot expose a black seam at the hinge.
+    for name, boxes in UNDERLAPS.items():
+        for left, top, right, bottom in boxes:
+            for y in range(top, bottom):
+                for x in range(left, right):
+                    if idle.getpixel((x, y))[3] == 255:
+                        masks[name].putpixel((x, y), 255)
 
     layers = {}
     for name, mask in masks.items():
@@ -131,7 +155,7 @@ def build(source, output):
         image, position = layers[name]
         canvas.alpha_composite(image, position)
     baseline = Image.new('RGBA', idle.size, (0, 0, 0, 255))
-    baseline.alpha_composite(idle)
+    baseline.alpha_composite(original_idle)
     feature_boxes = list(EYES.values()) + [MOUTH]
     changed = outside = 0
     for y in range(136):
@@ -152,13 +176,17 @@ def build(source, output):
     provenance = {
         'derived': True, 'source': 'agentshell/assets/sagwa/higgsfield-v1/idle.png',
         'source_sha256': before, 'source_modified': False,
-        'method': 'Disjoint source masks; anatomy retained outside eyes and mouth',
+        'method': 'Source partitions with opaque original hinge underlap; anatomy retained outside eyes and mouth',
         'retouches': ['Pupil interiors sampled from blue iris; independent 3x5 pupils',
                       'Eyelid fur interpolated from adjacent source rows; thin closed-eye line',
                       'Head eye/mouth underlays cleaned only inside declared feature boxes',
                       'Independent small open mouth and tongue, procedurally drawn derivative'],
+        'opaque_interior_normalization': {'pixels': opaque_interior,
+                                          'source_alpha_min': 240,
+                                          'background': '#000000',
+                                          'visible_rgb_unchanged': True},
         'neutral_changed_pixels': changed, 'neutral_changed_pixels_outside_features': outside,
-        'masks': POLYGONS, 'feature_boxes': feature_boxes,
+        'masks': POLYGONS, 'opaque_hinge_underlaps': UNDERLAPS, 'feature_boxes': feature_boxes,
         'layers': {name: {'sha256': digest(output / (name + '.png')), 'size': list(image.size),
                           'bytes_bgra': image.width * image.height * 4}
                    for name, (image, _) in layers.items()},
